@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --blue-color: #0071E4;
+  --button-green-color: #52D116;
+  --nav-items-black: #100E0E;
+  
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}

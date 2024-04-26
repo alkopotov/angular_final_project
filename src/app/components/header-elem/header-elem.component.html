@@ -1,0 +1,37 @@
+
+<header class="header-main">
+
+  <section class="header-top">
+    <a routerLink="/">
+    <app-main-logo></app-main-logo>
+    </a>
+    <nav>
+      <ul class="header-nav__list">
+        @for(item of topNavItems; track $index) {
+          <li class="header-nav__item">
+            <a [routerLink]="item.link" class="header-nav__link">   
+              <div [class]="(item.before) ? 'header-nav__title header-nav__title_accented' : 'header-nav__title'">
+                @if (item.before) {
+                  <img src="{{item.before}}" alt=""/>
+                }
+                {{item.title}}
+              </div>
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+    <div class="header-phone">
+      <app-phone-icon></app-phone-icon>
+      +7 999 999-99-99
+      <p class="header-phone__text">Вам перезвонить?</p>
+    </div>
+  </section>
+
+  <section class="header-middle">
+    <button>Каталог товаров</button>
+    <input type="text">
+    <app-heart-icon></app-heart-icon>
+    <app-compare-icon></app-compare-icon>
+  </section>
+</header>
