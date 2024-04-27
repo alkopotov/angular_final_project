@@ -2,7 +2,7 @@
   <h2 class="banner-advantages__header">Наши преимущества</h2>
   <section class="banner-advantages-list">
     @for (advantage of advantages; track $index) {
-      <div class="banner-advantages__item" [style]="(deviceWidth > 1280) ? {'background': 'linear-gradient(180deg, ' + advantage.topColor + ' 0.04%, ' + advantage.bottomColor + ' 65.84%)'} : {}">
+      <div class="banner-advantages__item" [style]="{'background': 'linear-gradient(180deg, ' + advantage.topColor + ' 0.04%, ' + advantage.bottomColor + ' 65.84%)'}">
         <div class="banner-advantages__item-content">
           <img src="{{advantage.image}}" alt="Advantage icon" class="banner-advantages__item-image">
           <div class="banner-advantages__item-info">

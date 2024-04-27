@@ -2,9 +2,13 @@
 :root {
   --blue-color: #0071E4;
   --button-green-color: #52D116;
+  --counter-color-green: #46C609;
   --nav-items-black: #100E0E;
   --text-color-gray: #585656;
   --color-light-gray: #F9F9F9;
+  --color-middle-gray: #B7B7B7;
+  --tab-breakpoint: 1280px;
+  --mob-breakpoint: 768px;
   ;
   
 }

@@ -5,12 +5,14 @@ import { HeartIconComponent } from '../svg_components/heart-icon/heart-icon.comp
 import { CompareIconComponent } from '../svg_components/compare-icon/compare-icon.component';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { HamburgerMemuComponent } from '../svg_components/hamburger-memu/hamburger-memu.component';
+import { TripplePointComponent } from '../svg_components/tripple-point/tripple-point.component';
+import { CartIconComponent } from '../svg_components/cart-icon/cart-icon.component';
 
 
 @Component({
   selector: 'app-header-elem',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, MainLogoComponent, PhoneIconComponent, HeartIconComponent, CompareIconComponent, HamburgerMemuComponent],
+  imports: [RouterLink, RouterLinkActive, MainLogoComponent, PhoneIconComponent, HeartIconComponent, CompareIconComponent, HamburgerMemuComponent, TripplePointComponent, CartIconComponent],
   templateUrl: './header-elem.component.html',
   styleUrl: './header-elem.component.css'
 })
