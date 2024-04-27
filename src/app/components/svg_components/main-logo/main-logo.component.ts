@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './main-logo.component.html',
-  // styleUrl: './main-logo.component.css'
+  styleUrl: './main-logo.component.css'
 })
 export class MainLogoComponent {
 

@@ -21,7 +21,7 @@
   gap: 20px;
 }
 
-.header-nav__link{
+.header-nav__link, .header-phone__link{
   text-decoration: none;
   color: var(--nav-items-black);
 }
