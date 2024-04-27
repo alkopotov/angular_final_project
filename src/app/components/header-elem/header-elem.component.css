@@ -150,5 +150,9 @@
 @media (max-width: 1280px) {
   .header-main {
     max-width: 768px;
+    height: 40px;
+  }
+  .header-top {
+    padding: 3px 0 0 0;
   }
 }
