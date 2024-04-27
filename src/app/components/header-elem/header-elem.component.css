@@ -2,11 +2,11 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 1440px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 130px;
-  padding-right: 120px;
+  /* padding-left: 130px;
+  padding-right: 120px; */
 }
 
 .header-top {
@@ -37,7 +37,11 @@
   font-weight: 400;
   line-height: 21.48px;
   text-align: left;
+}
 
+.header-nav__title.active { 
+  color: var(--blue-color);
+  border-bottom: 2px solid var(--blue-color);
 }
 
 .header-nav__title_accented{

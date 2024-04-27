@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { link } from 'fs';
+import { log } from 'console';
+
 
 @Component({
   selector: 'app-banner-advantages',
@@ -10,6 +11,7 @@ import { link } from 'fs';
   styleUrl: './banner-advantages.component.css'
 })
 export class BannerAdvantagesComponent {
+
 
   public advantages: any[] = [
     {
@@ -54,5 +56,22 @@ export class BannerAdvantagesComponent {
       bottomColor: '#F2F2F2',
     }
   ];
+
+ 
+  public deviceWidth: any;
+  
+  
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.deviceWidth = event.target.innerWidth;
+  }
+
+  @HostListener('window:load', ['$event'])
+  onLoad(event: any) {
+    console.log(event.target.innerWidth);
+    
+    this.deviceWidth = event.target.innerWidth;
+  }
 
 }

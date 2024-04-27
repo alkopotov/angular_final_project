@@ -4,16 +4,15 @@
     @for (advantage of advantages; track $index) {
       <div class="banner-advantages__item" [style]="{'background': 'linear-gradient(180deg, ' + advantage.topColor + ' 0.04%, ' + advantage.bottomColor + ' 65.84%)',}">
         <div class="banner-advantages__item-content">
-          <img src="{{advantage.image}}" alt="">
-          <h3 class="banner-advantages__title">
-          {{advantage.title}}
-          </h3>
-          <p class="banner-advantages__text">
-          {{advantage.text}}
-          </p>
+          <img src="{{advantage.image}}" alt="Advantage icon" class="banner-advantages__item-image">
+          <div class="banner-advantages__item-info">
+            <h3 class="banner-advantages__item-title">{{advantage.title}}</h3>
+            <p class="banner-advantages__item-text">{{advantage.text}}</p>
+          </div>
         </div>
         <button [routerLink]="advantage.link" class="banner-advantages__button">подробнее</button>
       </div>
     }
   </section>
+  <p>{{deviceWidth}}</p>
 </section>

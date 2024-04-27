@@ -10,7 +10,7 @@
         @for(item of topNavItems; track $index) {
           <li class="header-nav__item">
             <a [routerLink]="item.link" class="header-nav__link">   
-              <div [class]="(item.before) ? 'header-nav__title header-nav__title_accented' : 'header-nav__title'">
+              <div [class]="(item.before) ? 'header-nav__title header-nav__title_accented' : 'header-nav__title'" [routerLinkActive]="(item.before) ? '' : 'active'">
                 @if (item.before) {
                   <img src="{{item.before}}" alt=""/>
                 }
