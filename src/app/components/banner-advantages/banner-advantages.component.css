@@ -88,7 +88,7 @@
   }
 
   .banner-advantages__item {
-    background: var(--color-light-gray) !important;
+    background: var(--color-light-gray);
     flex-direction: row;
     padding: 24px 71px 24px 24px;
   }
