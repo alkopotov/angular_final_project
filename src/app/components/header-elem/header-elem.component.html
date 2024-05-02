@@ -22,12 +22,17 @@
           }
         </ul>
     </nav>
+    } @else if(deviceWidth < 1280 && deviceWidth >= 768) {
+      <input type="text" placeholder="Поиск по каталогу товаров" class="header__search-input header__search-input_tab">
     } @else {
-      <input type="text" placeholder="Поиск по каталогу товаров">
+      <input type="text" class="header__search-input header__search-input_mob">
     }
     <div class="header-phone">
       <app-phone-icon></app-phone-icon>
-      <a href="tel:+7 999 999-99-99" class="header-phone__link">+7 999 999 99 99</a>  
+      @if(deviceWidth >= 768) {
+        <a href="tel:+7 999 999-99-99" class="header-phone__link">+7 999 999 99 99</a>  
+      }
+      
       @if(deviceWidth >= 1280) {
         <p class="header-phone__text">Вам перезвонить?</p>
       }
@@ -42,7 +47,7 @@
   @if(deviceWidth >= 1280) {
     <section class="header-middle">
       <button class="header-middle__button"> <app-tripple-point></app-tripple-point>Каталог товаров</button>
-      <input type="text" placeholder="Поиск по каталогу товаров" class="header-middle__input">
+      <input type="text" placeholder="Поиск по каталогу товаров" class="header__search-input">
       <app-heart-icon></app-heart-icon>
       <app-compare-icon></app-compare-icon>
       <button class="header-middle__cart-button">
