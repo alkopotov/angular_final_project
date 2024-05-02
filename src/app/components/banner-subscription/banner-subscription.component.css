@@ -1,0 +1,105 @@
+.banner-subscription {
+  width: 100%;
+  height: 480px;
+  padding-left: calc(50vw - 600px);
+  padding-right: calc(50vw - 600px);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 86px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  background-color: var(--color-light-gray);
+}
+.banner-subscription__details {
+  width: 486px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.banner-subscription__title {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 57.28px;
+  text-align: left;
+  color: var(--nav-items-black);
+  margin-bottom: 8px;
+}
+
+.banner-subscription__text {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 28.64px;
+  text-align: left;
+  color: var(--text-color-gray);
+  margin-bottom: 25px;
+}
+
+.banner-subscription__form{
+  background: linear-gradient(90.34deg, #F7355D 0.3%, #9747FF 101.33%);
+  width: 100%;
+  height: 196px;
+  border-radius: 16px;
+  padding-left: 32px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-top: 16px;
+  padding-bottom: 32px;
+}
+
+.banner-subscription__form-title {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 47.73px;
+}
+.banner-subscription__form-text {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 23.87px;
+  text-align: left;
+  
+}
+
+.banner-subscription__form-input-area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  gap: 16px;
+}
+.banner-subscription__input {
+  width: 246px;
+  height: 56px;
+  border-radius: 8px;
+  border: none;
+  padding-left: 16px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 23.87px;
+  color: var(--nav-items-black);
+}
+
+.banner-subscription__button {
+  width: 160px;
+  height: 56px;
+  border-radius: 8px;
+  border: none;
+  background: white;
+  color: var(--nav-items-black);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 23.87px;
+  cursor: pointer;
+  background-color: var(--color-light-gray);
+}
+@media (max-width: 768px) {
+  .banner-subscription__img {
+    display: none;
+  }
+}
