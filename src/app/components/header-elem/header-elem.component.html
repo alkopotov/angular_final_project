@@ -46,15 +46,17 @@
 
   @if(deviceWidth >= 1280) {
     <section class="header-middle">
-      <button class="header-middle__button"> <app-tripple-point></app-tripple-point>Каталог товаров</button>
+      <button class="header-middle__button" routerLink="/catalog"> <app-tripple-point></app-tripple-point>Каталог товаров</button>
       <input type="text" placeholder="Поиск по каталогу товаров" class="header__search-input">
       <app-heart-icon></app-heart-icon>
       <app-compare-icon></app-compare-icon>
-      <button class="header-middle__cart-button">
+      <button class="header-middle__cart-button" routerLink="/cart">
         <app-cart-icon></app-cart-icon>
         в корзине
         <div class="header-middle__cart-button__counter">1</div>
       </button>
     </section>
+
+   <app-header-bottom></app-header-bottom>
   }
 </header>

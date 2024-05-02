@@ -7,12 +7,13 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { HamburgerMemuComponent } from '../svg_components/hamburger-memu/hamburger-memu.component';
 import { TripplePointComponent } from '../svg_components/tripple-point/tripple-point.component';
 import { CartIconComponent } from '../svg_components/cart-icon/cart-icon.component';
+import { HeaderBottomComponent } from '../header-bottom/header-bottom.component';
 
 
 @Component({
   selector: 'app-header-elem',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, MainLogoComponent, PhoneIconComponent, HeartIconComponent, CompareIconComponent, HamburgerMemuComponent, TripplePointComponent, CartIconComponent],
+  imports: [RouterLink, RouterLinkActive, MainLogoComponent, PhoneIconComponent, HeartIconComponent, CompareIconComponent, HamburgerMemuComponent, TripplePointComponent, CartIconComponent, HeaderBottomComponent],
   templateUrl: './header-elem.component.html',
   styleUrl: './header-elem.component.css'
 })

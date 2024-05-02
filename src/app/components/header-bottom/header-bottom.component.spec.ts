@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CartIconComponent } from './cart-icon.component';
+import { HeaderBottomComponent } from './header-bottom.component';
 
-describe('CartIconComponent', () => {
-  let component: CartIconComponent;
-  let fixture: ComponentFixture<CartIconComponent>;
+describe('HeaderBottomComponent', () => {
+  let component: HeaderBottomComponent;
+  let fixture: ComponentFixture<HeaderBottomComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CartIconComponent]
+      imports: [HeaderBottomComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(CartIconComponent);
+    fixture = TestBed.createComponent(HeaderBottomComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

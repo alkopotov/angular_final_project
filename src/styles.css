@@ -10,8 +10,8 @@
   --color-middle-gray: #B7B7B7;
   --tab-breakpoint: 1280px;
   --mob-breakpoint: 768px;
-  ;
-  
+  --icon-light-gray: #CCCCCC;
+  --icon-hover: #0071E4;
 }
 
 * {
@@ -20,3 +20,12 @@
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
+
+.header-bottom__item path {
+  stroke: var(--icon-light-gray) !important;
+}
+
+.header-bottom__item:hover path{
+  stroke: var(--icon-hover) !important;
+}
+

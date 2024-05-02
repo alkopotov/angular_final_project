@@ -1,0 +1,7 @@
+path {
+  stroke: green !important;
+}
+
+svg:hover path {
+  stroke: blue !important;
+}
