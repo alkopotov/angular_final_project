@@ -134,6 +134,8 @@
     flex-direction: column;
     gap: 24px;
     max-width: 768px;
+    margin-bottom: 100px;
+    height: fit-content;
   }
 
   .footer-logo {
@@ -161,16 +163,14 @@
 }
 
 @media (max-width: 768px) {
+  .footer-main {
+    padding: 16px;
+    
+  }
   .footer-nav {
     flex-direction: column;
   }
   .footer-column-4 {
     flex-direction: column;
-  }
-}
-
-@media (max-width: 768px) {
-  .footer-main {
-    padding: 16px;
   }
 }
