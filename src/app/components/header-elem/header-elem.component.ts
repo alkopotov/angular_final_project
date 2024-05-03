@@ -8,12 +8,13 @@ import { HamburgerMemuComponent } from '../svg_components/hamburger-memu/hamburg
 import { TripplePointComponent } from '../svg_components/tripple-point/tripple-point.component';
 import { CartIconComponent } from '../svg_components/cart-icon/cart-icon.component';
 import { HeaderBottomComponent } from '../header-bottom/header-bottom.component';
+import { BottomBarComponent } from '../bottom-bar/bottom-bar.component';
 
 
 @Component({
   selector: 'app-header-elem',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, MainLogoComponent, PhoneIconComponent, HeartIconComponent, CompareIconComponent, HamburgerMemuComponent, TripplePointComponent, CartIconComponent, HeaderBottomComponent],
+  imports: [RouterLink, RouterLinkActive, MainLogoComponent, PhoneIconComponent, HeartIconComponent, CompareIconComponent, HamburgerMemuComponent, TripplePointComponent, CartIconComponent, HeaderBottomComponent, BottomBarComponent],
   templateUrl: './header-elem.component.html',
   styleUrl: './header-elem.component.css'
 })

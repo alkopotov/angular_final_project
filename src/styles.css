@@ -215,3 +215,6 @@
   stroke: var(--icon-hover) !important;
 }
 
+.bottom-bar__item path {
+  fill: var(--icon-light-gray) !important;
+}

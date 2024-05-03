@@ -25,16 +25,16 @@ export class FooterElemComponent {
       title: 'Кредит'
     },
     {
-      link: '/contacts',
-      title: 'Контакты'
-    },
-    {
       link: '/delivery',
       title: 'Доставка и оплата'
     },
     {
       link: '/comments',
       title: 'Отзывы'
+    },
+    {
+      link: '/contacts',
+      title: 'Контакты'
     },
     {
       link: '/confidntiality',
