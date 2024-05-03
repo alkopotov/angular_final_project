@@ -120,3 +120,31 @@
   color: var(--nav-items-black);
   margin-bottom: 16px;
 }
+
+@media (max-width: 1280px) {
+  .footer-main {
+    flex-direction: column;
+  }
+  .footer-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .footer-column-4 {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-nav {
+    flex-direction: column;
+  }
+  .footer-column-4 {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-main {
+    padding: 16px;
+  }
+}
