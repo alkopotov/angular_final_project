@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
-  --blue-color: #0071E4;
+  --blue-color: #0071E4; /* --prime-blue-color */
   --blue-light-color: #B6F2FF;
   --button-green-color: #52D116;
   --counter-color-green: #46C609;
@@ -14,7 +14,8 @@
   --mob-breakpoint: 768px;
   --icon-light-gray: #CCCCCC;
   --icon-hover: #0071E4;
-  --color-black-01: #100E0E; 
+  --color-black-01: #100E0E;
+  --prime-blue-color: #0071E4;
 
 }
 
