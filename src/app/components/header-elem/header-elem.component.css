@@ -13,6 +13,9 @@
   align-items: center;
   padding: 23px 0;
 }
+.header-logo {
+  width:40px;
+}
 .header-nav__list{
   display: flex;
   align-items: center;
@@ -185,5 +188,7 @@
   .header-top {
     padding: 3px 0 0 0;
   }
-  
+  .header-phone__link {
+    display: none;
+  }
 }

@@ -1,1 +1,40 @@
-<p>footer-elem works!</p>
+<footer class="footer-main">
+  <section class="footer-column-1">
+    <div class="footer-logo" routerLink="/">
+      <app-main-logo></app-main-logo>
+    </div>
+    <p class="footer-column-1__text">© 2013-2022</p>
+    <p class="footer-column-1__text">Продажа iPhone в МСК</p>
+    <p class="footer-column-1__disclaimer">*Сайт не является публичной оффертой. Вся информация, указанная на сайте носит информационный характер.</p>
+  </section>
+
+  <section class="footer-column-2">
+    <ul class="footer-nav">
+      @for(link of routerLinks; track $index) {
+        <li class="footer-nav__item">
+          <a [routerLink]="link.link" class="footer-nav__link">
+            {{link.title}}
+          </a>
+        </li>
+      }
+    </ul>
+  </section>
+  <section class="footer-column-3">
+    <ul class="footer-nav">
+      @for(link of categoriesLinks; track $index) {
+        <li class="footer-nav__item">
+          <a [routerLink]="link.link" class="footer-nav__link">
+            {{link.title}}
+          </a>
+        </li>
+      }
+    </ul>
+  </section>
+
+  <section class="footer-column-4">
+    <h3 class="footer-column-4__phone">+7 999 999 99 99</h3>
+    <p> Бесплатная консультация <br>С 10:00 до 21:00, без выходных</p>
+    <a href="">Заказать звонок</a>
+
+  </section>
+</footer>
