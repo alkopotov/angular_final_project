@@ -214,6 +214,70 @@
   stroke: var(--prime-color-blue) !important;
 }
 
-.bottom-bar__item path {
-  fill: var(--icon-color-light_gray) !important;
+.header-middle__cart-button svg {
+  width: 18px;
+  height: 20px;
+  margin-top: 5px;
+  margin-right: 2px;
+}
+
+.bottom-bar__item_catalog svg {
+  width: 26px;
+  height: 22px;
+  margin-top: 2px;
+}
+.bottom-bar__item_catalog path {
+  stroke: var(--button-color-green) !important;
+  fill: var(--button-color-green) !important
+}
+
+.bottom-bar__item_cart svg {
+  width: 24px;
+  height: 27px;
+  margin-top: 2px;
+}
+
+.bottom-bar__item_cart path {
+  fill: var(--06-color-gray) !important
+}
+
+.bottom-bar__item_favorite svg {
+  width: 32px;
+  height: 27px;
+  margin-top: 3px;
+}
+
+.bottom-bar__item_compare svg {
+  width: 32px;
+  height: 29px;
+  margin-top: 3px;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .bottom-bar__item_catalog svg {
+    width: 19px;
+    height: 17px;
+    margin-top: 0;
+  }
+
+  .bottom-bar__item_cart svg {
+    width: 18px;
+    height: 20px;
+    margin-top: 0;
+  }
+
+  .bottom-bar__item_favorite svg {
+    width: 20px;
+    height: 17px;
+    margin-top: 0;
+  }
+
+  .bottom-bar__item_compare svg {
+    width: 21px;
+    height: 19px;
+    margin-top: 0;
+  }
 }
