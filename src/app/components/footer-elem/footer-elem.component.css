@@ -35,7 +35,7 @@
   font-weight: 400;
   line-height: 16.71px;
   text-align: left;
-  color: var(--color-middle-gray);
+  color: var(--03-color-gray);
 }
 
 .footer-column-1__text {
@@ -44,7 +44,7 @@
   font-weight: 400;
   line-height: 19.09px;
   text-align: left;
-  color: var(--color-gray-05);
+  color: var(--05-color-gray);
 }
 
 .footer-nav {
@@ -60,7 +60,7 @@
 
 .footer-nav__link {
   text-decoration: none;
-  color: var(--nav-items-black);
+  color: var(--01-color-black);
   font-size: 16px;
   font-weight: 400; 
   line-height: 19.09px;
@@ -85,7 +85,7 @@
   font-weight: 500;
   line-height: 47.73px;
   text-align: left;
-  color: var(--nav-items-black);
+  color: var(--01-color-black);
   margin-bottom: 4px;
 }
 
@@ -107,13 +107,13 @@
   font-weight: 400;
   line-height: 16.71px;
   text-align: left;
-  color: var(--color-gray-06);
+  color: var(--06-color-gray);
   margin-bottom: 7px;
 }
 
 .footer-column-4__communications-callback-link {
   text-decoration: none;
-  color: var(--blue-color);
+  color: var(--prime-color-blue);
   font-size: 20px;
   font-weight: 500;
   line-height: 23.87px;
@@ -125,7 +125,7 @@
   font-weight: 500;
   line-height: 19.09px;
   text-align: left;
-  color: var(--nav-items-black);
+  color: var(--01-color-black);
   margin-bottom: 16px;
 }
 

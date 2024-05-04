@@ -9,7 +9,7 @@
   justify-content: flex-start;
   gap: 86px;
   margin-top: 100px;
-  background-color: var(--color-light-gray);
+  background-color: var(--light_grey-color-gray);
 }
 .banner-subscription__details {
   width: 486px;
@@ -24,7 +24,7 @@
   font-weight: 700;
   line-height: 57.28px;
   text-align: left;
-  color: var(--nav-items-black);
+  color: var(--01-color-black);
   margin-bottom: 8px;
 }
 
@@ -33,7 +33,7 @@
   font-weight: 400;
   line-height: 28.64px;
   text-align: left;
-  color: var(--text-color-gray);
+  color: var(--07-color-gray);
   margin-bottom: 25px;
 }
 
@@ -81,7 +81,7 @@
   font-size: 20px;
   font-weight: 400;
   line-height: 23.87px;
-  color: var(--nav-items-black);
+  color: var(--01-color-black);
 }
 
 .banner-subscription__button {
@@ -90,12 +90,12 @@
   border-radius: 8px;
   border: none;
   background: white;
-  color: var(--nav-items-black);
+  color: var(--01-color-black);
   font-size: 20px;
   font-weight: 400;
   line-height: 23.87px;
   cursor: pointer;
-  background-color: var(--color-light-gray);
+  background-color: var(--light_grey-color-gray);
 }
 
 @media (max-width: 1280px) {

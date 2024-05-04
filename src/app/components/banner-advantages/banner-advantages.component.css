@@ -50,7 +50,7 @@
   font-weight: 700;
   line-height: 28.64px;
   text-align: center;
-  color: var(--nav-items-black);
+  color: var(--01-color-black);
 }
 
 .banner-advantages__item-text {
@@ -58,7 +58,7 @@
   font-weight: 400;
   line-height: 19.09px;
   text-align: center;
-  color: var(--text-color-gray);
+  color: var(--07-color-gray);
 }
 
 .banner-advantages__button {
@@ -66,8 +66,8 @@
   height: 56px;
   background-color: transparent;
   border-radius: 8px;
-  border: 1px solid var(--blue-color);
-  color:var(--blue-color);
+  border: 1px solid var(--prime-color-blue);
+  color:var(--prime-color-blue);
   font-size: 18px;
   font-weight: 500;
   line-height: 21.48px;
@@ -88,7 +88,7 @@
   }
 
   .banner-advantages__item {
-    background: var(--color-light-gray) !important;
+    background: var(--light_grey-color-gray) !important;
     flex-direction: row;
     padding: 24px 71px 24px 24px;
   }

@@ -11,14 +11,14 @@
   font-weight: 700;
   line-height: 47.73px;
   text-align: center;
-  color: var(--nav-items-black);
+  color: var(--01-color-black);
 }
 .not-found-page__text {
   font-size: 20px;
   font-weight: 500;
   line-height: 23.87px;
   text-align: center;
-  color: var(--text-color-gray);
+  color: var(--07-color-gray);
   margin-top: 16px;
   margin-bottom: 16px;
 }
@@ -35,11 +35,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--blue-light-color); 
+  color: var(--color-light_blue); 
 }
 
 .not-found-page__button {
-  background-color: var(--blue-color);
+  background-color: var(--prime-color-blue);
   color: white;
   border: none;
   border-radius: 8px;

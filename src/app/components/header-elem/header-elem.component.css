@@ -24,7 +24,7 @@
 
 .header-nav__link, .header-phone__link{
   text-decoration: none;
-  color: var(--nav-items-black);
+  color: var(--01-color-black);
 }
 .header-nav__item {
   list-style-type: none;
@@ -33,7 +33,7 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  color: var(--nav-items-black);
+  color: var(--01-color-black);
   font-size: 18px;
   font-weight: 400;
   line-height: 21.48px;
@@ -41,8 +41,8 @@
 }
 
 .header-nav__title.active { 
-  color: var(--blue-color);
-  border-bottom: 2px solid var(--blue-color);
+  color: var(--prime-color-blue);
+  border-bottom: 2px solid var(--prime-color-blue);
 }
 
 .header-nav__title_accented{
@@ -56,7 +56,7 @@
   flex-direction: row;
   align-items: center;
   gap: 4px;
-  color: var(--nav-items-black);
+  color: var(--01-color-black);
   font-size: 18px;
   font-weight: 400;
   line-height: 21.48px;
@@ -73,7 +73,7 @@
   font-weight: 400;
   line-height: 19.09px;
   text-align: left;
-  color: var(--blue-color);
+  color: var(--prime-color-blue);
 }
 
 .header-middle {
@@ -83,7 +83,7 @@
   padding: 16px 0;
 }
 .header-middle__button{
-  background-color: var(--blue-color);
+  background-color: var(--prime-color-blue);
   color: white;
   border: none;
   border-radius: 16px;
@@ -97,7 +97,7 @@
 }
 
 .header__search-input{
-  border: 1px solid var(--color-middle-gray);
+  border: 1px solid var(--03-color-gray);
   border-radius: 8px;
   width: 594px;
   height: 56px;
@@ -132,14 +132,14 @@
 }
 
 .header__search-input_tab::placeholder{
-  color: var(--color-middle-gray);
+  color: var(--03-color-gray);
 }
 .header-middle__input::placeholder{
   font-size: 16px;
 }
 
 .header-middle__cart-button{
-  background-color: var(--button-green-color);
+  background-color: var(--button-color-green);
   color: white;
   border: none;
   border-radius: 16px;

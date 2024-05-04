@@ -11,11 +11,11 @@
   display: flex;
   padding: 8px; 
   align-items: center;
-  color: var(--nav-items-black);
+  color: var(--01-color-black);
 }
 
 .header-bottom__item:hover {
-  color: var(--blue-color);
+  color: var(--prime-color-blue);
 }
 
 .header-bottom__button {

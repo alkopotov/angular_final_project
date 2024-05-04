@@ -39,7 +39,7 @@
 .banner-promo__button {
   width: 160px;
   height: 56px;
-  background-color: var(--blue-color);
+  background-color: var(--prime-blue-color);
   color: white;
   border: none;
   border-radius: 8px;

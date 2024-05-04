@@ -1,22 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
-  --blue-color: #0071E4; /* --prime-blue-color */
-  --blue-light-color: #B6F2FF;
-  --button-green-color: #52D116;
+  /*  --[имя в Figma eсли есть]-color-[базовое имя цвета] */
+  --01-color-black: #100E0E;
+  --03-color-gray: #B7B7B7;
+  --05-color-gray: #878787;
+  --06-color-gray: #706E6E;
+  --07-color-gray: #585656;
+  --09-color-black: #282626;
+  --light_grey-color-gray: #F9F9F9;
+  --prime-color-blue: #0071E4;
+  --button-color-green: #52D116;
   --counter-color-green: #46C609;
-  --nav-items-black: #100E0E; /* --color-black-01: */
-  --text-color-gray: #585656;
-  --color-light-gray: #F9F9F9;
-  --color-middle-gray: #B7B7B7;
-  --color-gray-05: #878787;
-  --color-gray-06: #706E6E;
-  --tab-breakpoint: 1280px;
-  --mob-breakpoint: 768px;
-  --icon-light-gray: #CCCCCC;
-  --icon-hover: #0071E4;
-  --color-black-01: #100E0E;
-  --prime-blue-color: #0071E4;
-
+  --color-light_blue: #B6F2FF;
+  --icon-color-light_gray: #CCCCCC;
 }
 
 @font-face {
@@ -209,13 +205,13 @@
 }
 
 .header-bottom__item path {
-  stroke: var(--icon-light-gray) !important;
+  stroke: var(--icon-color-light_gray) !important;
 }
 
 .header-bottom__item:hover path{
-  stroke: var(--icon-hover) !important;
+  stroke: var(--prime-color-blue) !important;
 }
 
 .bottom-bar__item path {
-  fill: var(--icon-light-gray) !important;
+  fill: var(--icon-color-light_gray) !important;
 }
