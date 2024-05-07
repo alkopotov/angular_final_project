@@ -63,4 +63,6 @@
    <app-header-bottom></app-header-bottom>
   }
 </header>
-<app-bottom-bar></app-bottom-bar>
+@if(DevType.devType !== 'desktop') { 
+<app-bottom-bar></app-bottom-bar> 
+}
