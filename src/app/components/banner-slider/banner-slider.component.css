@@ -21,7 +21,9 @@
 
 .banner-slider__slide-img {
   height: fit-content;
+  height: auto;
   max-height: 440px;
+  
 }
 .banner-slider__slide {
   position: relative;

@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MainLogoComponent } from '../svg_components/main-logo/main-logo.component';
 import { PhoneIconComponent } from '../svg_components/phone-icon/phone-icon.component';
 import { HeartIconComponent } from '../svg_components/heart-icon/heart-icon.component';
@@ -9,12 +9,25 @@ import { TripplePointComponent } from '../svg_components/tripple-point/tripple-p
 import { CartIconComponent } from '../svg_components/cart-icon/cart-icon.component';
 import { HeaderBottomComponent } from '../header-bottom/header-bottom.component';
 import { BottomBarComponent } from '../bottom-bar/bottom-bar.component';
+import { DevTypeService } from '../../services/dev-type.service';
 
 
 @Component({
   selector: 'app-header-elem',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, MainLogoComponent, PhoneIconComponent, HeartIconComponent, CompareIconComponent, HamburgerMemuComponent, TripplePointComponent, CartIconComponent, HeaderBottomComponent, BottomBarComponent],
+  imports: [
+    RouterLink,
+    RouterLinkActive,
+    MainLogoComponent,
+    PhoneIconComponent,
+    HeartIconComponent,
+    CompareIconComponent,
+    HamburgerMemuComponent,
+    TripplePointComponent,
+    CartIconComponent,
+    HeaderBottomComponent,
+    BottomBarComponent
+  ],
   templateUrl: './header-elem.component.html',
   styleUrl: './header-elem.component.css'
 })
@@ -52,16 +65,6 @@ export class HeaderElemComponent {
     },
   ];
 
-  public deviceWidth: any;
+  public DevType = inject(DevTypeService);
   
-  @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
-    this.deviceWidth = event.target.innerWidth;
-  }
-  
-  @HostListener('window:load', ['$event'])
-  onLoad(event: any) {
-    this.deviceWidth = event.currentTarget.innerWidth;
-  }
-
 }

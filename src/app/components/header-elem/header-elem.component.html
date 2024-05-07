@@ -8,7 +8,7 @@
       </div>
    
     </a>
-    @if(deviceWidth >= 1280) {
+    @if(DevType.getDevType() === 'desktop') {
       <nav>
         <ul class="header-nav__list">
           @for(item of topNavItems; track $index) {
@@ -25,29 +25,29 @@
           }
         </ul>
     </nav>
-    } @else if(deviceWidth < 1280 && deviceWidth >= 768) {
+    } @else if(DevType.getDevType() === 'tablet') {
       <input type="text" placeholder="Поиск по каталогу товаров" class="header__search-input header__search-input_tab">
     } @else {
       <input type="text" class="header__search-input header__search-input_mob">
     }
     <div class="header-phone">
       <app-phone-icon></app-phone-icon>
-      @if(deviceWidth >= 768) {
+      @if (DevType.getDevType() !== 'mobile') {
         <a href="tel:+7 999 999-99-99" class="header-phone__link">+7 999 999 99 99</a>  
       }
       
-      @if(deviceWidth >= 1280) {
+      @if (DevType.getDevType() === 'desktop') {
         <p class="header-phone__text">Вам перезвонить?</p>
       }
     </div>
-    @if (deviceWidth < 1280) {
+    @if (DevType.getDevType() !== 'desktop') {
       <div>
         <app-hamburger-memu></app-hamburger-memu>
       </div>
     }
   </section>
 
-  @if(deviceWidth >= 1280) {
+  @if(DevType.getDevType() === 'desktop') {
     <section class="header-middle">
       <button class="header-middle__button" routerLink="/catalog"> <app-tripple-point></app-tripple-point>Каталог товаров</button>
       <input type="text" placeholder="Поиск по каталогу товаров" class="header__search-input">
