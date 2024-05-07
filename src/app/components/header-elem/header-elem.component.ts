@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { MainLogoComponent } from '../svg_components/main-logo/main-logo.component';
 import { PhoneIconComponent } from '../svg_components/phone-icon/phone-icon.component';
 import { HeartIconComponent } from '../svg_components/heart-icon/heart-icon.component';
@@ -31,7 +31,7 @@ import { DevTypeService } from '../../services/dev-type.service';
   templateUrl: './header-elem.component.html',
   styleUrl: './header-elem.component.css'
 })
-export class HeaderElemComponent {
+export class HeaderElemComponent implements OnInit {
 
   public topNavItems: any[] = [
     {
@@ -65,6 +65,12 @@ export class HeaderElemComponent {
     },
   ];
 
+
+
   public DevType = inject(DevTypeService);
   
+
+  ngOnInit(): void {
+    this.DevType.getDevType();
+  }
 }

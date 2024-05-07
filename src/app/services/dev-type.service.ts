@@ -2,7 +2,7 @@
 // https://material.angular.io/cdk/layout/overview
 
 import { Injectable } from '@angular/core';
-import { BreakpointObserver } from '@angular/cdk/layout';
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 
 
 export type DevType = 'desktop' | 'mobile' | 'tablet';
@@ -14,14 +14,21 @@ export class DevTypeService {
 
   constructor(private _breakpointObserver: BreakpointObserver) { }
 
-  public getDevType(): DevType {  
-    if (this._breakpointObserver.isMatched('(min-width: 1280px)')) {
-      return 'desktop';
-    } else if (this._breakpointObserver.isMatched('(min-width: 768px)')) {
-      return 'tablet';
-    } else {
-      return 'mobile';
-    }
+  public devType: DevType;
+
+  public getDevType(): void { 
+    this._breakpointObserver
+    .observe(['(min-width: 1280px)','(min-width: 768px)'])
+      .subscribe(
+        (state: BreakpointState) => {
+          if (state.breakpoints['(min-width: 1280px)']) {
+            this.devType = 'desktop';
+          } else if (state.breakpoints['(min-width: 768px)']) {
+            this.devType = 'tablet';
+          } else {
+            this.devType = 'mobile';
+          } 
+        }
+      );
   }
-  
 }
