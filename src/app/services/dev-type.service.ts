@@ -18,15 +18,15 @@ export class DevTypeService {
 
   public getDevType(): void { 
     this._breakpointObserver
-    .observe(['(min-width: 1280px)','(min-width: 768px)'])
+    .observe(['(max-width: 1280px)','(max-width: 768px)'])
       .subscribe(
         (state: BreakpointState) => {
-          if (state.breakpoints['(min-width: 1280px)']) {
-            this.devType = 'desktop';
-          } else if (state.breakpoints['(min-width: 768px)']) {
+          if (state.breakpoints['(max-width: 768px)']) {
+            this.devType = 'mobile';
+          } else if (state.breakpoints['(max-width: 1280px)']) {
             this.devType = 'tablet';
           } else {
-            this.devType = 'mobile';
+            this.devType = 'desktop';
           } 
         }
       );
