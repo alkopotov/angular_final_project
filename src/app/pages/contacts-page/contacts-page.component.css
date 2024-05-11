@@ -1,0 +1,155 @@
+.contacts-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.contacts-page__title {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--01-color-black);
+}
+
+.contacts-page__info-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--01-color-black);
+  margin-bottom: 8px;
+}
+
+.contacts-page__info-phone {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--prime-color-blue);
+  margin-bottom: 8px;
+}
+
+.contacts-page__info-text {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--07-color-gray);
+  margin-bottom: 24px;
+}
+
+.contacts-page__callback-link {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--prime-color-blue);
+  text-decoration: underline;
+  cursor: pointer;
+  margin-bottom: 24px;
+}
+
+.contacts-page__social-links {
+  display: flex;
+  gap: 8px;
+}
+
+.contacts-page__social-link_email {
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 500;
+  margin-left: 8px;
+  color: var(--09-color-black);
+}
+ 
+.contacts-page__content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contacts-page__info {
+  padding-top: 30px;
+}
+
+.contacts-page__map-wrapper {
+  width: 818px;
+  height: 326px;
+  padding: 32px;
+  background-color: var(--map-color-blue);
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.contacts-page__map {
+  width: 382px;
+  height: 262px;
+}
+
+.contacts-page__oultets-list {
+ display: flex;
+ flex-direction: column;
+}
+
+.contacts-page__address {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--09-color-black);
+  margin-top: 8px;
+}
+
+@media (max-width: 1280px) {  
+  .contacts-page {
+    max-width: 768px;
+  }
+  .contacts-page__content {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .contacts-page__map-wrapper {
+    height: 100%;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .contacts-page__map {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .contacts-page {
+    padding: 16px;
+  }
+
+  .contacts-page__title {
+    font-size: 24px;
+  }
+
+  .contacts-page__info {
+    padding-top: 16px;
+  }
+
+  .contacts-page__info-title {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  .contacts-page__info-phone {
+    font-size: 20px;
+  }
+
+  .contacts-page__info-text {
+    font-size: 14px;
+  }
+
+  .contacts-page__callback-link {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+  .contacts-page__social-link_email {
+    font-size: 16px;
+  }
+
+  .contacts-page__map-wrapper {
+    width: 100%;
+  }
+  .contacts-page__address {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16.71px;
+    max-width: 256px;
+  }
+ }
