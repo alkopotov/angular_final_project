@@ -186,10 +186,16 @@
     z-index: 1000;
     background-color: white;
     box-shadow: 0px 4px 4px 0px #0000000D;
-
   }
+
   .header-top {
     padding: 3px 0 0 0;
+  }
+
+  .header__left-field-tab, .header__right-field-tab {
+    display: flex;
+    align-items: center;
+    gap: 32px;
   }
 }
 
