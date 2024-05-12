@@ -93,6 +93,8 @@
 @media (max-width: 1280px) {  
   .contacts-page {
     max-width: 768px;
+    padding-left: 24px;
+    padding-right: 24px;
   }
   .contacts-page__content {
     flex-direction: column;
@@ -100,6 +102,7 @@
   }
 
   .contacts-page__map-wrapper {
+    width: 100%;
     height: 100%;
     flex-direction: column;
     gap: 24px;
