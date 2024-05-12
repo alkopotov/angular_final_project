@@ -1,0 +1,540 @@
+.delivery {
+    max-width: 1200px;
+    padding-top: 75px;
+    margin: 0 auto;
+}
+
+.delivery-advantages {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.delivery-advantages__block {
+    position: relative;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    background: linear-gradient(269.84deg, #1A63D1 0.08%, #7FA6F2 99.92%);
+    border-radius: 16px;
+    color: var(--light_grey-color-gray);
+}
+
+.advantages-img {
+    grid-row: 1/3;
+    z-index: 1;
+    background: none;
+    position: relative;
+}
+
+.advantages-img.img-1 {
+    left: 24px;
+    bottom: 45px;
+}
+
+.advantages-img.img-2 {
+    left: -20px;
+    bottom: 52px;
+}
+
+.description-wrapper__title {
+    font-size: 32px;
+    margin-bottom: 8px;
+    padding-top: 16px;
+    padding-right: 10px;
+}
+
+.description-wrapper__descr {
+    max-width: 288px;
+    font-size: 20px;
+    font-weight: 500;
+    padding-bottom: 16px;
+}
+
+.pickup {
+    padding: 32px 48px 24px;
+    background-color: #F3F8FF;
+    border-radius: 16px;
+    margin-bottom: 24px;
+}
+
+.pickup__title {
+    font-size: 32px;
+    margin-bottom: 23px;
+    color: var(--01-color-black);
+}
+
+.pickup-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.pickup-list__item {
+    background-color: #FFF;
+    padding: 32px 48px;
+    display: flex;
+    align-items: center;
+    border-radius: 16px;
+}
+
+.pickup-item__street {
+    font-size: 20px;
+    font-weight: 500;
+    margin-right: 16px;
+    color: var(--01-color-black);
+}
+
+.pickup-item__subway {
+    background-color: var(--light_grey-color-gray);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border-radius: 16px;
+    padding-left: 8px;
+    margin-right: 32px;
+}
+
+.pickup-item__subway.from {
+    background: no-repeat url('/assets/images/delivery-page/man.svg') left center;
+    padding: 4px 0px 4px 14px;
+    font-size: 14px;
+    color: var(--09-color-black);
+    margin-right: 0;
+}
+
+.pickup-item__subway.name {
+    background: no-repeat url('/assets/images/delivery-page/subway.png') left center;
+    padding: 4px 16px 4px 20px;
+    color: var(--07-color-gray);
+    margin-right: 0;
+}
+
+.pickup-item__work-time {
+    background: no-repeat url('/assets/images/delivery-page/time.svg') left center / contain;
+    padding-left: 26px;
+    color: var(--05-color-gray);
+    font-weight: 500;
+}
+
+.convenience {
+    background-color: #F3F8FF;
+    display: grid;
+    grid-template-columns: 25% 1fr 25%;
+    border-radius: 16px;
+    padding: 23px 23px 23px 48px;
+    max-height: 256px;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.convenience-description__title {
+    margin-top: 41px;
+    font-size: 40px;
+    color: var(--prime-color-blue);
+    margin-bottom: 16px;
+}
+
+.convenience-description__list {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--prime-color-blue);
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.convenience__actual {
+    display: block;
+    padding: 16px;
+    font-weight: 500;
+    color: var(--prime-color-blue);
+    background-color: #FFF;
+    border-radius: 16px;
+    height: max-content;
+    width: max-content;
+    margin-left: auto;
+}
+
+.payment {
+    background-color: var(--light_grey-color-gray);
+    padding: 32px 40px;
+    margin-bottom: 24px;
+    border-radius: 16px;
+}
+
+.payment__title {
+    color: var(--01-color-black);
+    margin-bottom: 24px;
+    font-size: 40px;
+}
+
+.payment-wrapper {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 24px;
+    row-gap: 16px;
+}
+
+.payment-item {
+    background-color: #FFF;
+    border-radius: 12px;
+    grid-column: span 2;
+    padding: 16px;
+}
+
+.payment-item:nth-child(4),
+.payment-item:last-child {
+    grid-column: span 3;
+}
+
+.payment-item-head {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 6px;
+}
+
+.payment-item-head__title {
+    font-size: 18px;
+    color: var(--01-color-black);
+}
+
+.payment-item__description {
+    color: var(--07-color-gray);
+}
+
+.choose {
+    background: no-repeat url('/assets/images/delivery-page/choose.png') right -10%;
+    background-color: var(--light_grey-color-gray);
+    padding: 56px 48px;
+    border-radius: 16px;
+}
+
+.choose__title {
+    font-size: 40px;
+    color: var(--01-color-black);
+    margin-bottom: 32px;
+    max-width: 615px;
+}
+
+.choose__btn {
+    background-color: var(--prime-color-blue);
+    border-radius: 8px;
+    color: #FFF;
+    text-decoration: none;
+    padding: 19px 85px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 1280px) {
+    .delivery {
+        max-width: 720px;
+    }
+
+    .delivery-advantages {
+        gap: 16px;
+        margin-bottom: 16px;
+    }
+
+    .delivery-advantages__block {
+        grid-template-columns: 1fr;
+        grid-template-rows: 115px max-content 1fr;
+        gap: 8px;
+        padding: 32px 21px;
+    }
+
+    .advantages-img {
+        grid-row: unset;
+        padding: 0;
+    }
+
+    .advantages-img.img-1 {
+        left: 0;
+        bottom: 68px;
+        width: 160px;
+    }
+
+    .advantages-img.img-2 {
+        left: -24px;
+        bottom: 54px;
+        width: 173px;
+    }
+
+    .description-wrapper__title {
+        font-size: 24px;
+        max-width: 275px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .description-wrapper__descr {
+        font-size: 16px;
+        padding: 0;
+        font-weight: 400;
+        max-width: 300px;
+    }
+
+    .pickup {
+        padding: 32px;
+        margin-bottom: 16px;
+    }
+
+    .pickup__title {
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+
+    .pickup-list {
+        margin-bottom: 16px;
+    }
+
+    .pickup-list__item {
+        display: block;
+    }
+
+    .pickup-item__street {
+        margin-bottom: 8px;
+    }
+
+    .pickup-item__subway,
+    .pickup-item__work-time {
+        display: inline-block;
+    }
+
+    .pickup-item__subway.from {
+        margin-right: 3px;
+    }
+
+    .convenience {
+        position: relative;
+        height: 233px;
+        padding: 16px;
+        margin-bottom: 16px;
+    }
+
+    .convenience__img {
+        position: relative;
+        width: 395px;
+        left: -15px;
+        bottom: -35px;
+    }
+
+    .convenience-description {
+        grid-column: 2/4;
+        padding-left: 90px;
+        padding-top: 30px;
+    }
+
+    .convenience-description__title {
+        font-size: 24px;
+    }
+
+    .convenience__actual {
+        position: absolute;
+        right: 16px;
+        top: 16px;
+    }
+
+    .payment {
+        padding: 24px;
+        margin-bottom: 8px;
+    }
+
+    .payment__title {
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+
+    .payment-wrapper {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+        row-gap: 8px;
+    }
+
+    .choose {
+        padding: 32px;
+        background-size: 215px;
+        background-position: right 33px;
+    }
+
+    .choose__title {
+        font-size: 32px;
+        max-width: 450px;
+        margin-bottom: 16px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .delivery {
+        max-width: 100%;
+        padding: 0 16px;
+        padding-top: 60px;
+    }
+
+    .delivery-advantages__block {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+        padding: 16px 24px;
+        height: 190px;
+    }
+
+    .delivery-advantages {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .advantages-img {
+        z-index: 0;
+        height: auto;
+        position: absolute;
+    }
+
+    .advantages-img.img-1 {
+        width: 153px;
+        bottom: -60px;
+    }
+
+    .advantages-img.img-2 {
+        width: 36%;
+        left: 58%;
+        bottom: -20px;
+    }
+    
+    .description-wrapper__title {
+        max-width: 200px;
+        font-size: 20px;
+    }
+
+    .description-wrapper__descr {
+        font-size: 14px;
+    }
+
+    .delivery-advantages__block:first-child > .description-wrapper__descr {
+        padding-left: 70px;
+        max-width: 100%;
+    }
+
+    .pickup {
+        padding: 16px;
+    }
+
+    .pickup__title {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+
+    .pickup-list__item {
+        padding: 16px;
+    }
+
+    .pickup-item__street {
+        font-size: 16px;
+        margin-right: 0;
+        margin-bottom: 4px;
+    }
+
+    .pickup-item__subway {
+        margin-right: 0;
+        margin-bottom: 8px;
+    }
+
+    .pickup-item__subway.from,
+    .pickup-item__subway.name {
+        font-size: 12px;
+        margin: 0;
+    }
+
+    .pickup-item__work-time {
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .convenience {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .convenience__img {
+        position: absolute;
+        width: 42%;
+        left: 60%;
+    }
+
+    .convenience-description {
+        width: 100%;
+        grid-column: unset;
+        padding: 0;
+    }
+
+    .convenience-description__title {
+        font-size: 16px;
+        margin-top: 0;
+    }
+
+    .convenience-description__list {
+        font-size: 14px;
+        font-weight: 400;
+        gap: 4px;
+        margin-bottom: 16px;
+    }
+
+    .convenience__actual {
+        position: static;
+        font-size: 12px;
+        padding: 8px;
+        margin: 0;
+    }
+
+    .payment {
+        padding: 16px;
+    }
+
+    .payment__title {
+        font-size: 20px;
+    }
+
+    .payment-item-head {
+        margin-bottom: 8px;
+    }
+
+    .payment-item-head img {
+        width: 32px;
+    }
+
+    .payment-item-head__title {
+        font-size: 16px;
+    }
+
+    .payment-item__description {
+        font-size: 14px;
+    }
+
+    .choose {
+        padding: 16px;
+        height: 242px;
+        background-size: 107px;
+        background-position: bottom center;
+    }
+
+    .choose__title {
+        font-size: 20px;
+        margin-bottom: 16px;
+        max-width: 100%;
+    }
+
+    .choose__btn {
+        font-size: 16px;
+        padding: 19px 30px;
+        width: 100%;
+    }
+}
