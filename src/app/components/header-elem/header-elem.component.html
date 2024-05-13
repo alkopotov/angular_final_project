@@ -1,14 +1,13 @@
-
 <header class="header-main">
 
   <section class="header-top">
-    <a routerLink="/">
-      <div class="header-logo">
-        <app-main-logo></app-main-logo>
-      </div>
-   
-    </a>
+    
     @if(DevType.devType === 'desktop') {
+      <a routerLink="/">
+        <div class="header-logo">
+          <app-main-logo></app-main-logo>
+        </div>
+      </a>
       <nav>
         <ul class="header-nav__list">
           @for(item of topNavItems; track $index) {
@@ -25,22 +24,42 @@
           }
         </ul>
     </nav>
-    } @else if(DevType.devType === 'tablet') {
-      <input type="text" placeholder="Поиск по каталогу товаров" class="header__search-input header__search-input_tab">
-    } @else {
-      <input type="text" class="header__search-input header__search-input_mob">
-    }
     <div class="header-phone">
       <app-phone-icon></app-phone-icon>
-      @if (DevType.devType !== 'mobile') {
-        <a href="tel:+7 999 999-99-99" class="header-phone__link">+7 999 999 99 99</a>  
-      }
-      
-      @if (DevType.devType === 'desktop') {
-        <p class="header-phone__text">Вам перезвонить?</p>
-      }
+      <a href="tel:+7 999 999-99-99" class="header-phone__link">+7 999 999 99 99</a>  
+      <p class="header-phone__text">Вам перезвонить?</p>
     </div>
-    @if (DevType.devType !== 'desktop') {
+
+    } @else if(DevType.devType === 'tablet') {
+      <div class="header__left-field-tab">
+        <a routerLink="/">
+          <div class="header-logo">
+            <app-main-logo></app-main-logo>
+          </div>
+        </a>
+        <input type="text" placeholder="Поиск по каталогу товаров" class="header__search-input header__search-input_tab">
+      </div>
+      <div class="header__right-field-tab">
+        <div class="header-phone">
+          <app-phone-icon></app-phone-icon>
+            <a href="tel:+7 999 999-99-99" class="header-phone__link">+7 999 999 99 99</a>
+        </div>
+        <div>
+          <app-hamburger-memu></app-hamburger-memu>
+        </div>
+      </div>
+
+    } @else {
+      
+      <a routerLink="/">
+        <div class="header-logo">
+          <app-main-logo></app-main-logo>
+        </div>
+      </a>
+      <input type="text" class="header__search-input header__search-input_mob">
+      <div class="header-phone">
+        <app-phone-icon></app-phone-icon>
+      </div>
       <div>
         <app-hamburger-memu></app-hamburger-memu>
       </div>

@@ -80,6 +80,11 @@
   flex-direction: column;
 }
 
+.footer-column-4__communications {
+  position: relative;
+  margin-bottom: 40px;
+}
+
 .footer-column-4__phone {
   font-size: 40px;
   font-weight: 500;
@@ -89,14 +94,12 @@
   margin-bottom: 4px;
 }
 
-.footer-column-4__communications {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  margin-bottom: 36px;
-}
+
 
 .footer-column-4__communications-smm {
+  position: absolute;
+  bottom: -8px;
+  right: 40px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -134,6 +137,8 @@
     flex-direction: column;
     gap: 24px;
     max-width: 768px;
+    padding-left: 24px;
+    padding-right: 24px;
     margin-bottom: 100px;
     height: fit-content;
   }
@@ -146,14 +151,27 @@
   .footer-column-1 {
     flex-direction: row;
   }
+
+  .footer-column-1 {
+    width: 441px;
+  }
   .footer-nav {
     flex-direction: row;
     flex-wrap: wrap;
   }
-  .footer-column-4 {
+  .footer-column-4__communications {
+    display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-right: 200px;
   }
 
+  .footer-column-4__communications-smm {
+    right: 0;
+    top: 0;
+    align-items: flex-start;
+  }
   .footer-column-4__phone {
     font-size: 32px;
     font-weight: 500;
@@ -165,12 +183,72 @@
 @media (max-width: 768px) {
   .footer-main {
     padding: 16px;
-    
+    padding-bottom: 80px;
+  }
+
+  .footer-column-1 {
+    width: 200px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 0;
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-logo {
+    position: absolute;
+    left: 5px;
+    top: 0;
+  }
+
+  .footer-column-1__info {
+    gap: 4px;
+    width: 100%;
+  }
+  
+  .footer-column-1__text {
+    font-size: 14px;
+    font-weight: 400;
+    padding-left: 44px;
+  }
+  .footer-column-1__disclaimer {
+    font-size: 11px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 13.13px;
   }
   .footer-nav {
     flex-direction: column;
   }
   .footer-column-4 {
     flex-direction: column;
+  }
+  .footer-column-4__communications {
+    width: 100%;
+    flex-direction: column;
+    padding-right: 0;
+    gap: 4px;
+    margin-bottom: 16px;
+  }
+  .footer-column-4__communications-smm {
+    margin-top: 16px;
+    position: relative;
+  }
+  .footer-column-4__phone {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28.64px;
+    text-align: left;
+  }
+
+  .footer-column-4__text {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.32px;
+    text-align: left;
+  }
+  .footer-column-4__communications-callback-link {
+    font-size: 16px;
+    font-weight: 500;
   }
 }
