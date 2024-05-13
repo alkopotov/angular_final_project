@@ -8,5 +8,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './map.component.css'
 })
 export class MapComponent {
-  @Input() style: string;
+  @Input() class: string;
 }
