@@ -27,7 +27,7 @@
     <div class="header-phone">
       <app-phone-icon></app-phone-icon>
       <a href="tel:+7 999 999-99-99" class="header-phone__link">+7 999 999 99 99</a>  
-      <p class="header-phone__text">Вам перезвонить?</p>
+      <p class="header-phone__text" (click)="dialogService.openDialog('callback')">Вам перезвонить?</p>
     </div>
 
     } @else if(DevType.devType === 'tablet') {
@@ -72,7 +72,7 @@
       <input type="text" placeholder="Поиск по каталогу товаров" class="header__search-input">
       <app-heart-icon></app-heart-icon>
       <app-compare-icon></app-compare-icon>
-      <button class="header-middle__cart-button" routerLink="/cart">
+      <button class="header-middle__cart-button" (click)="dialogService.openDialog('basket')">
         <app-cart-icon></app-cart-icon>
         в корзине
         <div class="header-middle__cart-button__counter">1</div>
