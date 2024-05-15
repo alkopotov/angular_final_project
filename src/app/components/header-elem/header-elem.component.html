@@ -71,7 +71,9 @@
       <button class="header-middle__button" routerLink="/catalog"> <app-tripple-point></app-tripple-point>Каталог товаров</button>
       <input type="text" placeholder="Поиск по каталогу товаров" class="header__search-input">
       <app-heart-icon></app-heart-icon>
-      <app-compare-icon></app-compare-icon>
+      <div (click)="dialogService.openDialog('credit')">
+        <app-compare-icon></app-compare-icon>
+      </div>
       <button class="header-middle__cart-button" (click)="dialogService.openDialog('basket')">
         <app-cart-icon></app-cart-icon>
         в корзине
