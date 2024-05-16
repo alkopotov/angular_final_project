@@ -14,6 +14,7 @@
 .dialog-credit__content {
   position: relative;
   overflow-y: scroll;
+  overflow-x: hidden;
  
 }
 .dialog-credit__close-button {
@@ -30,10 +31,11 @@
  position: absolute;
  top: 48px;
  left: 32px;
- width: 160px;
- height: 160px;
 }
 
+.dialog-credit__image_mob {
+  display: none;
+}
 .dialog-credit__title {
   font-size: 16px;
   font-weight: 500;
@@ -72,13 +74,13 @@
   margin-bottom: 32px;
 }
 
+.dialog-credit__label-term {
+  gap: 16px;
+}
 
 .dialog-credit__select {
   width: 280px;
   height: 40px;
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--01-color-black);
   border: none;
   outline: none;
   background-color: var(--light_grey-color-gray);
@@ -94,11 +96,16 @@
   outline: none;
 }
 
+.dialog-credit__range input {
+  padding: 0;
+}
+
 datalist {  
   display: flex;
   justify-content: space-between;
   width: 334px;
-  margin-top: -10px;
+  margin-top: -5px;
+  margin-left: 10px;
 }
 
 datalist option {
@@ -214,4 +221,121 @@ datalist option {
   font-weight: 400;
   color: var(--07-color-gray);
   margin-bottom: 8px;
+}
+
+@media (max-width: 768px) { 
+  .dialog-credit {
+    width: 310px;
+    padding: 36px 16px;
+  }
+
+  .dialog-credit__content {
+    width: 100%;
+  }
+
+  .dialog-credit__image {
+    width: 56px;
+    height: 61px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-bottom: 24px;
+  }
+  .dialog-credit__image_desk {
+    display: none;
+  }
+  .dialog-credit__image_mob {
+    display: block;
+  }
+  .dialog-credit__close-button {
+    top: 12px;
+    right: 12px;
+  }
+
+  .dialog-credit__title {
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 70px;
+  }
+
+  .dialog-credit__product-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-left: 70px;
+    width: 176px;
+  }
+
+  .dialog-credit__prices {
+    display: flex;
+    margin-left: 70px;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .dialog-credit__initial-price {
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .dialog-credit__final-price {
+    margin-bottom: 0;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .dialog-credit__label-bank, .dialog-credit__label-term, .dialog-credit__form-label {
+    gap: 8px;
+    font-size: 16px;
+    margin-bottom: 16px;
+    width: 180px;
+  }
+
+  .dialog-credit__select {
+    width: 250px;
+    padding-left: 12px;
+  }
+
+  .dialog-credit__range {
+    width: 250px;
+  }
+
+  datalist {  
+    width: 250px;
+    margin-top: -5px;
+    margin-left: 10px;
+  }
+  .dialog-credit__monthly-payment-title, .dialog-credit__monthly-credit-load-title {
+    font-size: 16px;
+    width: 180px;
+  }
+
+  .dialog-credit__monthly-payment-value {
+    font-size: 20px;
+  }
+
+  
+  .dialog-credit__phone {
+    font-size: 16px;;
+  }
+
+  .dialog-credit__contacts {
+    gap: 8px;
+    width: 260px;
+  }
+  .dialog-credit__social-links {
+    gap: 6px;
+  }
+
+  .dialog-credit__social-link img  {
+    width: 24px;
+  }
+
+  .dialog-credit__form {
+    width: fit-content;
+  }
+
+  .dialog-credit__contacts-proposal {
+    width: 240px;
+  }
 }

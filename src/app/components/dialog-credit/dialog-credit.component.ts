@@ -5,11 +5,12 @@ import localeRu from '@angular/common/locales/ru';
 import localeRuExtra from '@angular/common/locales/extra/ru';
 import { DecimalPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { MatSliderModule } from '@angular/material/slider';
 
 @Component({
   selector: 'app-dialog-credit',
   standalone: true,
-  imports: [CloseIconComponent, DecimalPipe, FormsModule],
+  imports: [CloseIconComponent, DecimalPipe, FormsModule, MatSliderModule],
   templateUrl: './dialog-credit.component.html',
   styleUrl: './dialog-credit.component.css'
 })
@@ -58,5 +59,13 @@ export class DialogCreditComponent {
     return this.product.price * (1 - this.product.discountPercentage / 100);
   }
 
+  public sliderParams: any = {
+    min: 2,
+    max: 36,
+    step: 1,
+    value: 6,
+    showTicks: false,
+    thumbLabel: true,
+  }
 
 }
