@@ -226,6 +226,7 @@ datalist option {
 @media (max-width: 768px) { 
   .dialog-credit {
     width: 310px;
+    height: 80vh;
     padding: 36px 16px;
   }
 
