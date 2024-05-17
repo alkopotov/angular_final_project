@@ -35,6 +35,7 @@
 
 @media (max-width: 1280px) {
   .banner-text {
+    max-width: 768px;
     padding: 24px;
   }
 }
