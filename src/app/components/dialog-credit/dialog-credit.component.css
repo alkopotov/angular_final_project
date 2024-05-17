@@ -29,6 +29,8 @@
 
 .dialog-credit__image { 
  position: absolute;
+ width: 150px;
+ height: 162px;
  top: 48px;
  left: 32px;
 }
