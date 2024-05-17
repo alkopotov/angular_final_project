@@ -90,8 +90,7 @@
 }
 
 .dialog-credit__range {
-  width: 334px;
-  background-color: var(--light_grey-color-gray);
+  width: 336px;
   border: none;
   outline: none;
 }
@@ -103,9 +102,9 @@
 datalist {  
   display: flex;
   justify-content: space-between;
-  width: 334px;
-  margin-top: -5px;
-  margin-left: 10px;
+  width: 336px;
+  margin-top: -25px;
+  margin-left: 8px;
 }
 
 datalist option {
@@ -223,6 +222,7 @@ datalist option {
   margin-bottom: 8px;
 }
 
+
 @media (max-width: 768px) { 
   .dialog-credit {
     width: 310px;
@@ -302,9 +302,8 @@ datalist option {
   }
 
   datalist {  
-    width: 250px;
-    margin-top: -5px;
-    margin-left: 10px;
+    width: 251px;
+    margin-top: -20px;
   }
   .dialog-credit__monthly-payment-title, .dialog-credit__monthly-credit-load-title {
     font-size: 16px;
