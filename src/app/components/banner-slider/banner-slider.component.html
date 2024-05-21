@@ -1,11 +1,10 @@
 <section class="banner-slider">
-
   <div class="banner-slider__prev-slide" (click)="prevSlide()">
-    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="16" height="28" viewBox="0 0 16 28" fill="none" xmlns="http://www.w3.org/2000/svg" fill="none">
       <g opacity="0.5">
-      <path d="M28 10L18 20L28 30L26 34L12 20L26 6L28 10Z" fill="#100E0E"/>
+        <path d="M16 4L6 14L16 24L14 28L0 14L14 0L16 4Z" fill="#100E0E" />
       </g>
-    </svg>    
+    </svg>
   </div>
   <div class="banner-slider__slide">
     <div class="banner-slider__slide-img-wrapper">
@@ -13,16 +12,17 @@
     </div>
     <div class="banner-slider__slide-info">
       <h2 class="banner-slider__slide-title">{{products[currentIndex].title}}</h2>
-      <p class="banner-slider__slide-price"> <span>от</span> {{products[currentIndex].price | number : '1.0-0' : 'ru-RU'}} ₽</p>
+      <p class="banner-slider__slide-price"> <span>от</span> {{products[currentIndex].price | number : '1.0-0' :
+        'ru-RU'}} ₽</p>
       <a [routerLink]="[products[currentIndex].link]">
-      <button class="banner-slider__slide-button" >подробнее</button>
+        <button class="banner-slider__slide-button">подробнее</button>
       </a>
     </div>
   </div>
   <div class="banner-slider__next-slide" (click)="nextSlide()">
-    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="16" height="28" viewBox="0 0 16 28" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g opacity="0.5">
-      <path d="M12 30L22 20L12 10L14 6L28 20L14 34L12 30Z" fill="#100E0E"/>
+        <path d="M0 24L10 14L0 4L2 0L16 14L2 28L0 24Z" fill="#100E0E" />
       </g>
     </svg>
   </div>

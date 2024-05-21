@@ -2,6 +2,7 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
+
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -12,8 +13,10 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$apple_store-primary: mat.define-palette(mat.$indigo-palette);
-$apple_store-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$apple_store-primary: mat.define-palette(mat.$blue-palette);
+$apple_store-accent: mat.define-palette(mat.$blue-palette, A400, A100, A400);
+$apple_store-secondary: mat.define-palette(mat.$cyan-palette, A400, A100, A400);
+
 
 // The warn palette is optional (defaults to red).
 $apple_store-warn: mat.define-palette(mat.$red-palette);
@@ -22,8 +25,11 @@ $apple_store-warn: mat.define-palette(mat.$red-palette);
 // theming systems such as "color" or "typography".
 $apple_store-theme: mat.define-light-theme((
   color: (
-    primary: $apple_store-primary,
+    theme-type: 'light',
+    primary: $apple_store-accent,
     accent: $apple_store-accent,
+    secondary: $apple_store-accent,
+    tertiary: $apple_store-primary,
     warn: $apple_store-warn,
   ),
   typography: mat.define-typography-config(),
@@ -34,4 +40,5 @@ $apple_store-theme: mat.define-light-theme((
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include mat.all-component-themes($apple_store-theme);
+
 

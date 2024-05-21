@@ -1,0 +1,347 @@
+.dialog-credit {
+  background-color: white;
+  width: 720px;
+  height: 480px;
+  padding-top: 48px;
+  padding-left: 206px;
+  padding-right: 26px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+}
+
+.dialog-credit__content {
+  position: relative;
+  overflow-y: scroll;
+  overflow-x: hidden;
+ 
+}
+.dialog-credit__close-button {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  cursor: pointer;
+  width: fit-content;
+  z-index: 1000;
+}
+
+
+.dialog-credit__image { 
+ position: absolute;
+ width: 150px;
+ height: 162px;
+ top: 48px;
+ left: 32px;
+}
+
+.dialog-credit__image_mob {
+  display: none;
+}
+.dialog-credit__title {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--07-color-gray);
+  margin-bottom: 8px;
+}
+
+.dialog-credit__product-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--01-color-black);
+  margin-bottom: 8px;
+}
+
+.dialog-credit__initial-price {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--06-color-gray);
+  text-decoration: line-through;
+}
+
+.dialog-credit__final-price {
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--01-color-black);
+  margin-bottom: 32px;
+}
+
+.dialog-credit__label-bank, .dialog-credit__label-term, .dialog-credit__form-label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--09-color-black);
+  margin-bottom: 32px;
+}
+
+.dialog-credit__label-term {
+  gap: 16px;
+}
+
+.dialog-credit__select {
+  width: 280px;
+  height: 40px;
+  border: none;
+  outline: none;
+  background-color: var(--light_grey-color-gray);
+  font-size: 16px;
+  font-weight: 400;
+  padding-left: 16px;
+}
+
+.dialog-credit__range {
+  width: 336px;
+  border: none;
+  outline: none;
+}
+
+.dialog-credit__range input {
+  padding: 0;
+}
+
+datalist {  
+  display: flex;
+  justify-content: space-between;
+  width: 336px;
+  margin-top: -25px;
+  margin-left: 8px;
+}
+
+datalist option {
+  padding: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--07-color-gray);
+
+}
+.dialog-credit__monthly-payment-title, .dialog-credit__monthly-credit-load-title {
+  font-size: 20px;
+  font-weight: 700;
+  width: 288px;
+  margin-bottom: 12px;
+}
+
+.dialog-credit__monthly-payment-value {
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--prime-color-blue);
+  margin-bottom: 32px;
+}
+
+.dialog-credit__radio-wrapper {
+  margin-bottom: 32px;
+}
+
+.dialog-credit__radio {
+  margin-left: 8px;
+  margin-right: 16px;
+}
+
+.dialog-credit__form {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.dialog-credit__form-input-age {
+  width: 58px;
+  height: 51px;
+  font-size: 24px;
+  font-weight: 400;
+  padding-left: 16px;
+  border: 1px solid #DBDBDB;
+  border-radius: 8px;
+  color: var(--05-color-gray);
+}
+
+.dialog-credit__form-label {
+  width: 370px;
+}
+
+
+.dialog-credit__form-input-phone-wrapper {
+  display: flex;
+  align-items: center;
+  width: 246px;
+  height: 56px;
+  border: 1px solid #DBDBDB;
+  border-radius: 8px;
+  padding-left: 24px;
+
+}
+
+.dialog-credit__form-input-phone {
+  border: none;
+  outline: none;
+  padding-left: 4px;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--05-color-gray);
+  width: 180px;
+}
+
+.dialog-credit__form-input-phone-prefix {
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--05-color-gray);
+}
+
+.dialog-credit__form-submit {
+  width: 246px;
+  height: 56px;
+  background-color: var(--prime-color-blue);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.dialog-credit__contacts {
+  display: flex;
+  gap: 16px;
+}
+
+.dialog-credit__phone {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--01-color-black);
+}
+
+.dialog-credit__social-links {
+  display: flex;
+  gap: 8px;
+}
+
+.dialog-credit__contacts-proposal {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--07-color-gray);
+  margin-bottom: 8px;
+}
+
+
+@media (max-width: 768px) { 
+  .dialog-credit {
+    width: 310px;
+    height: 80vh;
+    padding: 36px 16px;
+  }
+
+  .dialog-credit__content {
+    width: 100%;
+  }
+
+  .dialog-credit__image {
+    width: 56px;
+    height: 61px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-bottom: 24px;
+  }
+  .dialog-credit__image_desk {
+    display: none;
+  }
+  .dialog-credit__image_mob {
+    display: block;
+  }
+  .dialog-credit__close-button {
+    top: 12px;
+    right: 12px;
+  }
+
+  .dialog-credit__title {
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 70px;
+  }
+
+  .dialog-credit__product-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-left: 70px;
+    width: 176px;
+  }
+
+  .dialog-credit__prices {
+    display: flex;
+    margin-left: 70px;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .dialog-credit__initial-price {
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .dialog-credit__final-price {
+    margin-bottom: 0;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .dialog-credit__label-bank, .dialog-credit__label-term, .dialog-credit__form-label {
+    gap: 8px;
+    font-size: 16px;
+    margin-bottom: 16px;
+    width: 180px;
+  }
+
+  .dialog-credit__select {
+    width: 250px;
+    padding-left: 12px;
+  }
+
+  .dialog-credit__range {
+    width: 250px;
+  }
+
+  datalist {  
+    width: 251px;
+    margin-top: -20px;
+  }
+  .dialog-credit__monthly-payment-title, .dialog-credit__monthly-credit-load-title {
+    font-size: 16px;
+    width: 180px;
+  }
+
+  .dialog-credit__monthly-credit-load-title {
+    margin-bottom: 0;
+  }
+  .dialog-credit__monthly-payment-value {
+    font-size: 20px;
+  }
+
+  
+  .dialog-credit__phone {
+    font-size: 16px;;
+  }
+
+  .dialog-credit__contacts {
+    gap: 8px;
+    width: 260px;
+  }
+  .dialog-credit__social-links {
+    gap: 6px;
+  }
+
+  .dialog-credit__social-link img  {
+    width: 24px;
+  }
+
+  .dialog-credit__form {
+    width: fit-content;
+  }
+
+  .dialog-credit__contacts-proposal {
+    width: 240px;
+  }
+}

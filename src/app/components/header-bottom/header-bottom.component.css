@@ -1,3 +1,7 @@
+.header-bottom {
+  margin-bottom: 8px;
+}
+
 .header-bottom__nav-list {
   display: flex;
   flex-direction: row;
