@@ -10,6 +10,8 @@ import { CartIconComponent } from '../svg_components/cart-icon/cart-icon.compone
 import { HeaderBottomComponent } from '../header-bottom/header-bottom.component';
 import { BottomBarComponent } from '../bottom-bar/bottom-bar.component';
 import { DevTypeService } from '../../services/dev-type.service';
+import { MatDialog } from '@angular/material/dialog';
+import { CallbackModalComponent } from '../callback-modal/callback-modal.component';
 
 
 @Component({
@@ -26,7 +28,8 @@ import { DevTypeService } from '../../services/dev-type.service';
     TripplePointComponent,
     CartIconComponent,
     HeaderBottomComponent,
-    BottomBarComponent
+    BottomBarComponent,
+    CallbackModalComponent
   ],
   templateUrl: './header-elem.component.html',
   styleUrl: './header-elem.component.css'
@@ -66,6 +69,11 @@ export class HeaderElemComponent implements OnInit {
   ];
 
 
+  constructor(public dialog: MatDialog){}
+  
+  public OpenDialog() {
+    this.dialog.open(CallbackModalComponent, {})
+  }
 
   public DevType = inject(DevTypeService);
   

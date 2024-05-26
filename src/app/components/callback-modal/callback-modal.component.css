@@ -1,0 +1,39 @@
+.box{
+    position: relative;
+    height: 297px;
+    width: 553px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dialog-header{
+    margin-top: 10px;
+}
+.close-button{
+    position: absolute;
+    /* top: -240px;
+    right: -180px; */
+    font-weight: 900;
+
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-size: larger;
+    color: #878787;
+}
+
+.positioned{
+    position: relative;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+/* .input-dialog{
+    width: 246px;
+    height: 56px;
+} */

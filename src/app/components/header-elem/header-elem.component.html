@@ -37,7 +37,7 @@
       }
       
       @if (DevType.devType === 'desktop') {
-        <p class="header-phone__text">Вам перезвонить?</p>
+        <button mat-button color="primary" (click)="OpenDialog()"><p class="header-phone__text">Вам перезвонить?</p></button>
       }
     </div>
     @if (DevType.devType !== 'desktop') {
