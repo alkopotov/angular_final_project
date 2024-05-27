@@ -137,6 +137,8 @@
     flex-direction: column;
     gap: 24px;
     max-width: 768px;
+    padding-left: 24px;
+    padding-right: 24px;
     margin-bottom: 100px;
     height: fit-content;
   }

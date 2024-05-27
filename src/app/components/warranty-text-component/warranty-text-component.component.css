@@ -1,0 +1,42 @@
+.warranty_text_area{
+    width: 100%;   
+}
+.warranty_text_container{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+
+.warranty_text{
+    margin: 24px 0px;
+}
+
+.warranty_text__header{
+    font-size: 40px;
+    font-weight: 500;
+}
+
+
+.warranty_text__paragraph{
+    margin: 16px 0 0;
+    width: 792px;
+    color:  #585656;
+    font-weight: 400;
+}
+
+.warranty_text__side-header{
+    width: 791px;
+    font-size: 24px;
+    font-weight: 500;
+
+}
+
+.warranty_button{
+    border-radius: 8px;
+    border: none;
+    background-color: #0071E4;
+    color: white;
+    margin: 16px 0 40px;
+    width: 178px;
+    height: 56px;
+}

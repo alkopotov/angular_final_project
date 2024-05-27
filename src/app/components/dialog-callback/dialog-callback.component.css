@@ -1,0 +1,74 @@
+.callback_dialog{
+    width: 553px;
+    height: 297px;
+    background-color: #fff;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    padding: 40px 0;
+}
+.callback_dialog__header{
+    font-weight: 700;
+    font-size: 32px;
+
+}
+
+.callback_dialog__paragraph{
+    color: #585656;
+    font-weight: 500;
+}
+
+.callback_dialog__input,
+.callback_dialog__accept-button{
+    width: 246px;
+    height: 56px;
+    border-radius: 8px;
+}
+
+.callback_dialog__input{
+    border: 1px solid #DBDBDB;
+}
+
+.callback_dialog__input::placeholder{
+    font-size: 24px;
+    padding: 13px 0 14px 24px;
+    /* text-align: center; */
+}
+
+.callback_dialog__accept-button{
+    background-color: #0071E4;
+    color: #fff;
+    border: none;
+}
+
+.callback_dialog__close-button{
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+}
+
+.callback_dialog__close-button::before,
+.callback_dialog__close-button::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 15px;
+    height: 2px;
+    background-color: #878787;
+}
+
+.callback_dialog__close-button::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  
+.callback_dialog__close-button::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }

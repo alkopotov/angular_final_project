@@ -1,0 +1,88 @@
+<section class="dialog-credit">
+  <div class="dialog-credit__close-button" (click)="dialogRef.close()">
+    <app-close-icon></app-close-icon>
+  </div>
+  <img src="{{product.image}}" alt="{{product.title + ' image'}}"
+    class="dialog-credit__image dialog-credit__image_desk">
+  <div class="dialog-credit__content">
+    <img src="{{product.image}}" alt="{{product.title + ' image'}}"
+      class="dialog-credit__image dialog-credit__image_mob">
+    <p class="dialog-credit__title">Купить в кредит</p>
+    <h2 class="dialog-credit__product-title">{{product.title}}</h2>
+    <div class="dialog-credit__prices">
+      <p class="dialog-credit__initial-price">{{product.price | number: '1.0-0': 'ru-RU'}}₽</p>
+      <h3 class="dialog-credit__final-price">{{finalPrice | number: '1.0-0': 'ru-RU'}}₽</h3>
+    </div>
+    <label for="bank" class="dialog-credit__label-bank">Выберите банк
+      <select id="bank" class="dialog-credit__select" [(ngModel)]="interestRate">
+        <option value="18">Любой</option>
+        @for (bank of banks; track $index) {
+        <option value="{{bank.interestRate}}">{{bank.title}}</option>
+        }
+      </select>
+    </label>
+    <label for="term" class="dialog-credit__label-term">Срок кредита {{creditTerm}} мес.
+      <!-- <input id="term" class="dialog-credit__range" type="range" min="2" max="36" [(ngModel)]="creditTerm"> -->
+      <mat-slider class="dialog-credit__range" [max]="sliderParams.max" [min]="sliderParams.min"
+        [step]="sliderParams.step" [discrete]="sliderParams.thumbLabel">
+        <input id="term" matSliderThumb [(ngModel)]="creditTerm" #slider>
+      </mat-slider>
+      <datalist id="values">
+        <option value="2" label="2">2</option>
+        <option value="4"></option>
+        <option value="6" label="6"></option>
+        @for (num of [8, 10]; track num) {
+        <option [value]="num"></option>
+        }
+        <option value="12" label="12"></option>
+        @for (num of [14, 16]; track num) {
+        <option [value]="num"></option>
+        }
+        <option value="18" label="18"></option>
+        @for (num of [20, 22]; track num) {
+        <option [value]="num"></option>
+        }
+        <option value="24" label="24"></option>
+        @for (num of [26, 28, 30, 32, 34]; track num) {
+        <option [value]="num"></option>
+        }
+        <option value="36" label="36"></option>
+      </datalist>
+    </label>
+    <p class="dialog-credit__monthly-payment-title">Приблизительный ежемесячный платеж</p>
+    <h3 class="dialog-credit__monthly-payment-value">{{monthlyPayment | number: '1.0-0': 'ru-RU'}}₽ </h3>
+
+
+    <form class="dialog-credit__form">
+      <p class="dialog-credit__monthly-credit-load-title">Есть задолженность по кредитам?</p>
+      <div class="dialog-credit__radio-wrapper">
+        <input type="radio" id="credit_yes" name="credit" value="yes">
+        <label for="credit_yes" class="dialog-credit__radio">Да</label>
+        <input type="radio" id="credit_no" name="credit" value="no" checked>
+        <label for="credit_no" class="dialog-credit__radio">Нет</label>
+      </div>
+      <label for="age" class="dialog-credit__form-label">Ваш возраст?
+        <input id="age" type="text" class="dialog-credit__form-input-age">
+      </label>
+
+      <label for="phone" class="dialog-credit__form-label">Напишите свой номер и мы позвоним
+        Вам в течение 5 минут
+        <div class="dialog-credit__form-input-phone-wrapper">
+          <div class="dialog-credit__form-input-phone-prefix">+7</div>
+          <input id="phone" type="text" class="dialog-credit__form-input-phone">
+        </div>
+      </label>
+
+      <input type="submit" value="отправить заявку" class="dialog-credit__form-submit">
+    </form>
+    <p class="dialog-credit__contacts-proposal">Либо позвоните или напишите нам самостоятельно</p>
+    <div class="dialog-credit__contacts">
+      <div class="dialog-credit__phone">+7 (499) 350-66-04</div>
+      <div class="dialog-credit__social-links">
+        <a href="" class="dialog-credit__social-link"><img src="assets/icons/vk.svg" alt="VK icon"></a>
+        <a href="" class="dialog-credit__social-link"><img src="assets/icons/telegram.svg" alt="Telegram icon"></a>
+        <a href="" class="dialog-credit__social-link"><img src="assets/icons/whatsapp.svg" alt="Whatsapp icon"></a>
+      </div>
+    </div>
+  </div>
+</section>

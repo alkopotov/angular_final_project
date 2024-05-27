@@ -78,6 +78,8 @@
 @media (max-width: 1280px) {
   .banner-advantages {
     max-width: 768px;
+    padding-left: 24px;
+    padding-right: 24px;
   }
   .banner-advantages-list {
     flex-direction: column;

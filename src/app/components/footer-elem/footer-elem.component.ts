@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MainLogoComponent } from '../svg_components/main-logo/main-logo.component';
 import { RouterLink } from '@angular/router';
+import { DialogDispatcherService } from '../../services/dialog-dispatcher.service';
 
 @Component({
   selector: 'app-footer-elem',
@@ -68,4 +69,6 @@ export class FooterElemComponent {
       title: 'Акции'
     }
   ];
+
+  public dialogService = inject(DialogDispatcherService);
 }
