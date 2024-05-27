@@ -1,14 +1,13 @@
-
 <header class="header-main">
 
   <section class="header-top">
-    <a routerLink="/">
-      <div class="header-logo">
-        <app-main-logo></app-main-logo>
-      </div>
-   
-    </a>
+    
     @if(DevType.devType === 'desktop') {
+      <a routerLink="/">
+        <div class="header-logo">
+          <app-main-logo></app-main-logo>
+        </div>
+      </a>
       <nav>
         <ul class="header-nav__list">
           @for(item of topNavItems; track $index) {
@@ -25,19 +24,48 @@
           }
         </ul>
     </nav>
+    <div class="header-phone">
+      <app-phone-icon></app-phone-icon>
+      <a href="tel:+7 999 999-99-99" class="header-phone__link">+7 999 999 99 99</a>  
+      <p class="header-phone__text" (click)="dialogService.openDialog('callback')">Вам перезвонить?</p>
+    </div>
+
     } @else if(DevType.devType === 'tablet') {
-      <input type="text" placeholder="Поиск по каталогу товаров" class="header__search-input header__search-input_tab">
+      <div class="header__left-field-tab">
+        <a routerLink="/">
+          <div class="header-logo">
+            <app-main-logo></app-main-logo>
+          </div>
+        </a>
+        <input type="text" placeholder="Поиск по каталогу товаров" class="header__search-input header__search-input_tab">
+      </div>
+      <div class="header__right-field-tab">
+        <div class="header-phone">
+          <app-phone-icon></app-phone-icon>
+            <a href="tel:+7 999 999-99-99" class="header-phone__link">+7 999 999 99 99</a>
+        </div>
+        <div>
+          <app-hamburger-memu></app-hamburger-memu>
+        </div>
+      </div>
+
     } @else {
+      
+      <a routerLink="/">
+        <div class="header-logo">
+          <app-main-logo></app-main-logo>
+        </div>
+      </a>
       <input type="text" class="header__search-input header__search-input_mob">
     }
     <div class="header-phone">
-      <app-phone-icon></app-phone-icon>
+      <!-- <app-phone-icon></app-phone-icon> -->
       @if (DevType.devType !== 'mobile') {
-        <a href="tel:+7 999 999-99-99" class="header-phone__link">+7 999 999 99 99</a>  
+        <!-- <a href="tel:+7 999 999-99-99" class="header-phone__link">+7 999 999 99 99</a>   -->
       }
       
       @if (DevType.devType === 'desktop') {
-        <button mat-button color="primary" (click)="OpenDialog()"><p class="header-phone__text">Вам перезвонить?</p></button>
+        <!-- <button mat-button color="primary" (click)="OpenDialog()"><p class="header-phone__text">Вам перезвонить?</p></button> -->
       }
     </div>
     @if (DevType.devType !== 'desktop') {
@@ -52,8 +80,10 @@
       <button class="header-middle__button" routerLink="/catalog"> <app-tripple-point></app-tripple-point>Каталог товаров</button>
       <input type="text" placeholder="Поиск по каталогу товаров" class="header__search-input">
       <app-heart-icon></app-heart-icon>
-      <app-compare-icon></app-compare-icon>
-      <button class="header-middle__cart-button" routerLink="/cart">
+      <div (click)="dialogService.openDialog('credit')">
+        <app-compare-icon></app-compare-icon>
+      </div>
+      <button class="header-middle__cart-button" (click)="dialogService.openDialog('basket')">
         <app-cart-icon></app-cart-icon>
         в корзине
         <div class="header-middle__cart-button__counter">1</div>

@@ -10,6 +10,7 @@ import { CartIconComponent } from '../svg_components/cart-icon/cart-icon.compone
 import { HeaderBottomComponent } from '../header-bottom/header-bottom.component';
 import { BottomBarComponent } from '../bottom-bar/bottom-bar.component';
 import { DevTypeService } from '../../services/dev-type.service';
+import { DialogDispatcherService } from '../../services/dialog-dispatcher.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CallbackModalComponent } from '../callback-modal/callback-modal.component';
 
@@ -35,6 +36,7 @@ import { CallbackModalComponent } from '../callback-modal/callback-modal.compone
   styleUrl: './header-elem.component.css'
 })
 export class HeaderElemComponent implements OnInit {
+
 
   public topNavItems: any[] = [
     {
@@ -76,6 +78,7 @@ export class HeaderElemComponent implements OnInit {
   }
 
   public DevType = inject(DevTypeService);
+  public dialogService= inject(DialogDispatcherService);
   
 
   ngOnInit(): void {
