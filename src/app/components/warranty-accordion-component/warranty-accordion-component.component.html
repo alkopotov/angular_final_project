@@ -13,7 +13,6 @@
         <div class="accordion-item-header" (click)="accordionItem.toggle()">
           {{ item }}
           <span class="accordion-item-description">
-        <!-- {{ accordionItem.expanded ? '>' : '<' }} -->
             >
           </span>
         </div>
@@ -23,13 +22,9 @@
           [style.display]="accordionItem.expanded ? '' : 'none'"
           [attr.id]="'accordion-body-' + index"
           [attr.aria-labelledby]="'accordion-header-' + index">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis
-          excepturi incidunt ipsum deleniti labore, tempore non nam doloribus blanditiis
-          veritatis illo autem iure aliquid ullam rem tenetur deserunt velit culpa?
+          {{ text }}
         </div>
       </cdk-accordion-item>
     }
   </cdk-accordion>
 </div>
-
-

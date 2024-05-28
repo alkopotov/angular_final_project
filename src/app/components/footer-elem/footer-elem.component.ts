@@ -14,7 +14,7 @@ export class FooterElemComponent {
 
   public routerLinks: any[] = [
     {
-      link: '/guarantee',
+      link: '/warranty',
       title: 'Гарантия'
     },
     {

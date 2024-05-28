@@ -5,7 +5,6 @@
 
 }
 
-
 .accordion-item[aria-expanded="true"] > 
 .accordion-item-header > 
 .accordion-item-description{
@@ -17,7 +16,7 @@
 .accordion {
     display: block;
     margin: auto;
-    width: 1200px;
+    max-width: 1200px;
   }
   
   .accordion-item {
@@ -56,4 +55,30 @@
   .accordion-item-header:hover {
     cursor: pointer;
   }
-  
+  @media (max-width: 1200px ){
+    .accordion {
+      width: 720px;
+    }
+    .accordion-item-body{
+      padding: 0 40px 24px 40px;
+    }
+}
+
+
+@media (max-width: 720px ){
+  .accordion {
+    width: 420px;
+  }
+  .accordion-item-body{
+    padding: 0 40px 24px 40px;
+  }
+}
+
+@media (max-width: 420px ){
+  .accordion {
+    width: 288px;
+  }
+  .accordion-item-body{
+    padding: 0 40px 24px 40px;
+  }
+}

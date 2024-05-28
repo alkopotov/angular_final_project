@@ -42,6 +42,7 @@
     background-color: #0071E4;
     color: #fff;
     border: none;
+    font-size: 16px;
 }
 
 .callback_dialog__close-button{
@@ -72,3 +73,45 @@
 .callback_dialog__close-button::after {
     transform: translate(-50%, -50%) rotate(-45deg);
   }
+
+
+  @media (max-width: 560px) {
+    .callback_dialog {
+        width: 90%; 
+        height: auto;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .callback_dialog__header {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .callback_dialog__paragraph {
+        font-size: 16px; 
+        text-align: center;
+    }
+
+    .callback_dialog__input,
+    .callback_dialog__accept-button {
+        width: 80%; 
+        height: 48px; 
+        font-size: 16px; 
+    }
+
+    .callback_dialog__input::placeholder {
+        font-size: 16px; 
+        padding: 10px 0 10px 20px; 
+    }
+
+    .callback_dialog__close-button {
+        top: 16px;
+        right: 16px;
+    }
+
+    .callback_dialog__close-button::before,
+    .callback_dialog__close-button::after {
+        width: 12px;
+    }
+}
