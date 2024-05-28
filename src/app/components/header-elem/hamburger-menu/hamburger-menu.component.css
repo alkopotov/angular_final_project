@@ -1,0 +1,124 @@
+.header-nav__list {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.hamburger-memu {
+  position: relative;
+  width: 16px;
+  height: 12px;
+}
+
+.header-nav__item {
+  list-style-type: none;
+}
+
+.header-nav__title{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--01-color-black);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.48px;
+  text-align: left;
+}
+
+.header-nav__title.active { 
+  color: var(--prime-color-blue);
+  border-bottom: 2px solid var(--prime-color-blue);
+}
+
+.header-nav__title_accented{
+  background-color: #FDEFBF;
+  padding: 2px 8px 2px 4px;
+  border-radius: 8px;
+}
+
+.header-nav__link {
+  text-decoration: none;
+  color: var(--01-color-black);
+}
+
+.header-nav__socials {
+  display: flex;
+  gap: 8px;
+}
+
+.hamburger-memu span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #000;
+  transition: opacity .2s ease-in-out,
+              transform .2s ease-in-out,
+              bottom .2s ease-in-out,
+              background-color .2s ease-in-out,
+              border-radius .2s ease-in-out;
+}
+
+.hamburger-memu span:nth-child(2) {
+  bottom: 50%;
+  transform: translateY(50%);
+}
+
+.hamburger-memu span:last-child {
+  bottom: 0;
+}
+
+.hamburger-memu.active span {
+  background-color: var(--prime-color-blue);
+}
+
+.hamburger-memu.active span:nth-child(1) {
+  bottom: 50%;
+  transform: translateY(50%) rotate(-45deg);
+  border-radius: 50px;
+}
+
+.hamburger-memu.active span:nth-child(2) {
+  bottom: 50%;
+  transform: translateY(50%) rotate(-45deg);
+  opacity: 0;
+  border-radius: 50px;
+}
+
+.hamburger-memu.active span:last-child {
+  bottom: 50%;
+  transform: translateY(50%) rotate(45deg);
+  border-radius: 50px;
+}
+
+@media screen and (max-width: 1280px) {
+  .header-nav__list {
+    display: none;
+    overflow: hidden;
+    background: #FFF;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    min-height: 0;
+    transition: all .2s ease-in-out;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .header-nav__list.active {
+    display: flex;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 40px;
+    padding: 25px;
+    flex-wrap: wrap;
+    min-height: 50px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header-nav__list {
+    flex-direction: column;
+    align-items: self-start;
+    gap: 8px;
+  }
+}
