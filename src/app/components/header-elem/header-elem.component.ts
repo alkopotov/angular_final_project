@@ -45,6 +45,10 @@ export class HeaderElemComponent implements OnInit {
       before: 'assets/icons/fire_icon.svg',
     },
     {
+      title: 'Гарантия',
+      link: '/warranty'
+    },
+    {
       title: 'Политика возврата',
       link: '/returns',
     },
