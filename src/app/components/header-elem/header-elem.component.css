@@ -16,39 +16,10 @@
 .header-logo {
   width: 36px;
 }
-.header-nav__list{
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
 
-.header-nav__link, .header-phone__link{
+.header-phone__link{
   text-decoration: none;
   color: var(--01-color-black);
-}
-.header-nav__item {
-  list-style-type: none;
-}
-.header-nav__title{
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  color: var(--01-color-black);
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 21.48px;
-  text-align: left;
-}
-
-.header-nav__title.active { 
-  color: var(--prime-color-blue);
-  border-bottom: 2px solid var(--prime-color-blue);
-}
-
-.header-nav__title_accented{
-  background-color: #FDEFBF;
-  padding: 2px 8px 2px 4px;
-  border-radius: 8px;
 }
 
 .header-phone{
