@@ -1,0 +1,25 @@
+<div class="credit_info">
+    <div class="credit_info__small-blocks">    
+        @for(block of blocks; track $index){ 
+        <div class="credit_info__small-block">
+            <h2 class="credit_info__small-block_header">{{ block.header }}</h2>
+            <p class="credit_info__small-block_paragraph">{{ block.paragraph }}</p>
+
+        </div>}
+    </div>
+    <div class="credit_info__questionnaire-block">
+        <div class="credit_info__questionnaire-block_buttoned">
+            <img class="credit_info__questionnaire-block_buttoned-image" src="assets/images/credit-info/person.png" alt="">
+            <div class="credit_info__questionnaire-block_buttoned-text">
+        <h2 class="credit_info__questionnaire-block_buttoned-header">Заполните одну короткую анкету и получите ответ от более 10 банков-партнеров</h2>
+        <button class="credit_info__questionnaire-block_buttoned-button">заполнить анкету</button>
+        </div>
+            </div>
+
+        <div class="credit_info__questionnaire-block_feedback">
+        <img class="thumb_up" src="assets/images/credit-info/thumbs_up.svg" alt="">
+        <p class="credit_info__questionnaire-block_feedback-paragraph">Предварительно с вами свяжется сотрудник нашего магазина
+            и ответит на все ваши вопросы связанными с покупкой в кредит</p>
+        </div>
+    </div>
+</div>

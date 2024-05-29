@@ -5,6 +5,7 @@ import { RefundPageComponent } from './pages/refund-page/refund-page.component';
 import { DeliveryPageComponent } from './pages/delivery-page/delivery-page.component';
 import { ContactsPageComponent } from './pages/contacts-page/contacts-page.component';
 import { WarrantyPageComponent } from './pages/warranty-page/warranty-page.component';
+import { CreditPageComponent } from './pages/credit-page/credit-page.component';
 
 export const routes: Routes = [ 
   { path: '', component: MainPageComponent },
@@ -12,5 +13,6 @@ export const routes: Routes = [
   { path: 'delivery', component: DeliveryPageComponent },
   { path: 'contacts', component:ContactsPageComponent },
   { path: 'warranty', component: WarrantyPageComponent },
-  { path: '**', component: NotFoundPageComponent } 
+  { path: 'credit', component: CreditPageComponent },
+  { path: '**', component: NotFoundPageComponent },
 ];
