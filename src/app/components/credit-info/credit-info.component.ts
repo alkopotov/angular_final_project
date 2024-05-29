@@ -26,6 +26,6 @@ export class CreditInfoComponent {
       header: 'Без скрытых платежей',
       paragraph: 'плата за рассрочку заранее включена в стоимость товаров ',
 
-    }
+    } 
   ];
 }
