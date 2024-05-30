@@ -1,0 +1,14 @@
+.dark {
+  color: #FFAD31;
+  ;
+}
+
+.light {
+  color: #DBDBDB;
+  ;
+}
+
+.rating {
+  display: flex;
+  gap: 1px;
+} 
