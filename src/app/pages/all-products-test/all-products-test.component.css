@@ -1,0 +1,18 @@
+.test_list{
+    display: flex;
+    width: 1200px;
+    flex-flow: row wrap;
+    gap: 10px;
+    margin: 10px auto;
+}
+.list_card{
+    display: flex;
+    width: 250px;
+    height: 300px;
+    flex-direction: column;
+}
+
+.card_image{
+    width: 200px;
+    height: 200px;
+}
