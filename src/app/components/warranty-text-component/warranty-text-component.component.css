@@ -1,0 +1,154 @@
+.warranty_text_area{
+    width: 100%;   
+}
+.warranty_text_container{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+
+.warranty_text{
+    margin: 24px 0px;
+}
+
+.warranty_text__header{
+    font-size: 40px;
+    font-weight: 500;
+}
+
+
+.warranty_text__paragraph{
+    margin: 16px 0 0;
+    width: 792px;
+    color:  #585656;
+    font-weight: 400;
+}
+
+.warranty_text__side-header{
+    width: 791px;
+    font-size: 24px;
+    font-weight: 500;
+
+}
+
+.warranty_button{
+    border-radius: 8px;
+    font-size: 16px;
+    border: none;
+    background-color: #0071E4;
+    color: white;
+    margin: 16px 0 40px;
+    width: 178px;
+    height: 56px;
+    font-weight: 500;
+}
+
+
+@media (max-width: 1200px ){
+    .warranty_text_area{
+        width: 100%;   
+    }
+    .warranty_text_container{
+        width: 720px;
+        margin: 0 auto;
+    }
+    
+    
+    .warranty_text{
+        width: 720px;
+    }
+    
+    .warranty_text__header{
+        width: 720px;
+        font-size: 32px;
+    }
+    
+    
+    .warranty_text__paragraph{
+        width: 720px;
+    }
+    
+    .warranty_text__side-header{
+        width: 720px;
+        font-size: 20px;
+    }
+    
+    .warranty_button{
+        font-size: 16px;
+        font-weight: 500;
+    }
+    
+}
+
+@media (max-width: 720px ){
+    .warranty_text_area{
+        width: 100%;   
+    }
+    .warranty_text_container{
+        width: 420px;
+        margin: 0 auto;
+    }
+    
+    
+    .warranty_text{
+        width: 420px;
+    }
+    
+    .warranty_text__header{
+        width: 420px;
+        font-size: 32px;
+    }
+    
+    
+    .warranty_text__paragraph{
+        width: 420px;
+    }
+    
+    .warranty_text__side-header{
+        width: 420px;
+        font-size: 20px;
+    }
+    
+    .warranty_button{
+        font-size: 16px;
+        font-weight: 500;
+    }
+    
+}
+
+@media (max-width: 420px ){
+    .warranty_text_area{
+        width: 100%;   
+    }
+    .warranty_text_container{
+        width: 280px;
+        margin: 0 auto;
+    }
+    
+    
+    .warranty_text{
+        width: 288px;
+    }
+    
+    .warranty_text__header{
+        width: 288px;
+        font-size: 24px;
+    }
+    
+    
+    .warranty_text__paragraph{
+        width: 288px;
+    }
+    
+    .warranty_text__side-header{
+        width: 288px;
+        font-size: 16px;
+    }
+    
+    .warranty_button{
+        width: 100%;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    
+}

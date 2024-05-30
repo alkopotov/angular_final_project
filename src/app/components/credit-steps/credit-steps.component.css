@@ -1,0 +1,71 @@
+.steps_container{
+    width: 1200px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.steps_header{
+    color: #0071E4;
+    size: 32px;
+    font-weight: 700;
+}
+
+.steps_blocks {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: 1200px;
+    margin: 30px auto;
+    padding: 20px 0;
+  }
+  
+  .steps_block {
+    width: 288px;
+    height: 174px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+  }
+  
+  .steps_block-step_number{
+    width: 64px;
+    height: 64px;
+    background-color: #F3F8FF;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: #0071E4;
+    font-weight: 700;
+  }
+  .steps_block-step_text{
+    text-align: center;
+    margin-top: 14px;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .steps_block:nth-child(2)>.steps_block-step_text{
+    margin: 0;
+  }
+
+
+  .line {
+    position: absolute;
+    top: 80px;
+    width: 961px;
+    left: 120px;
+    right: 0;
+    height: 4px;
+    background-color: #F3F8FF;
+    z-index: -1;
+  }

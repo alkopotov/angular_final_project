@@ -52,7 +52,7 @@ export class BannerAdvantagesComponent {
       title: 'Гарантия',
       text: 'Все товары, представленные в нашем сайте, имеют гарантию от нашего магазина или компании Apple',
       image: 'assets/images/banner-advantages/img_5.png',
-      link: '/credit',
+      link: '/warranty',
       topColor: '#ADFFC1',
       bottomColor: '#F2F2F2',
     }

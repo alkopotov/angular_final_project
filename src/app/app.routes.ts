@@ -4,11 +4,19 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 import { RefundPageComponent } from './pages/refund-page/refund-page.component';
 import { DeliveryPageComponent } from './pages/delivery-page/delivery-page.component';
 import { ContactsPageComponent } from './pages/contacts-page/contacts-page.component';
+import { WarrantyPageComponent } from './pages/warranty-page/warranty-page.component';
+import { CreditPageComponent } from './pages/credit-page/credit-page.component';
+import { AllProductsTestComponent } from './pages/all-products-test/all-products-test.component';
+import { ProductCardTestComponent } from './pages/product-card-test/product-card-test.component';
 
 export const routes: Routes = [ 
   { path: '', component: MainPageComponent },
   { path: 'returns', component: RefundPageComponent },
   { path: 'delivery', component: DeliveryPageComponent },
   { path: 'contacts', component:ContactsPageComponent },
-  { path: '**', component: NotFoundPageComponent } 
+  { path: 'warranty', component: WarrantyPageComponent },
+  { path: 'credit', component: CreditPageComponent },
+  { path: 'test_all', component: AllProductsTestComponent },
+  { path: 'test_all/:id', component: ProductCardTestComponent },
+  { path: '**', component: NotFoundPageComponent }
 ];

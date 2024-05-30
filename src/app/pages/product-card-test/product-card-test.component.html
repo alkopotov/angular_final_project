@@ -1,0 +1,9 @@
+<p>product-card-test works!</p>
+<h1>
+    {{product.name}}
+</h1>
+    @for (image of product.images; track $index) {
+        <img 
+        [src]="baseUrl+image"
+        alt="">
+    }
