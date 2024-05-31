@@ -107,7 +107,7 @@
   font-weight: 500;
   border-radius: 8px;
   cursor: pointer;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 :host ::ng-deep .product-card__button-available-desktop svg {
@@ -267,5 +267,30 @@
 
   .product-card__available-cheaper, .product-card__available-buy {
     font-size: 14px;
+  }
+
+  :host ::ng-deep .product-card__not-available-title svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .product-card__not-available-title {
+
+    font-size: 14px;
+    justify-content: center;
+    margin-bottom: 2px;
+  }
+
+  .product-card__not-available-description {
+    padding-left: 0;
+    font-size: 14px;
+    line-height: 16.71px;
+    margin-bottom: 8px;
+    text-align: center;
+
+  }
+  .product-card__button-not-available {
+    border: none;
+    height: fit-content;
   }
 }
