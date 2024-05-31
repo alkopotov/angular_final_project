@@ -35,15 +35,15 @@
   height: 268px;
   border-radius: 16px;
   object-fit: contain;
-  margin-top: 9px;
+  margin-top: 16px;
   margin-bottom: 15px;
+  cursor: pointer;
 }
 
 .product-card__available {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 14px;
   color: var(--06-color-gray);
 }
 
@@ -52,7 +52,7 @@
   padding-left: 8px;
   gap: 14px;
   align-items: center;
-  margin-bottom: 9px;
+  margin-bottom: 16px;
   font-size: 16px;
   font-weight: 500;
   line-height: 19.09px;
@@ -79,12 +79,54 @@
   font-weight: 500;
   line-height: 19.09px;
   text-align: left;
+  margin-bottom: 24px;
 }
 
 .product-card__final-price {
   font-size: 32px;
   font-weight: 500;
   color: var(--01-color-black);
+}
+
+.product-card__button-available-desktop {
+  display: flex;
+  align-items: center;
+  background-color: var(--prime-color-blue);
+  border: none;
+  color: white;
+  justify-content: center;
+  gap: 6px;
+  height: 56px;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+:host ::ng-deep .product-card__button-available-desktop svg {
+  margin-top: 5px;
+  width: 24px;
+  height: 24px;
+}
+
+.product-card__available-actions {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.product-card__available-cheaper {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--prime-color-blue);
+  cursor: pointer;
+}
+
+.product-card__available-buy {
+  color: var(--06-color-gray);
+  cursor: pointer;
 }
 
 .product-card__not-available {
@@ -135,4 +177,19 @@
   line-height: 19.09px;
   text-align: center;
   color: var(--prime-color-blue);
+}
+.product-card__available-price-tablet {
+  display: none;
+}
+
+@media (max-width: 1280px) {
+
+  .product-card__available-price-dekstop, .product-card__button-available-desktop {
+    display: none;
+  }
+
+  .product-card__available-price-tablet {
+    display: flex;
+  }
+  
 }

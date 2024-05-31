@@ -12,7 +12,8 @@
     <span>{{getDescription()}}</span>
     }
   </p>
-  <img class="product-card__image" [src]="'http://localhost:1452/' + product.images[0]" [alt]="product.name + ' фото'">
+  <img class="product-card__image" [src]="'http://localhost:1452/' + product.images[0]" [alt]="product.name + ' фото'"
+    [routerLink]="['/products/' + product.id]">
 
   <!-- Нижняя часть карточки в зависимости от наличия продукта в продаже -->
   <div class="product-card__footer">
@@ -43,9 +44,14 @@
       <div class="product-card__available-price-tablet">
         Цена на адаптиве
       </div>
-      <button class="product-card__button-available-desktop">В корзину</button>
-      <div>
-        Хочу дешевле купить в один клик
+      <button class="product-card__button-available-desktop">
+        <app-cart-plus-icon></app-cart-plus-icon>
+        <span>в корзину</span>
+      </button>
+      <div class="product-card__available-actions">
+        <span class="product-card__available-cheaper" (click)="dialogService.openDialog('cheaperForm')">Хочу
+          дешевле</span>
+        <span class="product-card__available-buy" (click)="dialogService.openDialog('oneClick')">Kупить в 1 клик</span>
       </div>
     </div>
 
@@ -60,6 +66,5 @@
     </div>
     }
   </div>
-
 
 </div>

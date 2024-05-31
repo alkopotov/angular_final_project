@@ -5,7 +5,7 @@ import { DialogBasketComponent } from '../components/dialog-basket/dialog-basket
 import { DialogCreditComponent } from '../components/dialog-credit/dialog-credit.component';
 
 
-export type DialogWindowType = 'basket' | 'credit' | 'callback' | 'catalog' | 'addToCart' | 'oneClick';
+export type DialogWindowType = 'basket' | 'credit' | 'callback' | 'catalog' | 'addToCart' | 'oneClick' | 'cheaperForm';
 
 
 @Injectable({
@@ -24,7 +24,8 @@ export class DialogDispatcherService {
     callback: DialogCallbackComponent,
     catalog: null,
     addToCart: null,
-    oneClick: null
+    oneClick: null,
+    cheaperForm: null
   }
   
   public openDialog(dialogWindowType: DialogWindowType): void {
