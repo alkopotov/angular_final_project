@@ -6,14 +6,19 @@
     </div>
     <app-heart-icon></app-heart-icon>
   </div>
-  <p class="product-card__title">{{product.brand + ' ' + product.name}}</p>
-  <p class="product-card__title">
-    @if(product.characteristics.length > 0) {
-    <span>{{getDescription()}}</span>
-    }
-  </p>
-  <img class="product-card__image" [src]="'http://localhost:1452/' + product.images[0]" [alt]="product.name + ' фото'"
+  <div class="product-card__info">
+    <div>
+      <p class="product-card__title">{{product.brand + ' ' + product.name}}</p>
+      <p class="product-card__title">
+        @if(product.characteristics.length > 0) {
+        <span>{{getDescription()}}</span>
+        }
+      </p>
+    </div>
+    <img class="product-card__image" [src]="'http://localhost:1452/' + product.images[0]" [alt]="product.name + ' фото'"
     [routerLink]="['/products/' + product.id]">
+  </div>
+  
 
   <!-- Нижняя часть карточки в зависимости от наличия продукта в продаже -->
   <div class="product-card__footer">
@@ -35,15 +40,28 @@
           }
         </div>
         @if(product.discount_price) {
-        <p class="product-card__final-price">{{product.discount_price | number : '1.0-0' : 'ru-RU'}} ₽</p>
+        <span class="product-card__final-price">{{product.discount_price | number : '1.0-0' : 'ru-RU'}} ₽</span>
         } @else {
-        <p class="product-card__final-price">{{product.price | number : '1.0-0' : 'ru-RU'}} ₽</p>
+        <span class="product-card__final-price">{{product.price | number : '1.0-0' : 'ru-RU'}} ₽</span>
         }
       </div>
 
       <div class="product-card__available-price-tablet">
-        Цена на адаптиве
+        <div class="product-card__initial-price-tablet">
+          @if(product.discount_price) {
+          <p>{{product.price | number : '1.0-0' : 'ru-RU'}} ₽</p>
+          }
+        </div>
+        <button class="product-card__button-available-tablet">
+          @if (product.discount_price) {
+            <span class="product-card__final-price-tablet">{{product.discount_price | number : '1.0-0' : 'ru-RU'}} ₽</span>
+          } @else {
+            <span class="product-card__final-price-tablet">{{product.price | number : '1.0-0' : 'ru-RU'}} ₽</span>
+          }
+          <app-cart-plus-icon></app-cart-plus-icon>
+        </button>
       </div>
+
       <button class="product-card__button-available-desktop">
         <app-cart-plus-icon></app-cart-plus-icon>
         <span>в корзину</span>
