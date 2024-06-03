@@ -65,7 +65,7 @@ export class CartStorageService {
     return 0;
   }
 
-  // Считывает из localStorage информацию о продуктах в корзине
+  // Считывает из localStorage в productsInCart информацию о продуктах в корзине
   public getProductsInCartStorage(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.productsInCart = JSON.parse(localStorage.getItem('cart') as string) || {};
