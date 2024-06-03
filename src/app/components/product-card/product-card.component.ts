@@ -10,6 +10,7 @@ import { DecimalPipe, registerLocaleData } from '@angular/common';
 import { CartPlusIconComponent } from '../svg_components/cart-plus-icon/cart-plus-icon.component';
 import { RouterLink } from '@angular/router';
 import { DialogDispatcherService } from '../../services/dialog-dispatcher.service';
+import { CartStorageService } from '../../services/cart-storage.service';
 
 
 registerLocaleData(localeRu, 'ru-RU', localeRuExtra);
@@ -22,6 +23,8 @@ registerLocaleData(localeRu, 'ru-RU', localeRuExtra);
 })
 export class ProductCardComponent {
 
+  constructor(public cartStorageService: CartStorageService) { }
+  
   @Input() product: Product;
 
   faCircle = faCircle;

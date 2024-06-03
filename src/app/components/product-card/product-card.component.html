@@ -62,7 +62,7 @@
         </button>
       </div>
 
-      <button class="product-card__button-available-desktop">
+      <button class="product-card__button-available-desktop" (click)="cartStorageService.saveToCart(product.id, 1)">
         <app-cart-plus-icon></app-cart-plus-icon>
         <span>в корзину</span>
       </button>
