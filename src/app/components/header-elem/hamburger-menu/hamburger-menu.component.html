@@ -1,0 +1,37 @@
+@if (DevType.devType !== 'desktop') {
+<div class="hamburger-memu" [class.active]="burgerIsActive" (click)="toggleBurger()">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+}
+<nav>
+  <ul class="header-nav__list" [class.active]="burgerIsActive">
+    @for(item of navItems; track $index) {
+    <li class="header-nav__item" (click)="handleLinkClick()">
+      <a [routerLink]="item.link" class="header-nav__link">
+        <div [class]="(item.before) ? 'header-nav__title header-nav__title_accented' : 'header-nav__title'"
+          [routerLinkActive]="(item.before) ? '' : 'active'">
+          @if (item.before) {
+          <img src="{{item.before}}" alt="Action icon" />
+          }
+          {{item.title}}
+        </div>
+      </a>
+    </li>
+    }
+    @if (DevType.devType !== 'desktop') {
+    <div class="header-nav__socials">
+      <a>
+        <img src="/assets/icons/whatsapp.svg" alt="whatsapp">
+      </a>
+      <a>
+        <img src="/assets/icons/telegram.svg" alt="telegram">
+      </a>
+      <a>
+        <img src="/assets/icons/vk.svg" alt="vk">
+      </a>
+    </div>
+    }
+  </ul>
+</nav>

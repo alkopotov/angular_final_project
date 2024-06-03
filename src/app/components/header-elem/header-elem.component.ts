@@ -3,16 +3,14 @@ import { MainLogoComponent } from '../svg_components/main-logo/main-logo.compone
 import { PhoneIconComponent } from '../svg_components/phone-icon/phone-icon.component';
 import { HeartIconComponent } from '../svg_components/heart-icon/heart-icon.component';
 import { CompareIconComponent } from '../svg_components/compare-icon/compare-icon.component';
-import { RouterLink, RouterLinkActive } from '@angular/router';
-import { HamburgerMemuComponent } from '../svg_components/hamburger-memu/hamburger-memu.component';
+import { RouterLink } from '@angular/router';
 import { TripplePointComponent } from '../svg_components/tripple-point/tripple-point.component';
 import { CartIconComponent } from '../svg_components/cart-icon/cart-icon.component';
 import { HeaderBottomComponent } from '../header-bottom/header-bottom.component';
 import { BottomBarComponent } from '../bottom-bar/bottom-bar.component';
 import { DevTypeService } from '../../services/dev-type.service';
+import { HamburgerMenuComponent } from './hamburger-menu/hamburger-menu.component';
 import { DialogDispatcherService } from '../../services/dialog-dispatcher.service';
-import { MatDialog } from '@angular/material/dialog';
-import { CallbackModalComponent } from '../callback-modal/callback-modal.component';
 
 
 @Component({
@@ -20,17 +18,15 @@ import { CallbackModalComponent } from '../callback-modal/callback-modal.compone
   standalone: true,
   imports: [
     RouterLink,
-    RouterLinkActive,
     MainLogoComponent,
     PhoneIconComponent,
     HeartIconComponent,
     CompareIconComponent,
-    HamburgerMemuComponent,
+    HamburgerMenuComponent,
     TripplePointComponent,
     CartIconComponent,
     HeaderBottomComponent,
     BottomBarComponent,
-    CallbackModalComponent
   ],
   templateUrl: './header-elem.component.html',
   styleUrl: './header-elem.component.css'
@@ -47,6 +43,10 @@ export class HeaderElemComponent implements OnInit {
       title: 'Акции',
       link: '/sales',
       before: 'assets/icons/fire_icon.svg',
+    },
+    {
+      title: 'Гарантия',
+      link: '/warranty'
     },
     {
       title: 'Политика возврата',
@@ -71,11 +71,13 @@ export class HeaderElemComponent implements OnInit {
   ];
 
 
-  constructor(public dialog: MatDialog){}
+  constructor(
+    // public dialog: MatDialog
+  ){}
   
-  public OpenDialog() {
-    this.dialog.open(CallbackModalComponent, {})
-  }
+  // public OpenDialog() {
+  //   this.dialog.open(CallbackModalComponent, {})
+  // }
 
   public DevType = inject(DevTypeService);
   public dialogService= inject(DialogDispatcherService);

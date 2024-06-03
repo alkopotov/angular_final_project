@@ -1,5 +1,4 @@
 <header class="header-main">
-
   <section class="header-top">
     
     @if(DevType.devType === 'desktop') {
@@ -8,22 +7,7 @@
           <app-main-logo></app-main-logo>
         </div>
       </a>
-      <nav>
-        <ul class="header-nav__list">
-          @for(item of topNavItems; track $index) {
-            <li class="header-nav__item">
-              <a [routerLink]="item.link" class="header-nav__link">   
-                <div [class]="(item.before) ? 'header-nav__title header-nav__title_accented' : 'header-nav__title'" [routerLinkActive]="(item.before) ? '' : 'active'">
-                  @if (item.before) {
-                    <img src="{{item.before}}" alt="Action icon"/>
-                  }
-                  {{item.title}}
-                </div>
-              </a>
-            </li>
-          }
-        </ul>
-    </nav>
+      <app-hamburger-menu [navItems]="topNavItems"></app-hamburger-menu>
     <div class="header-phone">
       <app-phone-icon></app-phone-icon>
       <a href="tel:+7 999 999-99-99" class="header-phone__link">+7 999 999 99 99</a>  
@@ -45,7 +29,7 @@
             <a href="tel:+7 999 999-99-99" class="header-phone__link">+7 999 999 99 99</a>
         </div>
         <div>
-          <app-hamburger-memu></app-hamburger-memu>
+          <app-hamburger-menu [navItems]="topNavItems"></app-hamburger-menu>
         </div>
       </div>
 
@@ -57,20 +41,11 @@
         </div>
       </a>
       <input type="text" class="header__search-input header__search-input_mob">
-    }
-    <div class="header-phone">
-      <!-- <app-phone-icon></app-phone-icon> -->
-      @if (DevType.devType !== 'mobile') {
-        <!-- <a href="tel:+7 999 999-99-99" class="header-phone__link">+7 999 999 99 99</a>   -->
-      }
-      
-      @if (DevType.devType === 'desktop') {
-        <!-- <button mat-button color="primary" (click)="OpenDialog()"><p class="header-phone__text">Вам перезвонить?</p></button> -->
-      }
-    </div>
-    @if (DevType.devType !== 'desktop') {
+      <div class="header-phone" (click)="dialogService.openDialog('credit')">
+        <app-phone-icon></app-phone-icon>
+      </div>
       <div>
-        <app-hamburger-memu></app-hamburger-memu>
+        <app-hamburger-menu [navItems]="topNavItems"></app-hamburger-menu>
       </div>
     }
   </section>

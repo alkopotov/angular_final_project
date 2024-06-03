@@ -1,5 +1,8 @@
 <div class="test_list">
-@for(product of products; track $index){ 
+    <input type="text" placeholder="Filter by name" [(ngModel)]="productService.searchQuery">
+    <div>
+    </div>
+@for(product of productService.computedProducts(); track product.id){ 
     <div (click)="goToProductCard(product.id)" class="list_card">
         <h2 class="credit_info__small-block_header">{{ product.name }}</h2>
         <p>{{product.id}}</p>
