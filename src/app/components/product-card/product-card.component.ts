@@ -11,13 +11,14 @@ import { CartPlusIconComponent } from '../svg_components/cart-plus-icon/cart-plu
 import { RouterLink } from '@angular/router';
 import { DialogDispatcherService } from '../../services/dialog-dispatcher.service';
 import { CartStorageService } from '../../services/cart-storage.service';
+import { CartInIconComponent } from '../svg_components/cart-in-icon/cart-in-icon.component';
 
 
 registerLocaleData(localeRu, 'ru-RU', localeRuExtra);
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [HeartIconComponent, RatingComponent, FontAwesomeModule, DecimalPipe, CartPlusIconComponent, RouterLink],
+  imports: [HeartIconComponent, RatingComponent, FontAwesomeModule, DecimalPipe, CartPlusIconComponent, RouterLink, CartInIconComponent],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.css'
 })

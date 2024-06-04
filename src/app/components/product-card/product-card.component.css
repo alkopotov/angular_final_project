@@ -110,6 +110,12 @@
   margin-bottom: 12px;
 }
 
+.product-card__button-available-desktop__incart {
+  background-color: var(--cart-color-green);
+  cursor: not-allowed;
+
+}
+
 :host ::ng-deep .product-card__button-available-desktop svg {
   margin-top: 5px;
   width: 24px;
@@ -252,6 +258,11 @@
     border-radius: 8px;
     cursor: pointer;
     margin-bottom: 8px;
+  }
+
+  .product-card__button-available-tablet__incart {
+    background-color: var(--cart-color-green);
+    cursor: not-allowed;
   }
 
   :host ::ng-deep .product-card__button-available-tablet svg {

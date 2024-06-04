@@ -52,24 +52,40 @@
           <p>{{product.price | number : '1.0-0' : 'ru-RU'}} ₽</p>
           }
         </div>
-        <button class="product-card__button-available-tablet">
-          @if (product.discount_price) {
-            <span class="product-card__final-price-tablet">{{product.discount_price | number : '1.0-0' : 'ru-RU'}} ₽</span>
-          } @else {
-            <span class="product-card__final-price-tablet">{{product.price | number : '1.0-0' : 'ru-RU'}} ₽</span>
-          }
-          <app-cart-plus-icon></app-cart-plus-icon>
-        </button>
-      </div>
-
-      <button class="product-card__button-available-desktop" (click)="cartStorageService.saveToCart(product.id, 1)">
-        <app-cart-plus-icon></app-cart-plus-icon>
         @if(cartStorageService.hasProductWithId(product.id)) {
-        <span>в корзине</span>
+          <button class="product-card__button-available-tablet product-card__button-available-tablet__incart">
+            @if (product.discount_price) {
+              <span class="product-card__final-price-tablet">{{product.discount_price | number : '1.0-0' : 'ru-RU'}} ₽</span>
+            } @else {
+              <span class="product-card__final-price-tablet">{{product.price | number : '1.0-0' : 'ru-RU'}} ₽</span>
+            }
+            <app-cart-in-icon></app-cart-in-icon>
+          </button>
         } @else {
-          <span>в корзину</span>
+          <button class="product-card__button-available-tablet">
+            @if (product.discount_price) {
+              <span class="product-card__final-price-tablet">{{product.discount_price | number : '1.0-0' : 'ru-RU'}} ₽</span>
+            } @else {
+              <span class="product-card__final-price-tablet">{{product.price | number : '1.0-0' : 'ru-RU'}} ₽</span>
+            }
+            <app-cart-plus-icon></app-cart-plus-icon>
+          </button>
         }
+
+
+      </div>
+      @if (cartStorageService.hasProductWithId(product.id)) {
+      <button class="product-card__button-available-desktop product-card__button-available-desktop__incart">
+        <app-cart-in-icon></app-cart-in-icon>
+        <span>в корзине</span>
       </button>
+      } @else {
+        <button class="product-card__button-available-desktop" (click)="cartStorageService.saveToCart(product.id, 1)">
+          <app-cart-plus-icon></app-cart-plus-icon>
+            <span>в корзину</span>
+        </button>
+      }
+
       <div class="product-card__available-actions">
         <span class="product-card__available-cheaper" (click)="dialogService.openDialog('cheaperForm')">Хочу
           дешевле</span>
