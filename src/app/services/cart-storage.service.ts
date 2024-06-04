@@ -41,10 +41,10 @@ export class CartStorageService {
   // Удаляет продукт из корзины по заданному id
   public deleteFromCart(id: number): void {
     if (isPlatformBrowser(this.platformId)) {
-      let products = JSON.parse(localStorage.getItem('cart') as string) || {};
-      delete products[`${id}`];
-      localStorage.setItem('cart', JSON.stringify(products));
-      this.productsInCart = products;
+      // let products = JSON.parse(localStorage.getItem('cart') as string) || {};
+      delete this.productsInCart[`${id}`];
+      localStorage.setItem('cart', JSON.stringify(this.productsInCart));
+      // this.productsInCart = products;
     }
   }
 
