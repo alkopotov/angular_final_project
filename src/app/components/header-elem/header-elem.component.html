@@ -60,7 +60,7 @@
       <button class="header-middle__cart-button" (click)="dialogService.openDialog('basket')">
         <app-cart-icon></app-cart-icon>
         в корзине
-        <div class="header-middle__cart-button__counter">1</div>
+        <div class="header-middle__cart-button__counter">{{cartStorageService.itemsCount}}</div>
       </button>
     </section>
 

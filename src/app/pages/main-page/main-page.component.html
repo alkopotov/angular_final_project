@@ -1,4 +1,11 @@
 <app-banner-slider></app-banner-slider>
+@if (products$ | async; as products) {
+  <div class="product-list__wrapper">
+  <app-product-list
+    title="Самое популярное"
+    [products]="products.slice(0, 12)"></app-product-list>
+  </div>
+}
 <app-banner-text></app-banner-text>
 <app-banner-promo></app-banner-promo>
 <app-banner-advantages></app-banner-advantages>

@@ -30,6 +30,7 @@ export class ProductCardTestComponent implements OnInit{
     images: [],
     product_type_id: 1,
     product_types: [],
+    characteristics: [],
   } 
 
   public baseUrl = 'http://localhost:1452/';

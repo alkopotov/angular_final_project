@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderElemComponent } from './components/header-elem/header-elem.component';
 import { FooterElemComponent } from './components/footer-elem/footer-elem.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { CartStorageService } from './services/cart-storage.service';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 
 
-export class AppComponent {
+export class AppComponent implements OnInit {
+  private cartStorageService = inject(CartStorageService);
   title = 'apple_store';
+
+  ngOnInit(): void {
+    this.cartStorageService.getProductsInCartStorage();
+  }
 }

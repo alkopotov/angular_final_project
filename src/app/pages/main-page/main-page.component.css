@@ -1,0 +1,12 @@
+.product-list__wrapper {
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+}
+
+@media (max-width: 1280px) {
+ .product-list__wrapper {
+   max-width: 768px;
+   padding: 0 24px;
+ }
+}

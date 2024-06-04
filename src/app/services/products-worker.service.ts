@@ -20,6 +20,13 @@ export interface Product {
   images: string[],
   product_type_id: number,
   product_types: [],
+  characteristics: Characteristic[],
+}
+
+export interface Characteristic {
+  characteristic: string;
+  unit_type: string;
+  value: string;
 }
 
 export interface Images {
