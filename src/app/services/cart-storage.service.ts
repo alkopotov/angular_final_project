@@ -17,23 +17,23 @@ export class CartStorageService {
     if (isPlatformBrowser(this.platformId)) {
       let products = JSON.parse(localStorage.getItem('cart') as string) || {};
       if (this.hasProductWithId(id)) {
-        if (products[`${id}`] + number <= 0) {
-          delete products[`${id}`];
+        if (this.productsInCart[`${id}`] + number <= 0) {
+          delete this.productsInCart[`${id}`];
         } else {
-          products[`${id}`] += number;
+          this.productsInCart[`${id}`] += number;
         }
       } else {
-        products[`${id}`] = number;
+        this.productsInCart[`${id}`] = number;
       }
-      localStorage.setItem('cart', JSON.stringify(products));
+      localStorage.setItem('cart', JSON.stringify(this.productsInCart));
     }
   }
 
   // Проверяет наличие продукта в корзине по заданному id
   public hasProductWithId(id: number): boolean {
     if (isPlatformBrowser(this.platformId)) {
-      let products = JSON.parse(localStorage.getItem('cart') as string) || {};
-      return Object.keys(products).includes(`${id}`);
+      // let products = JSON.parse(localStorage.getItem('cart') as string) || {};
+      return Object.keys(this.productsInCart).includes(`${id}`);
     }
     return false;
   }
@@ -44,14 +44,15 @@ export class CartStorageService {
       let products = JSON.parse(localStorage.getItem('cart') as string) || {};
       delete products[`${id}`];
       localStorage.setItem('cart', JSON.stringify(products));
+      this.productsInCart = products;
     }
   }
 
   // Возвращает количество товарных позиции в корзине
   public get productsCount(): number {
     if (isPlatformBrowser(this.platformId)) {
-      let products = JSON.parse(localStorage.getItem('cart') as string) || {};
-      return Object.keys(products).length;
+      // let products = JSON.parse(localStorage.getItem('cart') as string) || {};
+      return Object.keys(this.productsInCart).length;
     }
     return 0;
   }
@@ -59,8 +60,8 @@ export class CartStorageService {
  // Возвращает количество единиц товаров в корзине по заданному id
   public get itemsCount(): number {
     if (isPlatformBrowser(this.platformId)) {
-      let products = JSON.parse(localStorage.getItem('cart') as string) || {};
-      return Object.keys(products).reduce((acc, id) => acc + products[`${id}`], 0);
+      // let products = JSON.parse(localStorage.getItem('cart') as string) || {};
+      return Object.keys(this.productsInCart).reduce((acc, id) => acc + this.productsInCart[`${id}`], 0);
     }
     return 0;
   }

@@ -11,6 +11,7 @@ import { BottomBarComponent } from '../bottom-bar/bottom-bar.component';
 import { DevTypeService } from '../../services/dev-type.service';
 import { HamburgerMenuComponent } from './hamburger-menu/hamburger-menu.component';
 import { DialogDispatcherService } from '../../services/dialog-dispatcher.service';
+import { CartStorageService } from '../../services/cart-storage.service';
 
 @Component({
   selector: 'app-header-elem',
@@ -71,6 +72,7 @@ export class HeaderElemComponent implements OnInit {
 
   public DevType = inject(DevTypeService);
   public dialogService= inject(DialogDispatcherService);
+  public cartStorageService = inject(CartStorageService);
   
 
   ngOnInit(): void {

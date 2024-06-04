@@ -64,7 +64,11 @@
 
       <button class="product-card__button-available-desktop" (click)="cartStorageService.saveToCart(product.id, 1)">
         <app-cart-plus-icon></app-cart-plus-icon>
-        <span>в корзину</span>
+        @if(cartStorageService.hasProductWithId(product.id)) {
+        <span>в корзине</span>
+        } @else {
+          <span>в корзину</span>
+        }
       </button>
       <div class="product-card__available-actions">
         <span class="product-card__available-cheaper" (click)="dialogService.openDialog('cheaperForm')">Хочу
