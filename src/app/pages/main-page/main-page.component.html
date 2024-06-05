@@ -8,5 +8,13 @@
 }
 <app-banner-text></app-banner-text>
 <app-banner-promo></app-banner-promo>
+@if (products$ | async; as products) {
+  <div class="product-list__wrapper">
+  <app-product-list
+    title="Новинки"
+    [products]="products.slice(products.length - 12)"></app-product-list>
+  </div>
+}
+
 <app-banner-advantages></app-banner-advantages>
 <app-banner-subscription></app-banner-subscription>
