@@ -1,27 +1,60 @@
+// import { Component, OnInit } from '@angular/core';
+// import { ProductsWorkerService } from '../../services/products-worker.service';
+// import { Product } from '../../services/products-worker.service';
+// import { Router } from '@angular/router';
+// import { FormsModule } from '@angular/forms'; 
+// import { AsyncPipe } from '@angular/common';
+
+
+
+
+// @Component({
+//   selector: 'app-all-products-test',
+//   standalone: true,
+//   imports: [FormsModule, AsyncPipe],
+//   templateUrl: './all-products-test.component.html',
+//   styleUrl: './all-products-test.component.css'
+// })
+// export class AllProductsTestComponent implements OnInit {
+//   public baseUrl = 'http://localhost:1452/'
+//   constructor(public productService: ProductsWorkerService, private router: Router ){}
+//   ngOnInit(): void {
+//     this.productService.getProducts()
+//   }
+//   goToProductCard(id: number) {
+//     this.router.navigate(['/test_all', id]);
+//   }
+// }
+
 import { Component, OnInit } from '@angular/core';
 import { ProductsWorkerService } from '../../services/products-worker.service';
 import { Product } from '../../services/products-worker.service';
 import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms'; 
-import { AsyncPipe } from '@angular/common';
-
-
-
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-all-products-test',
   standalone: true,
-  imports: [FormsModule, AsyncPipe],
+  imports: [FormsModule],
   templateUrl: './all-products-test.component.html',
   styleUrl: './all-products-test.component.css'
 })
 export class AllProductsTestComponent implements OnInit {
-  public baseUrl = 'http://localhost:1452/'
-  constructor(public productService: ProductsWorkerService, private router: Router ){}
+  public baseUrl = 'http://localhost:1452/';
+  public searchQuery = '';
+  public searchResults: Product[] = [];
+
+  constructor(public productService: ProductsWorkerService, private router: Router) {}
+
   ngOnInit(): void {
-    this.productService.getProducts()
+    this.productService.getProducts();
   }
-  goToProductCard(id: number) {
+
+  onSearchInputChange(): void {
+    this.searchResults = this.productService.computedProducts();
+  }
+
+  goToProductCard(id: number): void {
     this.router.navigate(['/test_all', id]);
   }
 }

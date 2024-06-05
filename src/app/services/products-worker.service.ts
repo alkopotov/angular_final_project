@@ -93,9 +93,18 @@ export class ProductsWorkerService {
     }
     else {
       return this.products.filter(el => el.name.toLowerCase().includes(value))
-      .filter(el => el.price <= this.priceVal)}
-    // return this.products$
-
+      .filter(el => el.price <= this.priceVal)
+    }
   }
+
+  // public computedProducts(): Product[] {
+  //   let value = this.searchQuery.toLowerCase();
+  //   if (this.priceVal == 0) {
+  //     return this.products.filter(el => el.name.toLowerCase().includes(value));
+  //   } else {
+  //     return this.products.filter(el => el.name.toLowerCase().includes(value))
+  //       .filter(el => el.price <= this.priceVal);
+  //   }
+  // }
 
 }

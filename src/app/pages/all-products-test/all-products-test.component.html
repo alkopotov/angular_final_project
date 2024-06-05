@@ -1,11 +1,33 @@
 <div class="test_list">
     <input type="text" placeholder="Filter by name" [(ngModel)]="productService.searchQuery">
-    <div>
-    </div>
-@for(product of productService.computedProducts(); track product.id){ 
+    <div class="test_list">
+    @if(productService.searchQuery !== ''){
+
+    
+    @for(product of productService.computedProducts(); track product.id){ 
     <div (click)="goToProductCard(product.id)" class="list_card">
         <h2 class="credit_info__small-block_header">{{ product.name }}</h2>
         <p>{{product.id}}</p>
         <img class="card_image" [src]="baseUrl+product.images[0]" alt="">
     </div>}
+    }
+    </div>
 </div>
+
+<!-- <div class="test_list">
+    
+    <input type="text" placeholder="Filter by name" [(ngModel)]="searchQuery" (input)="onSearchInputChange()">
+    <div>
+    @if(searchResults.length > 0) {
+      <div class="search-results">
+        @for(product of searchResults; track product.id) {
+          <div (click)="goToProductCard(product.id)" class="list_card">
+            <h2 class="credit_info__small-block_header">{{ product.name }}</h2>
+            <p>{{product.id}}</p>
+            <img class="card_image" [src]="baseUrl+product.images[0]" alt="">
+          </div>
+        }
+      </div>
+    }
+    </div>
+  </div> -->

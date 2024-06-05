@@ -16,3 +16,32 @@
     width: 200px;
     height: 200px;
 }
+
+
+.test_list {
+    position: relative;
+  }
+  
+  .dropdown {
+    position: absolute;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+  }
+  
+  .dropdown-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .list_card {
+    margin-top: 10px;
+  }
