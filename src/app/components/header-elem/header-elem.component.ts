@@ -81,6 +81,7 @@ export class HeaderElemComponent implements OnInit {
 
   public DevType = inject(DevTypeService);
   public dialogService= inject(DialogDispatcherService);
+  public cartStorageService = inject(CartStorageService);
   
 
   ngOnInit(): void {

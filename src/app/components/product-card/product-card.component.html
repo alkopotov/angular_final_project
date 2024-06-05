@@ -1,0 +1,108 @@
+<div class="product-card">
+  <div class="product-card__header">
+    <div class="product-card__rating">
+      <app-rating [rating]="product.rating"></app-rating>
+      <p class="product-card__reviews">({{product.count_review}})</p>
+    </div>
+    <app-heart-icon></app-heart-icon>
+  </div>
+  <div class="product-card__info">
+    <div>
+      <p class="product-card__title">{{product.brand + ' ' + product.name}}</p>
+      <p class="product-card__title">
+        @if(product.characteristics.length > 0) {
+        <span>{{getDescription()}}</span>
+        }
+      </p>
+    </div>
+    <img class="product-card__image" [src]="'http://localhost:1452/' + product.images[0]" [alt]="product.name + ' фото'"
+    [routerLink]="['/products/' + product.id]">
+  </div>
+  
+
+  <!-- Нижняя часть карточки в зависимости от наличия продукта в продаже -->
+  <div class="product-card__footer">
+    @if(product.is_available) {
+    <div class="product-card__available">
+      <div class="product-card__available-title">
+        <div class="product-card__available-title-point">
+          <fa-icon [icon]="faCircle" class="product-card__point product-card__point_green"></fa-icon>
+          <p>Есть в наличии</p>
+        </div>
+        <p class="product-card__warranty"> Гарантия {{product.guarantee / 12}} год</p>
+      </div>
+
+      <!-- Цена продукта в зависимости от типа устройства -->
+      <div class="product-card__available-price-dekstop">
+        <div class="product-card__initial-price">
+          @if(product.discount_price) {
+          <p>{{product.price | number : '1.0-0' : 'ru-RU'}} ₽</p>
+          }
+        </div>
+        @if(product.discount_price) {
+        <span class="product-card__final-price">{{product.discount_price | number : '1.0-0' : 'ru-RU'}} ₽</span>
+        } @else {
+        <span class="product-card__final-price">{{product.price | number : '1.0-0' : 'ru-RU'}} ₽</span>
+        }
+      </div>
+
+      <div class="product-card__available-price-tablet">
+        <div class="product-card__initial-price-tablet">
+          @if(product.discount_price) {
+          <p>{{product.price | number : '1.0-0' : 'ru-RU'}} ₽</p>
+          }
+        </div>
+        @if(cartStorageService.hasProductWithId(product.id)) {
+          <button class="product-card__button-available-tablet product-card__button-available-tablet__incart">
+            @if (product.discount_price) {
+              <span class="product-card__final-price-tablet">{{product.discount_price | number : '1.0-0' : 'ru-RU'}} ₽</span>
+            } @else {
+              <span class="product-card__final-price-tablet">{{product.price | number : '1.0-0' : 'ru-RU'}} ₽</span>
+            }
+            <app-cart-in-icon></app-cart-in-icon>
+          </button>
+        } @else {
+          <button class="product-card__button-available-tablet" (click)="cartStorageService.saveToCart(product.id, 1)">
+            @if (product.discount_price) {
+              <span class="product-card__final-price-tablet">{{product.discount_price | number : '1.0-0' : 'ru-RU'}} ₽</span>
+            } @else {
+              <span class="product-card__final-price-tablet">{{product.price | number : '1.0-0' : 'ru-RU'}} ₽</span>
+            }
+            <app-cart-plus-icon></app-cart-plus-icon>
+          </button>
+        }
+
+
+      </div>
+      @if (cartStorageService.hasProductWithId(product.id)) {
+      <button class="product-card__button-available-desktop product-card__button-available-desktop__incart">
+        <app-cart-in-icon></app-cart-in-icon>
+        <span>в корзине</span>
+      </button>
+      } @else {
+        <button class="product-card__button-available-desktop" (click)="cartStorageService.saveToCart(product.id, 1)">
+          <app-cart-plus-icon></app-cart-plus-icon>
+            <span>в корзину</span>
+        </button>
+      }
+
+      <div class="product-card__available-actions">
+        <span class="product-card__available-cheaper" (click)="dialogService.openDialog('cheaperForm')">Хочу
+          дешевле</span>
+        <span class="product-card__available-buy" (click)="dialogService.openDialog('oneClick')">Kупить в 1 клик</span>
+      </div>
+    </div>
+
+    } @else {
+    <div class="product-card__not-available">
+      <div class="product-card__not-available-title">
+        <fa-icon [icon]="faCircle" class="product-card__point product-card__point_blue"></fa-icon>
+        <p>Ожидается поступление</p>
+      </div>
+      <p class="product-card__not-available-description"> Мы можем сообщить вам, когда товар появится в наличии</p>
+      <button class="product-card__button-not-available">Cooбщить о поступлении</button>
+    </div>
+    }
+  </div>
+
+</div>
