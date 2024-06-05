@@ -26,7 +26,7 @@ export class ProductCardTestComponent implements OnInit{
     brand: '',
     country: '',
     category_id: 1,
-    category: null, 
+    category: 'null', 
     images: [],
     product_type_id: 1,
     product_types: [],

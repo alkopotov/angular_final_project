@@ -7,18 +7,14 @@
     <app-heart-icon></app-heart-icon>
   </div>
   <div class="product-card__info">
-    <div>
-      <p class="product-card__title">{{product.brand + ' ' + product.name}}</p>
-      <p class="product-card__title">
-        @if(product.characteristics.length > 0) {
-        <span>{{getDescription()}}</span>
-        }
-      </p>
+    <div class="product-card__title">{{product | productName}}</div>
+    <div class="product-card__image-wrapper" routerLink="/products/{{product.id}}">
+      <div class="product-card__image"
+        [style]="'background-image: url(http://localhost:1452/' + product.images[0] + ')'">
+      </div>
     </div>
-    <img class="product-card__image" [src]="'http://localhost:1452/' + product.images[0]" [alt]="product.name + ' фото'"
-    [routerLink]="['/products/' + product.id]">
   </div>
-  
+
 
   <!-- Нижняя часть карточки в зависимости от наличия продукта в продаже -->
   <div class="product-card__footer">
@@ -53,23 +49,25 @@
           }
         </div>
         @if(cartStorageService.hasProductWithId(product.id)) {
-          <button class="product-card__button-available-tablet product-card__button-available-tablet__incart">
-            @if (product.discount_price) {
-              <span class="product-card__final-price-tablet">{{product.discount_price | number : '1.0-0' : 'ru-RU'}} ₽</span>
-            } @else {
-              <span class="product-card__final-price-tablet">{{product.price | number : '1.0-0' : 'ru-RU'}} ₽</span>
-            }
-            <app-cart-in-icon></app-cart-in-icon>
-          </button>
+        <button class="product-card__button-available-tablet product-card__button-available-tablet__incart">
+          @if (product.discount_price) {
+          <span class="product-card__final-price-tablet">{{product.discount_price | number : '1.0-0' : 'ru-RU'}}
+            ₽</span>
+          } @else {
+          <span class="product-card__final-price-tablet">{{product.price | number : '1.0-0' : 'ru-RU'}} ₽</span>
+          }
+          <app-cart-in-icon></app-cart-in-icon>
+        </button>
         } @else {
-          <button class="product-card__button-available-tablet" (click)="cartStorageService.saveToCart(product.id, 1)">
-            @if (product.discount_price) {
-              <span class="product-card__final-price-tablet">{{product.discount_price | number : '1.0-0' : 'ru-RU'}} ₽</span>
-            } @else {
-              <span class="product-card__final-price-tablet">{{product.price | number : '1.0-0' : 'ru-RU'}} ₽</span>
-            }
-            <app-cart-plus-icon></app-cart-plus-icon>
-          </button>
+        <button class="product-card__button-available-tablet" (click)="cartStorageService.saveToCart(product.id, 1)">
+          @if (product.discount_price) {
+          <span class="product-card__final-price-tablet">{{product.discount_price | number : '1.0-0' : 'ru-RU'}}
+            ₽</span>
+          } @else {
+          <span class="product-card__final-price-tablet">{{product.price | number : '1.0-0' : 'ru-RU'}} ₽</span>
+          }
+          <app-cart-plus-icon></app-cart-plus-icon>
+        </button>
         }
 
 
@@ -80,10 +78,10 @@
         <span>в корзине</span>
       </button>
       } @else {
-        <button class="product-card__button-available-desktop" (click)="cartStorageService.saveToCart(product.id, 1)">
-          <app-cart-plus-icon></app-cart-plus-icon>
-            <span>в корзину</span>
-        </button>
+      <button class="product-card__button-available-desktop" (click)="cartStorageService.saveToCart(product.id, 1)">
+        <app-cart-plus-icon></app-cart-plus-icon>
+        <span>в корзину</span>
+      </button>
       }
 
       <div class="product-card__available-actions">

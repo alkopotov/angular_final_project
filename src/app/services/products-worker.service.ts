@@ -16,7 +16,7 @@ export interface Product {
   brand: string,
   country: string,
   category_id: number,
-  category:  Categories | null, 
+  category:  string, 
   images: string[],
   product_type_id: number,
   product_types: [],
