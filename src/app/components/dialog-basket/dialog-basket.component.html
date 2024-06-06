@@ -1,2 +1,20 @@
-<p>dialog-basket works!</p>
-<button (click)="dialogRef.close()">Close</button>
+<section class="dialog-basket">
+  <div class="dialog-basket__close-button" (click)="dialogRef.close()">
+    <app-close-icon></app-close-icon>
+  </div>
+  @if(cartStorageService.itemsCount == 0) {
+  <div class="dialog-basket__empty">
+    <img [src]="emptyImage" alt="Opened box image">
+    <h2 class="dialog-basket__empty-title">В корзине пока ничего нет</h2>
+    <p class="dialog-basket__empty-text">Но вы можете легко это исправить</p>
+    <button class="dialog-basket__empty-button" (click)="handleStartShopping()">начать покупки</button>
+    <h3>Кстати, вы это смотрели</h3>
+  </div>
+  
+  } @else {
+  <p>В корзине {{cartStorageService.itemsCount}} {{cartStorageService.itemsCount == 1 ? 'товар' : 'товара'}} </p>
+  }
+ 
+
+</section>
+

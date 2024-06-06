@@ -10,7 +10,7 @@ export class ProductNamePipe implements PipeTransform {
   transform(value: Product, ...args: unknown[]): string {
     let name: string = value.name.toLowerCase().includes(value.brand.toLowerCase()) ? value.name : `${value.brand} ${value.name}`;
     switch (value.category) {
-      case 'Смартфоны':
+      case 'Смартфоны' || 'Планшеты':
         let memory = value.characteristics.find((characteristic) => characteristic.characteristic === 'Объем встроенной памяти');
         if (memory) {
           return `${name}, ${memory.value} ${memory.unit_type} ${value.color.toLowerCase()}`;
