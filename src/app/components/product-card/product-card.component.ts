@@ -12,26 +12,32 @@ import { RouterLink } from '@angular/router';
 import { DialogDispatcherService } from '../../services/dialog-dispatcher.service';
 import { CartStorageService } from '../../services/cart-storage.service';
 import { CartInIconComponent } from '../svg_components/cart-in-icon/cart-in-icon.component';
-import { ProductNamePipe } from '../../pipes/product-name.pipe';
 
 
 registerLocaleData(localeRu, 'ru-RU', localeRuExtra);
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [HeartIconComponent, RatingComponent, FontAwesomeModule, DecimalPipe, CartPlusIconComponent, RouterLink, CartInIconComponent, ProductNamePipe],
+  imports: [HeartIconComponent, RatingComponent, FontAwesomeModule, DecimalPipe, CartPlusIconComponent, RouterLink, CartInIconComponent],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.css'
 })
 export class ProductCardComponent {
 
   constructor(public cartStorageService: CartStorageService) { }
-
+  
   @Input() product: Product;
 
   faCircle = faCircle;
 
   public dialogService = inject(DialogDispatcherService);
 
+  public getDescription(): string {
+    let memory = this.product.characteristics.find((characteristic) => characteristic.characteristic === 'Объем встроенной памяти');
+    if (memory) {
+      return memory.value + ' ГБ ' + this.product.color.toLowerCase();
+    } else {
+      return this.product.color.toLowerCase();
+    }
+  }
 }
-
