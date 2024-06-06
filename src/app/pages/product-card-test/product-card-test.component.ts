@@ -33,7 +33,9 @@ export class ProductCardTestComponent implements OnInit{
     characteristics: [],
   } 
 
-  public baseUrl = 'http://localhost:1452/';
+
+  // public baseUrl = this.productService.getApiUrl
+  public baseUrl = 'http://localhost:1452'
 
   constructor( private route: ActivatedRoute, private productService: ProductsWorkerService ){}
   
