@@ -11,7 +11,7 @@
                 <p class="product_price">{{product.price | number : '1.0-0' : 'ru-RU'}} ₽</p>
             </div>
         </div>
-        <p class="link_accented" routerLink="/products/{{product.id}}" (click)="goToProductCard(product.id)">Подробнее</p>
+        <p class="link_accented" (click)="goToProductCard(product.id)">Подробнее</p>
     </div>}
     </div>}
 </div> 

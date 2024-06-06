@@ -1,13 +1,21 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { Product, ProductsWorkerService } from './products-worker.service';
+
+
+export interface ProductInCart {
+  product: Product
+  counter: number,
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartStorageService {
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private productService: ProductsWorkerService) { }
 
+  
   public productsInCart: Record<any, number> = {};
 
   // Универсальный метод, изменяющий число продуктов в корзине по заданному id.
@@ -65,6 +73,23 @@ export class CartStorageService {
     }
     return 0;
   }
+
+// Возвращает список товаров в корзине с ценой и количеством
+public get productsInCartList(): ProductInCart[] {
+  return Object.keys(this.productsInCart).map(id => {
+    let product: ProductInCart = {
+      product: this.productService.products.find(product => product.id == +id) as Product,
+      counter: this.productsInCart[`${id}`],
+    }
+    return product;
+    }
+  )
+}
+
+// Возвращает общую стоимость всех позиций в корзине
+public get orderTotalSum(): number {
+  return this.productsInCartList.reduce((acc, product) => acc + (product.product.discount_price || product.product.price) * product.counter, 0);
+}
 
   // Считывает из localStorage в productsInCart информацию о продуктах в корзине
   public getProductsInCartStorage(): void {

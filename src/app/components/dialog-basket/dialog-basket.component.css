@@ -26,7 +26,7 @@
   padding-top: 32px;
 }
 
-.dialog-basket__empty-title {
+.dialog-basket__title {
   margin-top: 24px;
   font-size: 32px;
   font-weight: 700;
@@ -52,4 +52,28 @@
   border: none;
   border-radius: 8px;
   cursor: pointer;
+}
+
+.dialog-basket__content {
+  margin-top: 24px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 4px 1fr;
+}
+
+.dialog-basket__divider {
+  width: 100%;
+  height: 424px;
+  background-color: var(--07-color-gray);
+  background-color: #F5F5F5;
+  border-radius: 3px;
+}
+
+.dialog-basket__product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 16px 8px 24px;
+  overflow-y: scroll;
+  height: 424px;
 }
