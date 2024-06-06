@@ -8,11 +8,11 @@
 }
 <app-banner-text></app-banner-text>
 <app-banner-promo></app-banner-promo>
-@if (products$ | async; as products) {
+@if ((productsWorkerService.products.length > 0)) {
   <div class="product-list__wrapper">
   <app-product-list
     title="Новинки"
-    [products]="products.slice(products.length - 12)"></app-product-list>
+    [products]="productsWorkerService.products.slice(productsWorkerService.products.length - 12)"></app-product-list>
   </div>
 }
 
