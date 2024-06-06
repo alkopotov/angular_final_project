@@ -24,7 +24,9 @@ export class CatalogSearchBarComponent implements OnInit{
   }
 
   hideListOnBlur(): void {
-    this.showList = false;
+    setTimeout(() => {
+      this.showList = false;
+    }, 200);
   }
 
   goToProductCard(id: number) {
