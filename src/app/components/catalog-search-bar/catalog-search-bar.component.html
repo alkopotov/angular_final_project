@@ -2,7 +2,7 @@
     <input class={{classModded}} type="text" placeholder="Filter by name" [(ngModel)]="productService.searchQuery" (focus)="showList = true" (blur)="hideListOnBlur()">
     @if(showList){
     <div class="test_list">
-@for(product of productService.computedProducts() | slice:0:5; track product.id){ 
+@for(product of productService.computedProducts(); track product.id){ 
     <div  class="list_card">
         <div class="card_content">
             <img class="card_image" [src]="baseUrl+product.images[0]" alt="">

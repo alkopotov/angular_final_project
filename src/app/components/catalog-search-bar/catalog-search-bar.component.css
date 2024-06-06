@@ -59,6 +59,8 @@
     display: flex;
     flex-direction: column;
     width: 593px;
+    max-height: 480px;
+    overflow-y: scroll;
     gap: 10px;
     margin: 10px auto;
     background: #ffffff;
