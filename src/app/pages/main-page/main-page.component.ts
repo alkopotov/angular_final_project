@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { BannerAdvantagesComponent } from '../../components/banner-advantages/banner-advantages.component';
 import { BannerPromoComponent } from '../../components/banner-promo/banner-promo.component';
 import { BannerSubscriptionComponent } from '../../components/banner-subscription/banner-subscription.component';
@@ -7,8 +6,7 @@ import { BannerSliderComponent } from '../../components/banner-slider/banner-sli
 import { BannerTextComponent } from '../../components/banner-text/banner-text.component';
 import { ProductListComponent } from '../../components/product-list/product-list.component';
 import { AsyncPipe } from '@angular/common';
-import { Product, ProductsWorkerService } from '../../services/products-worker.service';
-import { Observable } from 'rxjs';
+import { ProductsWorkerService } from '../../services/products-worker.service';
 
 @Component({
   selector: 'app-main-page',
@@ -17,14 +15,9 @@ import { Observable } from 'rxjs';
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.css'
 })
-export class MainPageComponent implements OnInit {
+export class MainPageComponent {
 
-  public products$: Observable<Product[]>;
-  constructor(private productsWorkerService: ProductsWorkerService) { }
 
-  ngOnInit(): void {
-    this.products$ = this.productsWorkerService.getProducts();
-    this.products$.subscribe((products) => {});
-  }
+  constructor(public productsWorkerService: ProductsWorkerService) { }
 
 }

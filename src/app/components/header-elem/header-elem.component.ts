@@ -12,6 +12,7 @@ import { DevTypeService } from '../../services/dev-type.service';
 import { HamburgerMenuComponent } from './hamburger-menu/hamburger-menu.component';
 import { DialogDispatcherService } from '../../services/dialog-dispatcher.service';
 import { CatalogSearchBarComponent } from '../catalog-search-bar/catalog-search-bar.component';
+import { CartStorageService } from '../../services/cart-storage.service';
 
 
 @Component({
@@ -73,9 +74,7 @@ export class HeaderElemComponent implements OnInit {
   ];
 
 
-  constructor(
-    // public dialog: MatDialog
-  ){}
+  constructor(public cartStorageService: CartStorageService){}
   
   // public OpenDialog() {
   //   this.dialog.open(CallbackModalComponent, {})
@@ -83,7 +82,6 @@ export class HeaderElemComponent implements OnInit {
 
   public DevType = inject(DevTypeService);
   public dialogService= inject(DialogDispatcherService);
-  public cartStorageService = inject(CartStorageService);
   
 
   ngOnInit(): void {
