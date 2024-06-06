@@ -63,23 +63,19 @@ export class ProductsWorkerService {
     return this.baseUrl
   }
 
-  public getProducts() :void {
-    fetch(`${this.baseUrl}/api/products/`)
-      .then((res) => res.json())
-      .then(data => this.products = data)
-      .then(() => {
-        this.maxPrice = Math.max(...this.products.map(product => product.price));
-        console.log(this.maxPrice);
-      });
-      console.log(this.maxPrice);
-      
+
+  public get mostPopularProducts(): Product[] {
+    return this.products.sort((a, b) => b.count_review - a.count_review).slice(0, 12);
   }
 
-  public products$: Observable<Product[]>;
 
-  // getProducts(): void {
-  //   this.products$ = this.http.get<Product[]>(`${this.baseUrl}/products/`);
-  // }
+  public getProducts(): void {
+    this.http.get<Product[]>(`${this.baseUrl}/api/products/`).subscribe((products) => {
+      this.products = products;
+    });
+  }
+
+
 
   getOneProduct(id: number): Observable<Product>{
     return this.http.get<Product>(`${this.baseUrl}/api/products/${id}`)
@@ -94,8 +90,6 @@ export class ProductsWorkerService {
     else {
       return this.products.filter(el => el.name.toLowerCase().includes(value))
       .filter(el => el.price <= this.priceVal)}
-    // return this.products$
-
   }
 
 }

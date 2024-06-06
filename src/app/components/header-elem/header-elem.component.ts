@@ -11,6 +11,7 @@ import { BottomBarComponent } from '../bottom-bar/bottom-bar.component';
 import { DevTypeService } from '../../services/dev-type.service';
 import { HamburgerMenuComponent } from './hamburger-menu/hamburger-menu.component';
 import { DialogDispatcherService } from '../../services/dialog-dispatcher.service';
+import { CatalogSearchBarComponent } from '../catalog-search-bar/catalog-search-bar.component';
 
 
 @Component({
@@ -27,6 +28,7 @@ import { DialogDispatcherService } from '../../services/dialog-dispatcher.servic
     CartIconComponent,
     HeaderBottomComponent,
     BottomBarComponent,
+    CatalogSearchBarComponent
   ],
   templateUrl: './header-elem.component.html',
   styleUrl: './header-elem.component.css'
