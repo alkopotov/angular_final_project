@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BannerAdvantagesComponent } from '../../components/banner-advantages/banner-advantages.component';
 import { BannerPromoComponent } from '../../components/banner-promo/banner-promo.component';
 import { BannerSubscriptionComponent } from '../../components/banner-subscription/banner-subscription.component';

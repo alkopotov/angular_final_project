@@ -1,47 +1,46 @@
 import { DialogRef } from '@angular/cdk/dialog';
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { NgIf } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dialog-callback',
   standalone: true,
-  imports: [ ReactiveFormsModule],
+  imports: [ ReactiveFormsModule, NgIf],
   templateUrl: './dialog-callback.component.html',
   styleUrl: './dialog-callback.component.css'
 })
-export class DialogCallbackComponent {
+export class DialogCallbackComponent implements OnInit{
 
-  callbackForm!: FormGroup;
+  callback_form: FormGroup = new FormGroup({
+    number: new FormControl(''),
+  })
 
   constructor(public dialogRef: DialogRef, private fb: FormBuilder) { }
 
-
   ngOnInit(): void {
-    this.callbackForm = this.fb.group({
-      phoneNumber: [+7, [
-        Validators.required,
-        Validators.pattern(/^\+7\s?\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{4}$/)
-      ]]
-    });
+    this.callback_form = this.fb.group({
+      number: new FormControl('', [Validators.required,  Validators.pattern('^\\+7\\s?\\(?[0-9]{3}\\)?[\\s?-]?[0-9]{3}[\\s?-]?[0-9]{4}$')]),
+    })
   }
 
-  get phoneNumber() {
-    return this.callbackForm.get('phoneNumber');
+
+  get number() {
+    return this.callback_form.get('number');
   }
 
-  onSubmit(): void {
-    if (this.callbackForm.valid) {
-      console.log('Форма отправлена', this.callbackForm.value);
-    } else {
-      console.log('Форма не валидна');
+  getErrorMessage() {
+    if (this.number?.hasError('required')) {
+      return 'Введите номер телефона';
     }
+
+    return 'Введите номер телефона в формате +7 (XXX) XXX-XXXX';
   }
 
-  formatPhoneNumber(): void {
-    const input = this.phoneNumber?.value;
 
-    if (input && !input.startsWith('+7')) {
-      this.phoneNumber?.setValue('+7' + input);
+  rejectNonNumeric(event: KeyboardEvent): void {
+    if (event.key && !event.key.match(/^[0-9+\(\)\s]|Backspace$/)) {
+      event.preventDefault();
     }
   }
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map, of, tap } from 'rxjs';
 
 export interface Product { 
   id: number;
@@ -20,43 +20,76 @@ export interface Product {
   images: string[],
   product_type_id: number,
   product_types: [],
-  characteristics: Characteristic[],
-}
-
-export interface Characteristic {
-  characteristic: string;
-  unit_type: string;
-  value: string;
+  charateristics: Characteristics[], 
 }
 
 export interface Images {
   id: number, 
   products: Product,
-  products_id: number
-  image_link: string
+  products_id: number,
+  image_link: string,
 }
 
 
 export interface Categories {
-  id: number
-  name: string
-  products: Product[]
+  id: number,
+  name: string,
+  products: Product[],
 }
 
+
+export interface Characteristics{
+  charateristic: string,
+  unit_type: string,
+  value: string,
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsWorkerService {
-  private baseUrl = 'http://localhost:1452/api';
+  public baseUrl = 'http://localhost:1452';
+  public products: Product[] = [];
+  public searchQuery: string = ''
+  public priceVal = 0
+  public maxPrice = 0
+
+
+
 
   constructor(private http: HttpClient) { }
 
-  getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(`${this.baseUrl}/products/`)
+  getApiUrl(): string {
+    return this.baseUrl
   }
+
+
+  public get mostPopularProducts(): Product[] {
+    return this.products.sort((a, b) => b.count_review - a.count_review).slice(0, 12);
+  }
+
+
+  public getProducts(): void {
+    this.http.get<Product[]>(`${this.baseUrl}/api/products/`).subscribe((products) => {
+      this.products = products;
+    });
+  }
+
+
+
   getOneProduct(id: number): Observable<Product>{
-    return this.http.get<Product>(`${this.baseUrl}/products/${id}`)
+    return this.http.get<Product>(`${this.baseUrl}/api/products/${id}`)
+  }
+
+
+  computedProducts(): Product[] {
+    let value = this.searchQuery.toLowerCase()
+    if (this.priceVal == 0 ){
+      return this.products.filter(el => el.name.toLowerCase().includes(value))
+    }
+    else {
+      return this.products.filter(el => el.name.toLowerCase().includes(value))
+      .filter(el => el.price <= this.priceVal)}
   }
 
 }

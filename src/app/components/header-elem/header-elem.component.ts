@@ -11,7 +11,8 @@ import { BottomBarComponent } from '../bottom-bar/bottom-bar.component';
 import { DevTypeService } from '../../services/dev-type.service';
 import { HamburgerMenuComponent } from './hamburger-menu/hamburger-menu.component';
 import { DialogDispatcherService } from '../../services/dialog-dispatcher.service';
-import { CartStorageService } from '../../services/cart-storage.service';
+import { CatalogSearchBarComponent } from '../catalog-search-bar/catalog-search-bar.component';
+
 
 @Component({
   selector: 'app-header-elem',
@@ -27,6 +28,7 @@ import { CartStorageService } from '../../services/cart-storage.service';
     CartIconComponent,
     HeaderBottomComponent,
     BottomBarComponent,
+    CatalogSearchBarComponent
   ],
   templateUrl: './header-elem.component.html',
   styleUrl: './header-elem.component.css'
@@ -69,6 +71,15 @@ export class HeaderElemComponent implements OnInit {
       link: '/contacts',
     },
   ];
+
+
+  constructor(
+    // public dialog: MatDialog
+  ){}
+  
+  // public OpenDialog() {
+  //   this.dialog.open(CallbackModalComponent, {})
+  // }
 
   public DevType = inject(DevTypeService);
   public dialogService= inject(DialogDispatcherService);

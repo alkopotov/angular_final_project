@@ -1,10 +1,16 @@
-<div class="callback_dialog">
 
-<!-- <p>dialog-callback works!</p> -->
+<div class="callback_dialog">
     <h2 class="callback_dialog__header">Закажите обратный звонок</h2>
-    <p class="callback_dialog__paragraph">Менеджер позвонит вам через 3 минуты</p>
-    <input placeholder="+7" class="callback_dialog__input" type="number" pattern="[+]7[ ]\([0-9]{3}\)[ ]?[0-9]{3}-[0-9]{4}">
-    <!-- <input type="number" pattern="[+]7[ ]\([0-9]{3}\)[ ]?[0-9]{3}-[0-9]{4}" title="Введите номер телефона в формате +7 (XXX) XXX-XXXX"> -->
-    <button class="callback_dialog__accept-button"  (click)="dialogRef.close()">заказать звонок</button>
+    <form class="callback_form" [formGroup]="callback_form">
+        <p class="callback_dialog__paragraph">Менеджер позвонит вам через 3 минуты</p>
+        <input (keydown)="rejectNonNumeric($event)" placeholder="+7" class="callback_dialog__input" type="tel" formControlName="number">
+        <div *ngIf="number?.hasError('required') && number?.touched" class="error">
+            {{ getErrorMessage() }}
+        </div>
+        <div *ngIf="number?.hasError('pattern') && number?.touched" class="error">
+            {{ getErrorMessage() }}
+        </div>
+    <button class="callback_dialog__accept-button" (click)="dialogRef.close()" [disabled]="callback_form.invalid">заказать звонок</button>
+    </form>
     <button class="callback_dialog__close-button" (click)="dialogRef.close()"></button>
 </div>
