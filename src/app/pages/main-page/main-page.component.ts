@@ -22,8 +22,7 @@ export class MainPageComponent implements OnInit {
   constructor(private productsWorkerService: ProductsWorkerService) { }
 
   ngOnInit(): void {
-    this.products$ = this.productsWorkerService.getProducts();
-    this.products$.subscribe((products) => {});
+    this.productsWorkerService.products
   }
 
 }
