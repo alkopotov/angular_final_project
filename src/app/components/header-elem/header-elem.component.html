@@ -20,7 +20,8 @@
             <app-main-logo></app-main-logo>
           </div>
         </a>
-        <input type="text" placeholder="Поиск по каталогу товаров" class="header__search-input header__search-input_tab">
+        <!-- <input type="text" placeholder="Поиск по каталогу товаров" class="header__search-input header__search-input_tab"> -->
+        <app-catalog-search-bar classModded="header__search-input header__search-input_tab"></app-catalog-search-bar>
       </div>
       <div class="header__right-field-tab">
         <div class="header-phone">
@@ -39,7 +40,8 @@
           <app-main-logo></app-main-logo>
         </div>
       </a>
-      <input type="text" class="header__search-input header__search-input_mob">
+      <!-- <input type="text" class="header__search-input header__search-input_mob"> -->
+      <app-catalog-search-bar  classModded="header__search-input header__search-input_mob"></app-catalog-search-bar>
       <div class="header-phone" (click)="dialogService.openDialog('credit')">
         <app-phone-icon></app-phone-icon>
       </div>
@@ -52,7 +54,8 @@
   @if(DevType.devType === 'desktop') {
     <section class="header-middle">
       <button class="header-middle__button" routerLink="/catalog"> <app-tripple-point></app-tripple-point>Каталог товаров</button>
-      <input type="text" placeholder="Поиск по каталогу товаров" class="header__search-input">
+      <!-- <input type="text" placeholder="Поиск по каталогу товаров" class="header__search-input"> -->
+      <app-catalog-search-bar  classModded="header__search-input"></app-catalog-search-bar>
       <app-heart-icon></app-heart-icon>
       <div (click)="dialogService.openDialog('credit')">
         <app-compare-icon></app-compare-icon>
