@@ -1,0 +1,5 @@
+.product-list__cards {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
