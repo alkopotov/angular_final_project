@@ -8,10 +8,10 @@
             <img class="card_image" [src]="baseUrl+product.images[0]" alt="">
             <div class="name_tag">
                 <p class="product_name" class="credit_info__small-block_header">{{ product.name }}</p>
-                <p class="product_price">{{product.price}} ₽</p>
+                <p class="product_price">{{product.price | number : '1.0-0' : 'ru-RU'}} ₽</p>
             </div>
         </div>
-        <p class="link_accented" (click)="goToProductCard(product.id)">Подробнее</p>
+        <p class="link_accented" routerLink="/products/{{product.id}}" (click)="goToProductCard(product.id)">Подробнее</p>
     </div>}
     </div>}
 </div> 
