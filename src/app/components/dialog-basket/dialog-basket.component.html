@@ -22,7 +22,58 @@
       </div>
       <div class="dialog-basket__divider"></div>
       <div class="dialog-basket__order-details">
-        {{cartStorageService.orderTotalSum | number : '1.0-0' : 'ru-RU'}}₽
+        <table class="dialog-basket__order-details-table">
+          <tr>
+            <td class="dialog-basket__order-details-table-text">Доставка:</td>
+            <td class="dialog-basket__order-details-table-text">{{deliveryPrice | number : '1.0-0' : 'ru-RU'}}₽</td>
+          </tr>
+          <tr>
+            <td class="dialog-basket__order-details-table-text">Сумма заказа:</td>
+            <td class="dialog-basket__order-details-table-text">{{cartStorageService.orderTotalSum | number : '1.0-0' : 'ru-RU'}}₽</td>
+          </tr>
+          <tr>
+            <td class="dialog-basket__order-details-table-total">Итого:</td>
+            <td class="dialog-basket__order-details-table-total">{{cartStorageService.orderTotalSum + deliveryPrice | number : '1.0-0' : 'ru-RU'}}₽</td>
+          </tr>
+        </table>
+
+          <label for="payment_method"> Выберите способ оплаты
+            <select name="payment_method" id="payment_method" class="dialog-basket__order-details-payment" [(ngModel)]="currentPayment">
+              @for(payment of paymentOptions; track $index) { 
+              <option value="{{payment}}">{{payment}}</option>
+              }
+            </select>
+          </label>
+
+          <label for="delivery_method">Выберите способ доставки
+            <mat-radio-group id="delivery_method" class="dialog-basket__order-details-delivery" [(ngModel)]="currentDelivery">
+              <mat-radio-button value="Самовывоз">Самовывоз</mat-radio-button>
+              <mat-radio-button value="Доставка" checked>Доставка</mat-radio-button>
+            </mat-radio-group>
+          </label>
+
+          <form action="" class="dialog-basket__order-details-form">
+          @if(currentDelivery == "Доставка") {
+            <label for="" class="dialog-basket__order-details-address">Адрес доставки 
+              <input type="text" placeholder="Город">
+              <input type="text" placeholder="Адрес доставки">
+            </label>
+          } @else {
+            <label for=""> Выберите пункт самовывоза
+              <select name="" id=""></select>
+            </label>
+          }
+            <label for="phone" class="dialog-basket__order-details-phone"> Введите телефон
+              <input id="phone" name="phone" type="text" placeholder=" +7 123 456 78 90">
+            </label>
+            <label for="email" class="dialog-basket__order-details-email"> Введите email
+              <input id="email" name="email" type="text" placeholder="user@domain.com">
+            </label>
+            <input type="submit" value="оформить заказ" class="dialog-basket__order-details-submit">
+          </form>
+          <p class="dialog-basket__order-details-text">либо позвоните или напишите нам</p>
+          <p class="dialog-basket__order-details-phone">+7 (499) 350-66-04</p>
+          <app-social-media-block></app-social-media-block>
       </div>
 
     </section>
