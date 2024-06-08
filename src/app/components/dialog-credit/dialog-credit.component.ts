@@ -1,29 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CloseIconComponent } from '../svg_components/close-icon/close-icon.component';
 import { DialogRef } from '@angular/cdk/dialog';
 import localeRu from '@angular/common/locales/ru';
 import localeRuExtra from '@angular/common/locales/extra/ru';
-import { DecimalPipe } from '@angular/common';
+import { DecimalPipe, registerLocaleData } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
+import { DialogDispatcherService } from '../../services/dialog-dispatcher.service';
+import { Product, ProductsWorkerService } from '../../services/products-worker.service';
+import { ProductNamePipe } from '../../pipes/product-name.pipe';
+
+registerLocaleData(localeRu, 'ru-RU', localeRuExtra);
 
 @Component({
   selector: 'app-dialog-credit',
   standalone: true,
-  imports: [CloseIconComponent, DecimalPipe, FormsModule, MatSliderModule],
+  imports: [CloseIconComponent, DecimalPipe, FormsModule, MatSliderModule, ProductNamePipe],
   templateUrl: './dialog-credit.component.html',
   styleUrl: './dialog-credit.component.css'
 })
-export class DialogCreditComponent {
+export class DialogCreditComponent implements OnInit{
 
-  constructor(public dialogRef: DialogRef) { }
+  constructor(
+    public dialogRef: DialogRef,
+    public dialogDispatcherService: DialogDispatcherService,
+    public productService: ProductsWorkerService
+  ) { }
 
-  public product: any = {
-    title: 'iPhone 14 Pro Max 128GB Green',
-    price: 137900,
-    discountPercentage: 6,
-    image: '/assets/tmp/iphone_for_dialog_credit.png'
-  }
+  public product: Product;
 
   public banks: any[] = [
     {
@@ -51,12 +55,11 @@ export class DialogCreditComponent {
   
 
   public get monthlyPayment(): number {
-
     return this.finalPrice * (+this.interestRate / 100 / 12) * ((1 + +this.interestRate /100 / 12 ) ** this.creditTerm) / ((1 + +this.interestRate / 100 / 12) ** this.creditTerm - 1);
   }
 
     public get finalPrice(): number {
-    return this.product.price * (1 - this.product.discountPercentage / 100);
+    return this.product.discount_price || this.product.price;
   }
 
   public sliderParams: any = {
@@ -68,4 +71,9 @@ export class DialogCreditComponent {
     thumbLabel: true,
   }
 
+  ngOnInit(): void {
+    this.productService.getOneProduct(this.dialogDispatcherService.dialogCreditProductId).subscribe((product: any) => {
+      this.product = product;
+    })
+  }
 }

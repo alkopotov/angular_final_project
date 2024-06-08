@@ -37,6 +37,7 @@
   padding-top: 48px;
   padding-left: 206px;
   padding-right: 26px;
+  padding-bottom: 32px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -77,6 +78,7 @@
   font-weight: 500;
   color: var(--07-color-gray);
   margin-bottom: 8px;
+  padding-right: 26px;
 }
 
 .dialog-credit__product-title {
@@ -254,6 +256,11 @@ datalist option {
 
 
 @media (max-width: 768px) {
+
+  .select-wrapper {
+    width: 250px;
+  }
+
   .dialog-credit {
     width: 310px;
     height: 80vh;

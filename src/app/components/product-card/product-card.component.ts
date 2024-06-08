@@ -33,5 +33,9 @@ export class ProductCardComponent {
 
   public dialogService = inject(DialogDispatcherService);
 
+  public handleOpenCredit(): void {
+    this.dialogService.setDialogCreditProductId(this.product.id);
+    this.dialogService.openDialog('credit');
+  }
 }
 

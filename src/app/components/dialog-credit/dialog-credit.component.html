@@ -2,13 +2,13 @@
   <div class="dialog-credit__close-button" (click)="dialogRef.close()">
     <app-close-icon></app-close-icon>
   </div>
-  <img src="{{product.image}}" alt="{{product.title + ' image'}}"
+  <img src="{{productService.getApiUrl() + '/' + product.images[0]}}" alt="{{product.name + ' image'}}"
     class="dialog-credit__image dialog-credit__image_desk">
   <div class="dialog-credit__content">
-    <img src="{{product.image}}" alt="{{product.title + ' image'}}"
+    <img src="{{productService.getApiUrl() + '/' + product.images[0]}}" alt="{{product.name + ' image'}}"
       class="dialog-credit__image dialog-credit__image_mob">
     <p class="dialog-credit__title">Купить в кредит</p>
-    <h2 class="dialog-credit__product-title">{{product.title}}</h2>
+    <h2 class="dialog-credit__product-title">{{product | productName}}</h2>
     <div class="dialog-credit__prices">
       <p class="dialog-credit__initial-price">{{product.price | number: '1.0-0': 'ru-RU'}}₽</p>
       <h3 class="dialog-credit__final-price">{{finalPrice | number: '1.0-0': 'ru-RU'}}₽</h3>

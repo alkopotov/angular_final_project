@@ -4,7 +4,9 @@
       <app-rating [rating]="product.rating"></app-rating>
       <p class="product-card__reviews">({{product.count_review}})</p>
     </div>
-    <app-heart-icon></app-heart-icon>
+    <div class="product-card__favorit-icon" (click)="handleOpenCredit()">
+      <app-heart-icon></app-heart-icon>
+    </div>
   </div>
   <div class="product-card__info">
     <div class="product-card__title">{{product | productName}}</div>

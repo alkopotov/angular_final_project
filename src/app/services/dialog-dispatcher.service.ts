@@ -12,8 +12,6 @@ export type DialogWindowType = 'basket' | 'credit' | 'callback' | 'catalog' | 'a
   providedIn: 'root'
 })
 
-
-
 export class DialogDispatcherService {
 
   constructor(public dialog: Dialog) { }
@@ -26,6 +24,16 @@ export class DialogDispatcherService {
     addToCart: null,
     oneClick: null,
     cheaperForm: null
+  }
+
+  private _dialogCreditProductId: number = 1;
+
+  public setDialogCreditProductId(id: number): void {
+    this._dialogCreditProductId = id;
+  }
+
+  public get dialogCreditProductId(): number {
+    return this._dialogCreditProductId;
   }
   
   public openDialog(dialogWindowType: DialogWindowType): void {
