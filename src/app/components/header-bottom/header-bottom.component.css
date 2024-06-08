@@ -24,12 +24,14 @@
 
 .header-bottom__button {
   background: linear-gradient(90deg, #000000 22.19%, #5E556B 100%);
+
   color: white;
   height: 64px;
   width: 280px;
   padding-left: 5px;
   display: flex;
   align-items: center;
+  justify-content: space-around;
   border-radius: 8px;
   gap: 11px;
   font-size: 20px;
