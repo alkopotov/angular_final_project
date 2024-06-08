@@ -14,12 +14,14 @@
       <h3 class="dialog-credit__final-price">{{finalPrice | number: '1.0-0': 'ru-RU'}}₽</h3>
     </div>
     <label for="bank" class="dialog-credit__label-bank">Выберите банк
-      <select id="bank" class="dialog-credit__select" [(ngModel)]="interestRate">
-        <option value="18">Любой</option>
-        @for (bank of banks; track $index) {
-        <option value="{{bank.interestRate}}">{{bank.title}}</option>
-        }
-      </select>
+      <div class="select-wrapper">
+        <select id="bank" class="dialog-credit__select" [(ngModel)]="interestRate">
+          <option value="18">Любой</option>
+          @for (bank of banks; track $index) {
+          <option value="{{bank.interestRate}}">{{bank.title}}</option>
+          }
+        </select>
+      </div>
     </label>
     <label for="term" class="dialog-credit__label-term">Срок кредита {{creditTerm}} мес.
       <!-- <input id="term" class="dialog-credit__range" type="range" min="2" max="36" [(ngModel)]="creditTerm"> -->

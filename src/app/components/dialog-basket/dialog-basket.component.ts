@@ -36,6 +36,12 @@ export class DialogBasketComponent {
     'Самовывоз': 0
   }
 
+  public pickupLocations: string[] = [
+    "Москва, Дубининская ул., 96",
+    "Москва, пр-т Мира, 119, стр. 332",
+    "С.-Петербург, Лиговский пр-n, 10/118"
+  ]
+
   public paymentOptions: string[] = [
     "Наличными",
     "Картой",

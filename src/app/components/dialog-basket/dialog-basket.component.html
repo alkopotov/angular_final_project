@@ -38,11 +38,13 @@
         </table>
 
           <label for="payment_method"> Выберите способ оплаты
-            <select name="payment_method" id="payment_method" class="dialog-basket__order-details-payment" [(ngModel)]="currentPayment">
-              @for(payment of paymentOptions; track $index) { 
-              <option value="{{payment}}">{{payment}}</option>
-              }
-            </select>
+            <div class="select-wrapper">
+              <select name="payment_method" id="payment_method" class="dialog-basket__order-details-payment" [(ngModel)]="currentPayment">
+                @for(payment of paymentOptions; track $index) { 
+                <option value="{{payment}}">{{payment}}</option>
+                }
+              </select>
+            </div>
           </label>
 
           <label for="delivery_method">Выберите способ доставки
@@ -59,8 +61,14 @@
               <input type="text" placeholder="Адрес доставки">
             </label>
           } @else {
-            <label for=""> Выберите пункт самовывоза
-              <select name="" id=""></select>
+            <label for="pickup_point"> Выберите пункт самовывоза
+              <div class="select-wrapper">
+                <select class="dialog-basket__order-details-pickup" name="pickup_point" id="pickup_point">
+                  @for(location of pickupLocations; track $index) {
+                    <option value="{{location}}">{{location}}</option>
+                  }
+                </select>
+              </div>
             </label>
           }
             <label for="phone" class="dialog-basket__order-details-phone"> Введите телефон
