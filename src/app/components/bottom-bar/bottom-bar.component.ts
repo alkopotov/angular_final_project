@@ -13,7 +13,5 @@ import { DialogDispatcherService } from '../../services/dialog-dispatcher.servic
   styleUrl: './bottom-bar.component.css'
 })
 export class BottomBarComponent {
-
   public dialogService = inject(DialogDispatcherService);
-
 }
