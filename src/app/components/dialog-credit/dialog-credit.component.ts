@@ -72,7 +72,7 @@ export class DialogCreditComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.productService.getOneProduct(this.dialogDispatcherService.dialogCreditProductId).subscribe((product: any) => {
+    this.productService.getOneProduct(this.dialogDispatcherService.dialogCreditProductId).subscribe((product: Product) => {
       this.product = product;
     })
   }

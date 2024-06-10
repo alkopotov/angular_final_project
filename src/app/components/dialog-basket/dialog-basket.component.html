@@ -4,7 +4,7 @@
   </div>
   @if(cartStorageService.itemsCount == 0) {
   <div class="dialog-basket__empty">
-    <img [src]="emptyImage" alt="Opened box image">
+    <img [src]="emptyImage" alt="Opened box image" class="dialog-basket__empty-image">
     <h2 class="dialog-basket__title">В корзине пока ничего нет</h2>
     <p class="dialog-basket__empty-text">Но вы можете легко это исправить</p>
     <button class="dialog-basket__empty-button" (click)="handleStartShopping()">начать покупки</button>
@@ -80,7 +80,7 @@
             <input type="submit" value="оформить заказ" class="dialog-basket__order-details-submit">
           </form>
           <p class="dialog-basket__order-details-text">либо позвоните или напишите нам</p>
-          <p class="dialog-basket__order-details-phone">+7 (499) 350-66-04</p>
+          <p class="dialog-basket__order-details-phone">+7 499 350-66-04</p>
           <app-social-media-block></app-social-media-block>
       </div>
 

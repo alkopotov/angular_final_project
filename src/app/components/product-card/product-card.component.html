@@ -61,7 +61,7 @@
           <app-cart-in-icon></app-cart-in-icon>
         </button>
         } @else {
-        <button class="product-card__button-available-tablet" (click)="cartStorageService.saveToCart(product.id, 1)">
+        <button class="product-card__button-available-tablet" (click)="handleAddToCart()">
           @if (product.discount_price) {
           <span class="product-card__final-price-tablet">{{product.discount_price | number : '1.0-0' : 'ru-RU'}}
             ₽</span>
@@ -80,7 +80,7 @@
         <span>в корзине</span>
       </button>
       } @else {
-      <button class="product-card__button-available-desktop" (click)="cartStorageService.saveToCart(product.id, 1)">
+      <button class="product-card__button-available-desktop" (click)="handleAddToCart()">
         <app-cart-plus-icon></app-cart-plus-icon>
         <span>в корзину</span>
       </button>

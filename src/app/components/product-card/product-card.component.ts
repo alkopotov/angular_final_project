@@ -37,5 +37,11 @@ export class ProductCardComponent {
     this.dialogService.setDialogCreditProductId(this.product.id);
     this.dialogService.openDialog('credit');
   }
+
+  public handleAddToCart(): void {  
+    this.cartStorageService.saveToCart(this.product.id, 1);
+    this.dialogService.setDialogCreditProductId(this.product.id);
+    this.dialogService.openDialog('productAddedToBasket');
+  }
 }
 

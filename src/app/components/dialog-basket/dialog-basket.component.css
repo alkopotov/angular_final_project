@@ -269,4 +269,23 @@ label {
     font-weight: 500;
   }
 
+  .dialog-basket__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;  
+  }
+  .dialog-basket__empty-button {
+    width: 100%;
+  }
+  .dialog-basket__empty-image {
+    width: 60px;
+    height: 60px;
+  }
+
+  .dialog-basket__empty-title {
+    padding: 0;
+  }
+
 }
