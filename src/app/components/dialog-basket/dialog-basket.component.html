@@ -1,2 +1,91 @@
-<p>dialog-basket works!</p>
-<button (click)="dialogRef.close()">Close</button>
+<main class="dialog-basket">
+  <div class="dialog-basket__close-button" (click)="dialogRef.close()">
+    <app-close-icon></app-close-icon>
+  </div>
+  @if(cartStorageService.itemsCount == 0) {
+  <div class="dialog-basket__empty">
+    <img [src]="emptyImage" alt="Opened box image" class="dialog-basket__empty-image">
+    <h2 class="dialog-basket__title">В корзине пока ничего нет</h2>
+    <p class="dialog-basket__empty-text">Но вы можете легко это исправить</p>
+    <button class="dialog-basket__empty-button" (click)="handleStartShopping()">начать покупки</button>
+    <h3>Кстати, вы это смотрели</h3>
+  </div>
+  
+  } @else {
+
+    <h2 class="dialog-basket__title">Оформление заказа</h2>
+    <section class="dialog-basket__content">
+      <div class="dialog-basket__product-list">
+        @for(product of cartStorageService.productsInCartList; track $index) {
+          <app-basket-product-card [product]="product"></app-basket-product-card>
+        }
+      </div>
+      <div class="dialog-basket__divider"></div>
+      <div class="dialog-basket__order-details">
+        <table class="dialog-basket__order-details-table">
+          <tr>
+            <td class="dialog-basket__order-details-table-text">Доставка:</td>
+            <td class="dialog-basket__order-details-table-text">{{deliveryPrice | number : '1.0-0' : 'ru-RU'}}₽</td>
+          </tr>
+          <tr>
+            <td class="dialog-basket__order-details-table-text">Сумма заказа:</td>
+            <td class="dialog-basket__order-details-table-text">{{cartStorageService.orderTotalSum | number : '1.0-0' : 'ru-RU'}}₽</td>
+          </tr>
+          <tr>
+            <td class="dialog-basket__order-details-table-total">Итого:</td>
+            <td class="dialog-basket__order-details-table-total">{{cartStorageService.orderTotalSum + deliveryPrice | number : '1.0-0' : 'ru-RU'}}₽</td>
+          </tr>
+        </table>
+
+          <label for="payment_method"> Выберите способ оплаты
+            <div class="select-wrapper">
+              <select name="payment_method" id="payment_method" class="dialog-basket__order-details-payment" [(ngModel)]="currentPayment">
+                @for(payment of paymentOptions; track $index) { 
+                <option value="{{payment}}">{{payment}}</option>
+                }
+              </select>
+            </div>
+          </label>
+
+          <label for="delivery_method">Выберите способ доставки
+            <mat-radio-group id="delivery_method" class="dialog-basket__order-details-delivery" [(ngModel)]="currentDelivery">
+              <mat-radio-button value="Самовывоз">Самовывоз</mat-radio-button>
+              <mat-radio-button value="Доставка" checked>Доставка</mat-radio-button>
+            </mat-radio-group>
+          </label>
+
+          <form action="" class="dialog-basket__order-details-form">
+          @if(currentDelivery == "Доставка") {
+            <label for="" class="dialog-basket__order-details-address">Адрес доставки 
+              <input type="text" placeholder="Город">
+              <input type="text" placeholder="Адрес доставки">
+            </label>
+          } @else {
+            <label for="pickup_point"> Выберите пункт самовывоза
+              <div class="select-wrapper">
+                <select class="dialog-basket__order-details-pickup" name="pickup_point" id="pickup_point">
+                  @for(location of pickupLocations; track $index) {
+                    <option value="{{location}}">{{location}}</option>
+                  }
+                </select>
+              </div>
+            </label>
+          }
+            <label for="phone" class="dialog-basket__order-details-phone"> Введите телефон
+              <input id="phone" name="phone" type="text" placeholder=" +7 123 456 78 90">
+            </label>
+            <label for="email" class="dialog-basket__order-details-email"> Введите email
+              <input id="email" name="email" type="text" placeholder="user@domain.com">
+            </label>
+            <input type="submit" value="оформить заказ" class="dialog-basket__order-details-submit">
+          </form>
+          <p class="dialog-basket__order-details-text">либо позвоните или напишите нам</p>
+          <p class="dialog-basket__order-details-phone">+7 499 350-66-04</p>
+          <app-social-media-block></app-social-media-block>
+      </div>
+
+    </section>
+  
+  }
+</main>
+

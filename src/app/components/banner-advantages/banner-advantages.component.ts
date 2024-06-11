@@ -2,8 +2,6 @@ import { Component, HostListener } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 
-
-
 @Component({
   selector: 'app-banner-advantages',
   standalone: true,
@@ -59,12 +57,12 @@ export class BannerAdvantagesComponent {
   ];
 
   public deviceWidth: any;
-  
+
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     this.deviceWidth = event.target.innerWidth;
   }
-  
+
   @HostListener('window:load', ['$event'])
   onLoad(event: any) {
     this.deviceWidth = event.currentTarget.innerWidth;

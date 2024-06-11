@@ -3,7 +3,7 @@
     <app-catalog-icon></app-catalog-icon>
     <p class="bottom-bar__item-title">каталог</p>
   </div>
-  <div class="bottom-bar__item bottom-bar__item_cart">
+  <div class="bottom-bar__item bottom-bar__item_cart" (click)="dialogService.openDialog('basket')">
     <app-cart-icon></app-cart-icon>
     <p class="bottom-bar__item-title">корзина</p>
   </div>
