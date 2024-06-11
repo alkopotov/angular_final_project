@@ -34,14 +34,14 @@ export class ProductCardTestComponent implements OnInit{
   } 
 
 
-  // public baseUrl = this.productService.getApiUrl
-  public baseUrl = 'http://localhost:1452'
+  public baseUrl = this.productService.getApiUrl
+  // public baseUrl = 'http://localhost:1452'
 
   constructor( private route: ActivatedRoute, private productService: ProductsWorkerService ){}
   
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id')) 
-    this.productService.getOneProduct(id).subscribe((product) => {
+    this.productService.getOneProduct(id).subscribe((product: Product) => {
       this.product = product
       console.log(product);
       

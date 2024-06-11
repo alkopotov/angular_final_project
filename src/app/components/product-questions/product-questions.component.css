@@ -1,0 +1,35 @@
+h3 {
+  color: var(--01-color-black);
+}
+
+p {
+  color: var(--07-color-gray);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.questions {
+  background-color: var(--light_grey-color-gray);
+  padding: 24px 0;
+}
+
+.questions-wrap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.questions-wrap-item {
+  background-color: #FFF;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.questions-wrap-item__title {
+  margin-bottom: 8px;
+  font-weight: 500;
+}

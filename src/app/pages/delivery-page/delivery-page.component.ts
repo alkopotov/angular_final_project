@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MapComponent } from '../../components/map/map.component';
 import { RouterLink } from '@angular/router';
+import { SubwayPointComponent } from '../../components/subway-point/subway-point.component';
 
 interface DeliveryAdvantage {
   id: number
@@ -28,7 +29,7 @@ interface PaymentItem {
 @Component({
   selector: 'app-delivery-page',
   standalone: true,
-  imports: [MapComponent, RouterLink],
+  imports: [MapComponent, SubwayPointComponent, RouterLink],
   templateUrl: './delivery-page.component.html',
   styleUrl: './delivery-page.component.css'
 })

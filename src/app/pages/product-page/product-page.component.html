@@ -1,0 +1,108 @@
+<section class="product">
+  <div class="wrapper">
+    <div class="wrapper-imgs">
+      <img class="wrapper-imgs__main" [src]="baseUrl + '/' + product.images[0]" [alt]="product.name">
+    </div>
+    <div class="wrapper-descr">
+      <h1 class="wrapper-descr__title">{{product.name}}</h1>
+      <div class="mini-wrap">
+        <div>
+          <h4 class="mini-wrap__title">Объем памяти</h4>
+          <div class="mini-wrap__memory">
+            <p>Выбор пока не продоставляется бекендом</p>
+          </div>
+          <h4 class="mini-wrap__title">Характеристики</h4>
+          <div class="mini-wrap__characteristics">
+            @for (item of product.characteristics; track $index) {
+            <div class="characteristic-line">
+              <p>{{item.characteristic}}</p>
+              <p>{{item.value}} {{item.unit_type !== "значение" ? item.unit_type : ''}}</p>
+            </div>
+            }
+          </div>
+        </div>
+        <div class="buy">
+          <div class="buy-isAvailable">
+            <div
+              class="buy-isAvailable__indicator"
+              [class.available]="product.is_available"
+              [class.not-available]="!product.is_available"
+            ></div>
+            @if (product.is_available) {
+              <p>в наличии</p>
+            } @else {
+              <p>нету в наличии</p>
+            }
+          </div>
+          @if (product.discount_price !== null) {
+            <p class="buy-discount">{{product.discount_price}}</p>
+          }
+          <p class="buy-price">{{product.price}} ₽</p>
+          <button class="but-btn">Добавить в корзину</button>
+          <p class="buy-one-click">Купить в 1 клик</p>
+          <form class="buy-form" method="post">
+            <input
+              class="buy-form__input-phone"
+              type="tel"
+              name="phone"
+              placeholder="Ваш номер телефона"
+            >
+            <input
+              class="buy-form__buy-btn"
+              type="submit"
+              value="Купить"
+            >
+          </form>
+          <div class="buy-credit">
+            <img src="/assets/images/product-page/credit.svg" alt="Credit Image">
+            <p class="buy-credit__descr">Купить в кредит</p>
+          </div>
+          <div class="buy-credit-wrap">
+            @for (item of deliveryArr; track item.id) {
+              <div class="buy-credit-wrap__item">
+                <img class="buy-credit-wrap__item-img" [src]="item.img" [alt]="item.from">
+                <div>
+                  <h5 class="buy-credit-wrap__item_title">{{ item.from }}</h5>
+                  <p class="buy-credit-wrap__item_descr">{{ item.to }}</p>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-product-receiving></app-product-receiving>
+<app-product-questions></app-product-questions>
+<app-product-advantages></app-product-advantages>
+
+<section class="ear">
+  <div class="ear-title">
+    <img src="/assets/images/product-page/buy/main.png">
+    <div>
+      <h2 class="ear-title__title">
+        Купить Nothing Ear(1)
+      </h2>
+      <p class="ear-title__descr">
+        в наличии в Санкт-Петербурге
+      </p>
+    </div>
+  </div>
+  <div class="ear-wrap">
+    @for (item of earDescrArr; track item.id) {
+      <div class="ear-wrap-block">
+        <img class="ear-wrap-block__img" [src]="item.img" alt="item.title">
+        <div class="ear-wrap-right-block">
+          <h3 class="ear-wrap-right-block__title">
+            {{ item.title }}
+          </h3>
+          <p class="ear-wrap-right-block__descr">
+            {{ item.descr }}
+          </p>
+        </div>
+      </div>
+    }
+  </div>
+</section>
