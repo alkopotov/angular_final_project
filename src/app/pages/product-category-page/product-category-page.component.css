@@ -1,3 +1,15 @@
+.product-category-page__title {
+  padding-left: calc(50vw - 590px);
+}
+
+.product-category-page__chips {
+ max-width: 1200px;
+ width: 100%;
+ margin: auto;
+ margin-top: 24px;
+ margin-bottom: 24px;
+}
+
 .product-category-page-wrapper { 
   display: flex;
   gap: 24px

@@ -35,3 +35,8 @@
   text-align: right;
 }
 
+.filter-elem__label {
+  font-size: 20px;
+  font-weight: 500;
+}
+

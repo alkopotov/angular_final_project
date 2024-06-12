@@ -1,6 +1,6 @@
 <section class="filter-elem">
-  <label for=""> Цена
-  <mat-slider [min]="filterService.minRangeValue" [max]="filterService.maxRangeValue" class="filter-elem__slider">
+  <label for="priceRange" class="filter-elem__label"> Цена
+  <mat-slider name="priceRange" [min]="filterService.minRangeValue" [max]="filterService.maxRangeValue" class="filter-elem__slider">
     <input [(ngModel)]="filterService.minPrice" [value]="filterService.minRangeValue" matSliderStartThumb>
     <input [(ngModel)]="filterService.maxPrice" [value]="filterService.maxRangeValue" matSliderEndThumb>
   </mat-slider>
@@ -14,10 +14,4 @@
     </div>
   </div>
 </label>
-
-
-  <p>{{filterService.categoryFilterValues}}</p>
-  @for(chip of filterService.chipsInCategory; track $index) {
-    <div>{{chip}}</div>
-  }
 </section>

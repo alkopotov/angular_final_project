@@ -4,11 +4,12 @@ import { FilterService } from '../../services/filter.service';
 import { FilterElemComponent } from '../../components/filter-elem/filter-elem.component';
 import { ProductListComponent } from '../../components/product-list/product-list.component';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
+import { CategoryChipsListComponent } from '../../components/category-chips-list/category-chips-list.component';
 
 @Component({
   selector: 'app-product-category-page',
   standalone: true,
-  imports: [FilterElemComponent, ProductListComponent, ProductCardComponent],
+  imports: [FilterElemComponent, ProductListComponent, ProductCardComponent, CategoryChipsListComponent],
   templateUrl: './product-category-page.component.html',
   styleUrl: './product-category-page.component.css'
 })

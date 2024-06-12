@@ -1,5 +1,8 @@
+<h1 class="product-category-page__title">{{filterService.currentCategoryTitle}}</h1>
+<div class="product-category-page__chips">
+  <app-category-chips-list></app-category-chips-list>
+</div>
 <main class="product-category-page-wrapper">
-
   <section class="product-category-page__sidebar">
     <app-filter-elem [category]="routes.snapshot.params['id']"></app-filter-elem>
   </section>
