@@ -1,10 +1,12 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, inject, OnInit, TemplateRef } from '@angular/core';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Product, ProductsWorkerService } from '../../services/products-worker.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { ProductReceivingComponent } from '../../components/product-receiving/product-receiving.component';
 import { ProductQuestionsComponent } from '../../components/product-questions/product-questions.component';
 import { ProductAdvantagesComponent } from '../../components/product-advantages/product-advantages.component';
+import { DecimalPipe } from '@angular/common';
+import { DevTypeService } from '../../services/dev-type.service';
 
 interface DeliveryItem {
   id: number;
@@ -24,6 +26,8 @@ interface EarItem {
   selector: 'app-product-page',
   standalone: true,
   imports: [
+    DecimalPipe,
+    RouterLink,
     ProductReceivingComponent,
     ProductQuestionsComponent,
     ProductAdvantagesComponent
@@ -33,6 +37,7 @@ interface EarItem {
 })
 export class ProductPageComponent implements OnInit {
   public product: Product;
+  public DevType = inject(DevTypeService);
   public deliveryArr: DeliveryItem[] = [
     { id: 1, img: '/assets/images/product-page/delivery/1.svg', from: 'Доставим в Санкт-Петербурге', to: 'сегодня до 15:16' },
     { id: 2, img: '/assets/images/product-page/delivery/2.svg', from: 'Самовывоз', to: 'Лиговский проспект 33/35' },
@@ -47,6 +52,14 @@ export class ProductPageComponent implements OnInit {
   ]
   
   public baseUrl = this.productService.getApiUrl();
+  public getDescription(): string {
+    let memory = this.product.characteristics.find((characteristic) => characteristic.characteristic === 'Объем встроенной памяти');
+    if (memory) {
+      return memory.value + ' ГБ ' + this.product.color.toLowerCase();
+    } else {
+      return this.product.color.toLowerCase();
+    }
+  }
 
   constructor (
     private route: ActivatedRoute,
@@ -56,6 +69,8 @@ export class ProductPageComponent implements OnInit {
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
+
+    this.DevType.getDevType();
 
     this.productService.getOneProduct(id).subscribe((product: Product) => {
       this.product = product;

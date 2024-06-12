@@ -1,10 +1,15 @@
 <section class="product">
+  @if (DevType.devType === 'tablet') {
+    <h1 class="wrapper-descr__title">{{product.brand + ' ' + product.name + ' ' + this.getDescription()}}</h1>
+  }
   <div class="wrapper">
     <div class="wrapper-imgs">
       <img class="wrapper-imgs__main" [src]="baseUrl + '/' + product.images[0]" [alt]="product.name">
     </div>
     <div class="wrapper-descr">
-      <h1 class="wrapper-descr__title">{{product.name}}</h1>
+      @if(DevType.devType === 'desktop') {
+        <h1 class="wrapper-descr__title">{{product.brand + ' ' + product.name + ' ' + this.getDescription()}}</h1>
+      }
       <div class="mini-wrap">
         <div>
           <h4 class="mini-wrap__title">Объем памяти</h4>
@@ -31,13 +36,13 @@
             @if (product.is_available) {
               <p>в наличии</p>
             } @else {
-              <p>нету в наличии</p>
+              <p>нет в наличии</p>
             }
           </div>
           @if (product.discount_price !== null) {
-            <p class="buy-discount">{{product.discount_price}}</p>
+            <p class="buy-discount">{{product.discount_price | number : '1.0-0' : 'ru-RU'}} ₽</p>
           }
-          <p class="buy-price">{{product.price}} ₽</p>
+          <p class="buy-price">{{product.price | number : '1.0-0' : 'ru-RU'}} ₽</p>
           <button class="but-btn">Добавить в корзину</button>
           <p class="buy-one-click">Купить в 1 клик</p>
           <form class="buy-form" method="post">
@@ -106,3 +111,12 @@
     }
   </div>
 </section>
+
+@if (DevType.devType === 'tablet') {
+  <div class="your-product">
+    <img class="your-product__img" [src]="baseUrl + '/' + product.images[0]" [alt]="product.name">
+    <h2 class="your-product__title">{{ product.name }}</h2>
+    <p class="your-product__descr">Уже почти ваш</p>
+    <a class="your-product__link" routerLink="/" href="">Выбрать модель</a>
+  </div>
+}

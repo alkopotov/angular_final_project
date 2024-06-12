@@ -7,7 +7,6 @@ import { ContactsPageComponent } from './pages/contacts-page/contacts-page.compo
 import { WarrantyPageComponent } from './pages/warranty-page/warranty-page.component';
 import { CreditPageComponent } from './pages/credit-page/credit-page.component';
 import { AllProductsTestComponent } from './pages/all-products-test/all-products-test.component';
-import { ProductCardTestComponent } from './pages/product-card-test/product-card-test.component';
 import { ProductPageComponent } from './pages/product-page/product-page.component';
 
 export const routes: Routes = [ 

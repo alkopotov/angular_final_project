@@ -12,8 +12,8 @@ p {
 }
 
 .container {
-  max-width: 1230px;
-  padding: 24px 15px;
+  max-width: 1248px;
+  padding: 24px;
   margin: 0 auto;
 }
 
@@ -54,3 +54,11 @@ p {
   text-decoration: line-through;
   text-decoration-style: dashed;
 }
+
+@media screen and (max-width: 1280px) {
+  .receiving-wrapper {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 768px) {}

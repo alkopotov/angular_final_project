@@ -9,8 +9,8 @@ p {
 }
 
 .product {
-  max-width: 1230px;
-  padding: 0 15px;
+  max-width: 1248px;
+  padding: 0 24px;
   margin: 0 auto;
 }
 
@@ -76,6 +76,12 @@ p {
   border-radius: 16px;
   background-color: rgba(18, 18, 18, 0.02);
   padding: 24px;
+}
+
+.buy-discount {
+  text-decoration: line-through;
+  text-decoration-style: solid;
+  font-size: 20px;
 }
 
 .buy-price {
@@ -256,3 +262,89 @@ p {
 .ear-wrap-right-block__descr {
   max-width: 420px;
 }
+
+@media screen and (max-width: 1280px) {
+  .product {
+    padding-top: 40px;
+  }
+
+  .wrapper {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .wrapper-imgs__main {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .wrapper-descr__title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
+
+  .ear {
+    margin-bottom: 48px;
+  }
+
+  .ear-title__title {
+    font-size: 20px;
+  }
+
+  .ear-wrap {
+    max-width: 588px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .ear-wrap-block {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .ear-wrap-block:nth-child(2n) {
+    flex-direction: column;
+  }
+
+  .ear-wrap-block__img {
+    width: 100%;
+  }
+
+  .your-product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .your-product__img {
+    width: 320px;
+    margin-bottom: 24px;
+  }
+
+  .your-product__title {
+    font-size: 40px;
+    margin-bottom: 16px;
+  }
+
+  .your-product__descr {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+
+  .your-product__link {
+    background-color: var(--prime-color-blue);
+    padding: 12px 16px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 12px;
+    width: 272px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {}
