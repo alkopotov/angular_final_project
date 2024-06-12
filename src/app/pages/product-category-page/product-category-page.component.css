@@ -1,0 +1,22 @@
+.product-category-page-wrapper { 
+  display: flex;
+  gap: 24px
+}
+
+.product-category-page__sidebar {
+  padding: 32px 24px 0 calc(50vw - 600px);
+  width: calc(50vw - 300px);
+  background-color: var(--light_grey-color-gray);
+}
+
+.product-category-page__product-list__wrapper {
+  width: calc(50vw + 300px);
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding-right: calc(50vw - 630px);
+}
+
+:host ::ng-deep .product-category-page__product-list__wrapper .product-list__cards {
+  gap: 16px;
+}

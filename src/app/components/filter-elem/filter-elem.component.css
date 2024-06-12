@@ -1,0 +1,37 @@
+
+.filter-elem__slider {
+  width: 98%;
+  margin-bottom: 16px;
+}
+
+.filter-elem__price-input-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.filter-elem__input-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  width: 112px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid #E7E7E7;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.filter-elem__input-wrapper input {
+  border: none;
+  width: 62px;
+  padding-right: 2px;
+  outline: none;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.09px;
+  text-align: right;
+}
+

@@ -8,6 +8,7 @@ import { WarrantyPageComponent } from './pages/warranty-page/warranty-page.compo
 import { CreditPageComponent } from './pages/credit-page/credit-page.component';
 import { AllProductsTestComponent } from './pages/all-products-test/all-products-test.component';
 import { ProductCardTestComponent } from './pages/product-card-test/product-card-test.component';
+import { ProductCategoryPageComponent } from './pages/product-category-page/product-category-page.component';
 
 export const routes: Routes = [ 
   { path: '', component: MainPageComponent },
@@ -15,7 +16,8 @@ export const routes: Routes = [
   { path: 'delivery', component: DeliveryPageComponent },
   { path: 'contacts', component:ContactsPageComponent },
   { path: 'warranty', component: WarrantyPageComponent },
-  { path: 'credit', component: CreditPageComponent },
+  { path: 'credit', component: CreditPageComponent},
+  { path: 'products/category/:id', component: ProductCategoryPageComponent},
   { path: 'test_all', component: AllProductsTestComponent },
   { path: 'test_all/:id', component: ProductCardTestComponent },
   { path: '**', component: NotFoundPageComponent }

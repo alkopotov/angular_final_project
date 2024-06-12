@@ -1,0 +1,12 @@
+<main class="product-category-page-wrapper">
+
+  <section class="product-category-page__sidebar">
+    <app-filter-elem [category]="routes.snapshot.params['id']"></app-filter-elem>
+  </section>
+
+  <section class="product-category-page__product-list__wrapper">
+    <app-product-list [products]="filterService.displayedProducts"></app-product-list>
+  </section>
+
+</main>
+

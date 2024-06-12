@@ -1,12 +1,8 @@
-.product-list {
-  margin-top: 32px;
-}
 
 .product-list__cards {
   display: flex;
   gap: 24px;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
 .product-list__header {
@@ -21,6 +17,10 @@
     margin-top: 24px;
   }
 
+  .product-list__cards {
+    justify-content: center;
+  }
+  
   .product-list__header {
     margin-bottom: 16px;
   }
