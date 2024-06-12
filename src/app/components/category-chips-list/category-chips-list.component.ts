@@ -10,18 +10,19 @@ import { FilterService } from '../../services/filter.service';
 })
 export class CategoryChipsListComponent {
 
-  constructor(public filterService: FilterService) { }
+  constructor(public filterService: FilterService) { 
+    
+  }
 
-  public currentChip: number | null = null;
+  public currentChip: string | null = null;
 
-  public handleChipClick(index: number, chip: string): void {
-    if (this.currentChip === index) {
+  public handleChipClick(chip: string): void {
+    if (this.currentChip === chip) {
       this.currentChip = null
       this.filterService.currentChip = null
     } else {
-      this.currentChip = index
-      this.filterService.currentChip = chip
+      this.currentChip = chip;
+      this.filterService.currentChip = chip;
     }
   }
-
 }

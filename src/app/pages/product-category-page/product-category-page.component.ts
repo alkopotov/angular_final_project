@@ -23,5 +23,6 @@ export class ProductCategoryPageComponent implements OnInit{
     this.filterService.currentCategory = this.routes.snapshot.params['id'];
     this.filterService.minPrice = this.filterService.minRangeValue
     this.filterService.maxPrice = this.filterService.maxRangeValue
+    this.filterService.currentChip = null
   }
 }

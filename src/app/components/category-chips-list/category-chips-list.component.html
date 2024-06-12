@@ -1,6 +1,6 @@
 <section class="category-chips-list">
   @for (chip of filterService.chipsInCategory; track $index) {
-    <div [class]="(currentChip === $index) ? 'category-chips-list__chip category-chips-list__chip--active' : 'category-chips-list__chip'"
-    (click)="handleChipClick($index, chip)">{{chip}}</div>
+    <div [class]="(currentChip === chip) ? 'category-chips-list__chip category-chips-list__chip--active' : 'category-chips-list__chip'"
+    (click)="handleChipClick(chip)">{{chip}}</div>
   }
 </section>
