@@ -1,13 +1,18 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ProductsWorkerService } from '../../services/products-worker.service';
-import { Router } from '@angular/router';
+import { Router} from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { SlicePipe } from '@angular/common';
+import localeRu from '@angular/common/locales/ru';
+import localeRuExtra from '@angular/common/locales/extra/ru';
+import { DecimalPipe, registerLocaleData } from '@angular/common';
+
+
+registerLocaleData(localeRu, 'ru-RU', localeRuExtra);
 
 @Component({
   selector: 'app-catalog-search-bar',
   standalone: true,
-  imports: [FormsModule, SlicePipe],
+  imports: [FormsModule, DecimalPipe],
   templateUrl: './catalog-search-bar.component.html',
   styleUrl: './catalog-search-bar.component.css'
 })
@@ -30,7 +35,7 @@ export class CatalogSearchBarComponent implements OnInit{
   }
 
   goToProductCard(id: number) {
-    this.router.navigate(['/test_all', id]);
+    this.router.navigate(['/products', id]);
   }
   
 }

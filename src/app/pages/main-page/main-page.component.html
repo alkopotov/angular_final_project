@@ -8,5 +8,13 @@
 }
 <app-banner-text></app-banner-text>
 <app-banner-promo></app-banner-promo>
+@if ((productsWorkerService.products.length > 0)) {
+  <div class="product-list__wrapper">
+  <app-product-list
+    title="Новинки"
+    [products]="productsWorkerService.products.slice(productsWorkerService.products.length - 12)"></app-product-list>
+  </div>
+}
+
 <app-banner-advantages></app-banner-advantages>
 <app-banner-subscription></app-banner-subscription>
