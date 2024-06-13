@@ -1,6 +1,6 @@
 <h1 class="product-category-page__title">{{filterService.currentCategoryTitle}}</h1>
 <div class="product-category-page__chips">
-  <app-category-chips-list></app-category-chips-list>
+  <app-category-chips-list [chip]="routes.snapshot.queryParamMap.get('chip')"></app-category-chips-list>
 </div>
 <main class="product-category-page-wrapper">
   <section class="product-category-page__sidebar">

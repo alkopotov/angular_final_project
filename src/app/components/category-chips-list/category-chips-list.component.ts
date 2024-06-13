@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FilterService } from '../../services/filter.service';
 
 @Component({
@@ -8,7 +8,9 @@ import { FilterService } from '../../services/filter.service';
   templateUrl: './category-chips-list.component.html',
   styleUrl: './category-chips-list.component.css'
 })
-export class CategoryChipsListComponent {
+export class CategoryChipsListComponent implements OnInit{
+
+  @Input() chip: string | null;
 
   constructor(public filterService: FilterService) { 
     
@@ -17,12 +19,14 @@ export class CategoryChipsListComponent {
   public currentChip: string | null = null;
 
   public handleChipClick(chip: string): void {
-    if (this.currentChip === chip) {
-      this.currentChip = null
-      this.filterService.currentChip = null
+    if (this.filterService.currentChip === chip) {
+      this.filterService.currentChip = null;
     } else {
-      this.currentChip = chip;
       this.filterService.currentChip = chip;
     }
+  }
+  
+  ngOnInit(): void {
+    this.filterService.currentChip = this.chip
   }
 }

@@ -51,11 +51,16 @@ export class FilterService {
   public maxPrice: number;
 
 
+
 // Для реализации фильтрации по выбранному chip 
   private _currentChip: string | null = null;
 
   public set currentChip(chip: string | null) {
     this._currentChip = chip
+  }
+
+  public get currentChip(): string | null {
+    return this._currentChip
   }
 
   public get productsInCategory(): Product[] {
@@ -102,9 +107,6 @@ export class FilterService {
   }
 
   public get displayedProducts(): Product[] {
-
-    console.log(this._currentChip);
-
     let result = this.productsInCategory.filter(el => el.price >= this.minPrice && el.price <= this.maxPrice)
     if (this._currentChip) {
       result = result.filter(el => el.name === this._currentChip)
