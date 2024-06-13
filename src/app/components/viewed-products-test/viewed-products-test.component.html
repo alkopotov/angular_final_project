@@ -1,0 +1,23 @@
+<div>
+    <h2>Просмотренные продукты</h2>
+    @if(viewedProducts.length === 0){<div>Вы еще не просматривали продукты.</div>}
+    <ul>
+      @for(product of viewedProducts; track product.id){
+        <div>
+        {{ product.name }} - {{ product.price }} руб.
+    </div>}
+    </ul>
+  </div>
+  
+
+<!--    
+<div>
+    <h2>Просмотренные продукты</h2>
+    <div *ngIf="viewedProducts.length === 0">Вы еще не просматривали продукты.</div>
+    <ul>
+      <li *ngFor="let product of viewedProducts; trackBy: trackByProductId">
+        {{ product.name }} - {{ product.price }} руб.
+      </li>
+    </ul>
+  </div>
+   -->

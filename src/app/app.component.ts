@@ -30,6 +30,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.productService.getProducts()
     this.cartStorageService.getProductsInCartStorage();
-
+    this.productService.computeMaxPrice()
   }
 }
