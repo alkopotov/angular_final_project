@@ -1,9 +1,8 @@
-import { DecimalPipe, registerLocaleData } from '@angular/common';
+import { DecimalPipe, isPlatformBrowser, registerLocaleData } from '@angular/common';
 import localeRu from '@angular/common/locales/ru';
 import localeRuExtra from '@angular/common/locales/extra/ru';
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, Inject, OnDestroy, PLATFORM_ID } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { FilterService } from '../../services/filter.service';
 
 registerLocaleData(localeRu, 'ru-RU', localeRuExtra);
 
@@ -14,7 +13,7 @@ registerLocaleData(localeRu, 'ru-RU', localeRuExtra);
   templateUrl: './banner-slider.component.html',
   styleUrl: './banner-slider.component.css'
 })
-export class BannerSliderComponent {
+export class BannerSliderComponent implements AfterViewInit, OnDestroy{
   public products: any[] = [
     {
       title: 'iPhone 15 Pro',
@@ -43,7 +42,7 @@ export class BannerSliderComponent {
     },
   ]
 
-  constructor(public filterService: FilterService, private routes: Router) { }
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private routes: Router) { }
 
   public currentIndex: number = 0;
 
@@ -65,5 +64,20 @@ export class BannerSliderComponent {
 
   public handleClick(chip: string, link: string): void {
     this.routes.navigate([link], { queryParams: {chip: chip} })
+  }
+  
+  public id: any;
+
+  ngAfterViewInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+     this.id = setInterval(() => {
+        this.nextSlide();
+      }, 5000);
+    }
+  }
+  ngOnDestroy(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      clearInterval(this.id);
+    }
   }
 }
