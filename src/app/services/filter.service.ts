@@ -7,6 +7,7 @@ export type ProductFilter = 'Процессор' | 'Объем встроенн�
 export type ProductCategory = 'Аксессуары' | 'Смартфоны' | 'Планшеты' | 'Компьютеры' | 'Часы' | 'Гаджеты'
 
 export type FilterCategory = {
+  category: number,
   name: ProductFilter,
   values: any[],
   unit: string
@@ -95,11 +96,19 @@ export class FilterService {
       this.productsInCategory.forEach(product => {
         let characteristic = product.characteristics.find(el => el.characteristic === filter)
         if (characteristic) {
-          values.add(characteristic.value)
+          if(isNaN(+characteristic.value)) {
+            values.add(characteristic.value)
+          } else {
+            values.add(+characteristic.value)
+          }
           units.add(characteristic.unit_type)
         }
       })
-      result.push({ name: filter, values: Array.from(values), unit: Array.from(units)[0] as string })
+      result.push({
+        category: this._currentCategory,
+        name: filter,
+        values: Array.from(values).sort((a: any, b: any) => a > b ? 1 : -1),
+        unit: Array.from(units)[0] as string })
     }
     console.log(result);
 

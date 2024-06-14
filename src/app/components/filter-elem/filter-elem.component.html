@@ -10,8 +10,16 @@
     </div>
 
     <div class="filter-elem__input-wrapper"> до
-    <input type="text" [(ngModel)]="filterService.maxPrice">₽
+      <input type="text" [(ngModel)]="filterService.maxPrice">₽
     </div>
+  </div>
+  <div>
+        @for(item of filterService.categoryFilterValues; track ($index + item.category + item.name)) {
+         <p>{{item.name}}</p>
+         @for (characteristic of item.values; track ($index+characteristic)) {
+          <label for=""><input type="checkbox" [value]="characteristic" (change)="handleClickCheckbox($event)" > {{characteristic}}</label>
+         }
+        }
   </div>
 </label>
 </section>
