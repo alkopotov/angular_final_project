@@ -78,17 +78,6 @@
   border-radius: 0 0 8px 8px;
 }
 
-.filter-elem-checkboxes-wrapper__item-body-label {
-  font-size: 16px;
-  font-weight: 400;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-.filter-elem-checkboxes-wrapper__item-body-checkbox {
-  font-size: 24px;
-}
-
 
 
 
