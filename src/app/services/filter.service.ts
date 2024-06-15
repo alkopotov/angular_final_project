@@ -86,8 +86,28 @@ export class FilterService {
   }
 
 
-  public get categoryFilterValues(): FilterCategory[] {
+  private _checkboxesSelected: Record<string, string[]> = {};
 
+  public get checkboxesSelected(): Record<string, string[]> {
+    return this._checkboxesSelected
+  }
+
+  public addCheckbox(filterName: string, filterValue: string): void {
+    if (!this._checkboxesSelected[filterName]) {
+      this._checkboxesSelected[filterName] = [];
+    }
+    this._checkboxesSelected[filterName].push(filterValue);
+  }
+
+  public removeCheckbox(filterName: string, filterValue: string): void {
+    this._checkboxesSelected[filterName] = this._checkboxesSelected[filterName].filter(el => el !== filterValue);
+  }
+
+  public clearCheckboxes(): void {
+    this._checkboxesSelected = {};
+  }
+
+  public get categoryFilterValues(): FilterCategory[] {
     let result: FilterCategory[] = [];
     let filters = this.categoryFilters[this._currentCategory]
     for (let filter of filters) {
@@ -111,8 +131,17 @@ export class FilterService {
         unit: Array.from(units)[0] as string })
     }
     console.log(result);
-
     return result
+  }
+
+  public addCheckboxFilter(filterName: string, filterValue: string): void {
+    console.log('Добавляем:', filterName, filterValue);
+    
+  }
+
+  public removeCheckboxFilter(filterName: string, filterValue: string): void {
+    console.log('Удаляем:', filterName, filterValue);
+    
   }
 
   public get displayedProducts(): Product[] {

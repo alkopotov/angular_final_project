@@ -5,7 +5,7 @@
     [value]="filterValue"
     [(ngModel)]="isChecked"
     class="filter-input-checkbox"
-    >
+    (change)="handleCheckboxChange()">
 
   {{filterValue}} {{unit === 'значение' ? '' : unit}}
 </label>

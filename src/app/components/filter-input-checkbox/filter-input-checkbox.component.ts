@@ -19,4 +19,12 @@ export class FilterInputCheckboxComponent {
 
   constructor(public filterService: FilterService) { }
 
+  handleCheckboxChange() {
+    if (this.isChecked) {
+      this.filterService.addCheckbox(this.filterName, this.filterValue)
+    } else {
+      this.filterService.removeCheckbox(this.filterName, this.filterValue)
+    }
+    console.log(this.filterService.checkboxesSelected)
+  }
 }
