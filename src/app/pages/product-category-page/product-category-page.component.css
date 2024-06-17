@@ -141,6 +141,21 @@
   gap: 8px;
 }
 
+.product-category-page__filter-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.product-category-page__filters-tablet label {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
 }
 @media (max-width: 768px) {
 

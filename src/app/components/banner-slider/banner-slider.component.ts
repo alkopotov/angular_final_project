@@ -69,15 +69,15 @@ export class BannerSliderComponent implements AfterViewInit, OnDestroy{
   private _id: any;
 
   ngAfterViewInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-     this._id = setInterval(() => {
-        this.nextSlide();
-      }, 6000);
-    }
+    // if (isPlatformBrowser(this.platformId)) {
+    //  this._id = setInterval(() => {
+    //     this.nextSlide();
+    //   }, 6000);
+    // }
   }
   ngOnDestroy(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      clearInterval(this._id);
-    }
+    // if (isPlatformBrowser(this.platformId)) {
+    //   clearInterval(this._id);
+    // }
   }
 }

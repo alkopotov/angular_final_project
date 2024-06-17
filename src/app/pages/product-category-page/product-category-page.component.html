@@ -17,7 +17,32 @@
   </div>
 </div>
 <section class="product-category-page__filters-tablet">
-  <div>Фильтр</div>
+  <div class="product-category-page__filter-wrapper">
+    <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M19.75 3H16.75" stroke="#706E6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M12.75 1V5" stroke="#706E6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M12.75 3H1.75" stroke="#706E6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M5.75 10H1.75" stroke="#706E6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M9.75 8V12" stroke="#706E6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M20.75 10H9.75" stroke="#706E6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M19.75 17H16.75" stroke="#706E6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M12.75 15V19" stroke="#706E6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M12.75 17H1.75" stroke="#706E6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg> 
+    Фильтр
+  </div>
+  <div сlass="selection">
+    <label for="" >
+    Сортировать
+      <div class="select-wrapper">
+        <select name="sortingOrder" id="sortingOrder" [(ngModel)]="filterService.sortingOrder">
+          <option value="default">по умолчанию</option>
+          <option value="priceAsc">по возрастанию цены</option>
+          <option value="priceDesc">по убыванию цены</option>
+        </select>
+      </div>
+    </label>
+  </div>
 </section>
 <main class="product-category-page-wrapper">
 
