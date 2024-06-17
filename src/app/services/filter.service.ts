@@ -53,7 +53,7 @@ export class FilterService {
 
 
 
-// Для реализации фильтрации по выбранному chip 
+  // Для реализации фильтрации по выбранному chip 
   private _currentChip: string | null = null;
 
   public set currentChip(chip: string | null) {
@@ -116,7 +116,7 @@ export class FilterService {
       this.productsInCategory.forEach(product => {
         let characteristic = product.characteristics.find(el => el.characteristic === filter)
         if (characteristic) {
-          if(isNaN(+characteristic.value)) {
+          if (isNaN(+characteristic.value)) {
             values.add(characteristic.value)
           } else {
             values.add(+characteristic.value)
@@ -127,27 +127,34 @@ export class FilterService {
       result.push({
         category: this._currentCategory,
         name: filter,
-        values: Array.from(values).sort((a: any, b: any) => a > b ? 1 : -1),
-        unit: Array.from(units)[0] as string })
+        values: Array.from(values).sort((a: any, b: any) => a > b ? 1 : -1).map(el => `${el}`),
+        unit: Array.from(units)[0] as string
+      })
     }
     console.log(result);
     return result
   }
 
-  public addCheckboxFilter(filterName: string, filterValue: string): void {
-    console.log('Добавляем:', filterName, filterValue);
-    
-  }
-
-  public removeCheckboxFilter(filterName: string, filterValue: string): void {
-    console.log('Удаляем:', filterName, filterValue);
-    
-  }
-
+  // Логика фильтрации
   public get displayedProducts(): Product[] {
-    let result = this.productsInCategory.filter(el => el.price >= this.minPrice && el.price <= this.maxPrice)
+    let result = this.productsInCategory.filter(el => {
+      let currentPrice = el.discount_price || el.price
+      return currentPrice >= this.minPrice && currentPrice <= this.maxPrice
+    })
     if (this._currentChip) {
       result = result.filter(el => el.name === this._currentChip)
+    }
+    for (let filter in this._checkboxesSelected) {
+      if (this._checkboxesSelected[filter].length > 0) {
+        result = result.filter(el => {
+          let characteristic = el.characteristics.find(el => el.characteristic === filter)
+          if (characteristic) {
+            return this._checkboxesSelected[filter].includes(characteristic.value)
+          } else {
+            return false
+          }
+        })
+      }
     }
     return result
   }
