@@ -94,6 +94,13 @@ export class FilterService {
     return this._checkboxesSelected
   }
 
+  public isCheckboxSelected(filterName: string, filterValue: string): boolean {
+    if (!this._checkboxesSelected[filterName]) {
+      return false
+    }
+    return this._checkboxesSelected[filterName].includes(filterValue)
+  }
+
   public addCheckbox(filterName: string, filterValue: string): void {
     if (!this._checkboxesSelected[filterName]) {
       this._checkboxesSelected[filterName] = [];

@@ -7,6 +7,7 @@ import { ProductCardComponent } from '../../components/product-card/product-card
 import { CategoryChipsListComponent } from '../../components/category-chips-list/category-chips-list.component';
 import { BannerProductListComponent } from '../../components/banner-product-list/banner-product-list.component';
 import { FormsModule } from '@angular/forms';
+import { DialogDispatcherService } from '../../services/dialog-dispatcher.service';
 
 @Component({
   selector: 'app-product-category-page',
@@ -18,7 +19,7 @@ import { FormsModule } from '@angular/forms';
 export class ProductCategoryPageComponent implements OnInit{
 
 
-  constructor(public routes: ActivatedRoute, public filterService: FilterService){ 
+  constructor(public routes: ActivatedRoute, public filterService: FilterService, public dialogService: DialogDispatcherService) { 
     this.routes.paramMap.subscribe((params) => this.ngOnInit())
   }
 

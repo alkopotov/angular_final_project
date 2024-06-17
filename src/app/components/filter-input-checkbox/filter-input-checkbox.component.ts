@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FilterService } from '../../services/filter.service';
 import { FormsModule } from '@angular/forms';
 
@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './filter-input-checkbox.component.html',
   styleUrl: './filter-input-checkbox.component.css'
 })
-export class FilterInputCheckboxComponent {
+export class FilterInputCheckboxComponent implements OnInit {
   @Input() public category: number;
   @Input() public filterName: string;
   @Input() public filterValue: string;
@@ -19,6 +19,13 @@ export class FilterInputCheckboxComponent {
 
   constructor(public filterService: FilterService) { }
 
+  ngOnInit(): void {
+    this.isChecked = this.filterService.isCheckboxSelected(this.filterName, this.filterValue)
+  }
+
+  toggleCheckbox() {
+    this.isChecked = !this.isChecked
+  }
   handleCheckboxChange() {
     if (this.isChecked) {
       this.filterService.addCheckbox(this.filterName, this.filterValue)
