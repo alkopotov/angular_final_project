@@ -19,6 +19,7 @@
 
   .product-list__cards {
     justify-content: center;
+    gap: 40px;
   }
   
   .product-list__header {

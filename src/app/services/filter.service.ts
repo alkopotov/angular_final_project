@@ -6,6 +6,8 @@ export type ProductFilter = 'Процессор' | 'Объем встроенн�
 
 export type ProductCategory = 'Аксессуары' | 'Смартфоны' | 'Планшеты' | 'Компьютеры' | 'Часы' | 'Гаджеты'
 
+export type SortingOrder = 'default' | 'priceAsc' | 'priceDesc'
+
 export type FilterCategory = {
   category: number,
   name: ProductFilter,
@@ -103,10 +105,12 @@ export class FilterService {
     this._checkboxesSelected[filterName] = this._checkboxesSelected[filterName].filter(el => el !== filterValue);
   }
 
+  public sortingOrder: SortingOrder = 'default';
+
   public clearCheckboxes(): void {
     this._checkboxesSelected = {};
   }
-
+//Сборка списка чекбоксов для категории
   public get categoryFilterValues(): FilterCategory[] {
     let result: FilterCategory[] = [];
     let filters = this.categoryFilters[this._currentCategory]
@@ -131,7 +135,6 @@ export class FilterService {
         unit: Array.from(units)[0] as string
       })
     }
-    console.log(result);
     return result
   }
 
@@ -156,7 +159,27 @@ export class FilterService {
         })
       }
     }
+
+    switch (this.sortingOrder) {
+      case 'priceAsc':
+        result.sort((a, b) => (a.discount_price || a.price) - (b.discount_price || b.price))
+        break
+      case 'priceDesc':
+        result.sort((a, b) => (b.discount_price || b.price) - (a.discount_price || a.price))
+        break
+      default:
+       result.sort((a, b) => a.id - b.id)
+    }
+
     return result
   }
-}
 
+  public resetFilterService(): void {
+    this.clearCheckboxes();
+    this.minPrice = this.minRangeValue;
+    this.maxPrice = this.maxRangeValue;
+    this.currentChip = null;
+    this.clearCheckboxes();
+    this.sortingOrder = 'default';
+  }
+}

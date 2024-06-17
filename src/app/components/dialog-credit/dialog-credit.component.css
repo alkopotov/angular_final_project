@@ -1,7 +1,7 @@
 .select-wrapper {
   margin-left: 1px;
   position: relative;
-  width: 280px;
+  width: 160px;
   border-radius: 8px;
   background-color: var(--light_grey-color-gray);
   background-image: url("/assets/icons/select_arrow.svg");

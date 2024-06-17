@@ -1,8 +1,26 @@
+
+<app-banner-product-list></app-banner-product-list>
 <h1 class="product-category-page__title">{{filterService.currentCategoryTitle}}</h1>
 <div class="product-category-page__chips">
-  <app-category-chips-list [chip]="routes.snapshot.queryParamMap.get('chip')"></app-category-chips-list>
+    <app-category-chips-list [chip]="routes.snapshot.queryParamMap.get('chip')"></app-category-chips-list>
+  <div сlass="selection">
+    <label for="" >
+    Сортировать
+      <div class="select-wrapper">
+        <select name="sortingOrder" id="sortingOrder" [(ngModel)]="filterService.sortingOrder">
+          <option value="default">по умолчанию</option>
+          <option value="priceAsc">по возрастанию цены</option>
+          <option value="priceDesc">по убыванию цены</option>
+        </select>
+      </div>
+    </label>
+  </div>
 </div>
+<section class="product-category-page__filters-tablet">
+  <div>Фильтр</div>
+</section>
 <main class="product-category-page-wrapper">
+
   <section class="product-category-page__sidebar">
     <app-filter-elem></app-filter-elem>
   </section>
