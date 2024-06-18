@@ -1,0 +1,19 @@
+.category-chips-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.category-chips-list__chip {
+  background-color: var(--light_grey-color-gray);
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.category-chips-list__chip--active {
+  background-color: var(--prime-color-blue);
+  color: white;
+} 

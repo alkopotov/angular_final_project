@@ -6,11 +6,12 @@ import { IWatchComponent } from '../svg_components/iwatch/iwatch.component';
 import { LaptopComponent } from '../svg_components/laptop/laptop.component';
 import { AccessoriesComponent } from '../svg_components/accessories/accessories.component';
 import { ArrowRightComponent } from '../svg_components/arrow-right/arrow-right.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header-bottom',
   standalone: true,
-  imports: [AirpodsComponent, IPhoneComponent, IPadComponent, IWatchComponent, LaptopComponent, AccessoriesComponent, ArrowRightComponent],
+  imports: [AirpodsComponent, IPhoneComponent, IPadComponent, IWatchComponent, LaptopComponent, AccessoriesComponent, ArrowRightComponent, RouterLink],
   templateUrl: './header-bottom.component.html',
   styleUrl: './header-bottom.component.css'
 })

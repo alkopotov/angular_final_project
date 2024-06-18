@@ -1,5 +1,7 @@
 <section class="product-list">
-  <h2 class="product-list__header">{{title}}</h2>
+  @if(title) {
+    <h2 class="product-list__header">{{title}}</h2>
+  }
   <div class="product-list__cards">
     @for(product of products; track product.id) {
     <app-product-card [product]="product"></app-product-card>

@@ -1,0 +1,67 @@
+
+<app-banner-product-list></app-banner-product-list>
+<h1 class="product-category-page__title">{{filterService.currentCategoryTitle}}</h1>
+<div class="product-category-page__chips">
+    <app-category-chips-list [chip]="routes.snapshot.queryParamMap.get('chip')"></app-category-chips-list>
+  <div сlass="selection">
+    <label for="" >
+    Сортировать
+      <div class="select-wrapper">
+        <select name="sortingOrder" id="sortingOrder" [(ngModel)]="filterService.sortingOrder">
+          <option value="default">по умолчанию</option>
+          <option value="priceAsc">по возрастанию цены</option>
+          <option value="priceDesc">по убыванию цены</option>
+        </select>
+      </div>
+    </label>
+  </div>
+</div>
+<section class="product-category-page__filters-tablet">
+  <div class="product-category-page__filters">
+    <div class="product-category-page__filter-wrapper" (click)="dialogService.openDialog('filterElem')">
+      <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19.75 3H16.75" stroke="#706E6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12.75 1V5" stroke="#706E6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12.75 3H1.75" stroke="#706E6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M5.75 10H1.75" stroke="#706E6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M9.75 8V12" stroke="#706E6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M20.75 10H9.75" stroke="#706E6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M19.75 17H16.75" stroke="#706E6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12.75 15V19" stroke="#706E6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12.75 17H1.75" stroke="#706E6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg> 
+      Фильтр
+    </div>
+    @if(filterService.numberOfFiltersImplemented > 0) {
+      <div class="product-category-page__filter-counter">{{filterService.numberOfFiltersImplemented}}</div>
+      <span class="product-category-page__filter-reset" (click)="filterService.resetFiltersImplemented()">Сбросить фильтр</span>
+    }
+  </div>
+  <div сlass="selection">
+    <label for="" >
+    Сортировать
+      <div class="select-wrapper">
+        <select name="sortingOrder" id="sortingOrder" [(ngModel)]="filterService.sortingOrder">
+          <option value="default">по умолчанию</option>
+          <option value="priceAsc">по возрастанию цены</option>
+          <option value="priceDesc">по убыванию цены</option>
+        </select>
+      </div>
+    </label>
+  </div>
+</section>
+<main class="product-category-page-wrapper">
+
+  <section class="product-category-page__sidebar">
+    <app-filter-elem></app-filter-elem>
+    <div class="product-category-page__banner-wrapper">
+      <app-category-page-banner></app-category-page-banner>
+    </div>
+  </section>
+
+  <section class="product-category-page__product-list__wrapper">
+    <app-product-list [products]="filterService.displayedProducts"></app-product-list>
+  </section>
+
+</main>
+

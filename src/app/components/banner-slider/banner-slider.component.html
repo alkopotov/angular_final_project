@@ -1,4 +1,4 @@
-<section class="banner-slider">
+<section class="banner-slider" [style]="{backgroundColor: products[currentIndex].backgroundColor}">
   <div class="banner-slider__prev-slide" (click)="prevSlide()">
     <svg width="16" height="28" viewBox="0 0 16 28" fill="none" xmlns="http://www.w3.org/2000/svg" fill="none">
       <g opacity="0.5">
@@ -14,8 +14,8 @@
       <h2 class="banner-slider__slide-title">{{products[currentIndex].title}}</h2>
       <p class="banner-slider__slide-price"> <span>от</span> {{products[currentIndex].price | number : '1.0-0' :
         'ru-RU'}} ₽</p>
-      <a [routerLink]="[products[currentIndex].link]">
-        <button class="banner-slider__slide-button">подробнее</button>
+      <a>
+        <button class="banner-slider__slide-button" (click)="handleClick(products[currentIndex].chip, products[currentIndex].link)">подробнее</button>
       </a>
     </div>
   </div>

@@ -1,0 +1,11 @@
+<label [for]="filterValue" class="filter-input-checkbox__label" (click)="toggleCheckbox()">
+  <input
+    [id]="filterValue"
+    type="checkbox"
+    [value]="filterValue"
+    [(ngModel)]="isChecked"
+    class="filter-input-checkbox"
+    (change)="handleCheckboxChange()">
+
+  {{filterValue}} {{unit === 'значение' ? '' : unit}}
+</label>

@@ -1,0 +1,28 @@
+.dialog-filter {
+  position: relative;
+  width: 352px;
+  height: 520px;
+  background-color: white;
+  padding: 24px 16px;
+  border-radius: 16px;
+}
+
+.dialog-filter-elem__title {
+  font-size: 24px;
+  font-weight: 700;
+  padding-left: 8px;
+}
+
+.dialog-filter__close-button {
+  position: absolute;
+  top: 24px;
+  right: 16px;
+  cursor: pointer;
+}
+
+.dialog-filter__content {
+  width: 100%;
+  height: 420px;
+  margin-top: 16px;
+  overflow-y: scroll;
+}

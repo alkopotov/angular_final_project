@@ -1,0 +1,38 @@
+.category-page-banner {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.category-page-banner__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  justify-content: center;
+  background-color: white;
+  border-radius: 8px;
+  height: 96px;
+  padding-left: 88px;
+}
+
+.category-page-banner__image {
+  position: absolute;
+  left: 14px;
+  top: 16px;
+  width: 64px;
+  height: 64px;
+}
+
+.category-page-banner__title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.category-page-banner__text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.7px;
+  padding-right: 24px;
+  color: var(--07-color-gray);
+}

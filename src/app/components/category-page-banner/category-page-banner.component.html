@@ -1,0 +1,9 @@
+<section class="category-page-banner">
+  @for(banner of bannerData; track $index) {
+    <div class="category-page-banner__item">
+      <img [src]="banner.image" alt="" class="category-page-banner__image">
+      <div class="category-page-banner__title">{{banner.title}}</div>
+      <div class="category-page-banner__text">{{banner.text}}</div>
+    </div>
+  }
+</section>

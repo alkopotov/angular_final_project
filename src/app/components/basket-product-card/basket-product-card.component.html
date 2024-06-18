@@ -10,7 +10,7 @@
         <p class="basket-product-card__initial-price">{{product.product.price | number : '1.0-0' : 'ru-RU'}}₽</p>
         <p class="basket-product-card__final-price">{{product.product.discount_price | number : '1.0-0' : 'ru-RU'}}₽</p>
       } @else {
-        <p class="basket-product-card__initial-price">123 456₽</p>
+        <p class="basket-product-card__initial-price"></p>
         <p class="basket-product-card__final-price">{{product.product.price | number : '1.0-0' : 'ru-RU'}}₽</p>
       }
     </div>
