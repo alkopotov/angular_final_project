@@ -1,5 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { Product } from './products-worker.service';
+import { platform } from 'os';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -7,18 +9,24 @@ import { Product } from './products-worker.service';
 export class ProductLoggingService {
   private viewedProductsKey = 'viewedProducts';
   
-  constructor() {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object,) {}
 
   logViewedProduct(product: Product): void {
     let viewedProducts = this.getViewedProducts();
     if (!viewedProducts.find(p => p.id === product.id)) {
       viewedProducts.push(product);
-      localStorage.setItem(this.viewedProductsKey, JSON.stringify(viewedProducts));
+      if(isPlatformBrowser(this.platformId)){
+        localStorage.setItem(this.viewedProductsKey, JSON.stringify(viewedProducts));
+      }
+      
     }
   }
 
   getViewedProducts(): Product[] {
-    const viewedProductsJson = localStorage.getItem(this.viewedProductsKey);
-    return viewedProductsJson ? JSON.parse(viewedProductsJson) : [];
-  }
+    if(isPlatformBrowser(this.platformId)){
+      const viewedProductsJson = localStorage.getItem(this.viewedProductsKey);
+      return viewedProductsJson ? JSON.parse(viewedProductsJson) : [];
+    }
+    return []
+  } 
 }
