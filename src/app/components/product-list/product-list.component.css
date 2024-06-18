@@ -12,6 +12,30 @@
   font-weight: 500;
 }
 
+.product-list__pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.product-list__pagination-button {
+  border: none;
+  background-color: transparent;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--07-color-gray);
+  cursor: pointer;
+  margin: 0 4px;
+}
+
+.product-list__pagination-button_active {
+  color: var(--prime-color-blue);
+}
+
+.product-list__pagination-button svg {
+  margin-top: 3px;
+}
 @media (max-width: 1280px) {
   .product-list {
     margin-top: 24px;
