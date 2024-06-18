@@ -80,13 +80,14 @@
 
 @media (max-width: 1280px) {
   .filter-elem__slider {
-    width: 87%;
+    width: 85%;
     align-self: center;
   }
 
   .filter-elem__label {
     display: flex;
     flex-direction: column;
+    padding-left: 8px;
   }
   
 }

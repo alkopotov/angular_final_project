@@ -78,6 +78,7 @@ export class FilterService {
     return Math.max(...this.productsInCategory.map(el => el.discount_price || el.price))
   }
 
+
   public get chipsInCategory(): string[] {
 
     let result = new Set;
@@ -117,6 +118,18 @@ export class FilterService {
   public clearCheckboxes(): void {
     this._checkboxesSelected = {};
   }
+
+
+  public get numberOfFiltersImplemented(): number {
+    return Object.keys(this._checkboxesSelected).length + ((this.minPrice > this.minRangeValue || this.maxPrice < this.maxRangeValue) ? 1 : 0)
+  }
+
+  public resetFiltersImplemented(): void {
+    this.clearCheckboxes();
+    this.minPrice = this.minRangeValue
+    this.maxPrice = this.maxRangeValue
+  }
+
 //Сборка списка чекбоксов для категории
   public get categoryFilterValues(): FilterCategory[] {
     let result: FilterCategory[] = [];
@@ -182,9 +195,7 @@ export class FilterService {
   }
 
   public resetFilterService(): void {
-    this.clearCheckboxes();
-    this.minPrice = this.minRangeValue;
-    this.maxPrice = this.maxRangeValue;
+    this.resetFiltersImplemented();
     this.currentChip = null;
     this.clearCheckboxes();
     this.sortingOrder = 'default';
