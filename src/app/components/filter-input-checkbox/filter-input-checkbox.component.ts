@@ -32,6 +32,6 @@ export class FilterInputCheckboxComponent implements OnInit {
     } else {
       this.filterService.removeCheckbox(this.filterName, this.filterValue)
     }
-    console.log(this.filterService.checkboxesSelected)
+    // console.log(this.filterService.checkboxesSelected)
   }
 }
