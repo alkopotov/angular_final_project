@@ -1,0 +1,143 @@
+.banner-product-list {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 24px auto 0 auto;
+}
+
+.banner-product-list__original, .banner-product-list__schedule {
+  width: 588px;
+  height: 112px;
+  border-radius: 16px;
+  gap: 16px;
+  display: flex;
+  align-items: center;
+  padding-left: 24px;
+  padding-right: 24px;
+  color: white;
+  font-size: 22px;
+  font-weight: 700; 
+}
+
+.banner-product-list__original {
+  background: linear-gradient(91.71deg, #89E5FF 0%, #709FFA 99.62%);
+}
+
+.banner-product-list__schedule {
+  background: linear-gradient(91.71deg, #77C9FF 0%, #80B3FF 99.62%);
+}
+
+.banner-product-list__schedule-text {
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  margin-top: 8px;
+}
+
+@media (max-width: 1280px) {
+  .banner-product-list {
+    flex-direction: column;
+    align-items: center;
+    max-width: 768px;
+    padding: 0 24px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .banner-product-list__original, .banner-product-list__schedule {
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+    height: 60px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--prime-color-blue);
+  }
+
+  .banner-product-list__image {
+    width: 32px;
+    height: 32px;
+  }
+
+  .banner-product-list__original {
+    background: #EBF8FF;
+  }
+
+  .banner-product-list__schedule {
+    background: #F8F8F8;
+  }
+
+  .banner-product-list__schedule div {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  } 
+
+  .banner-product-list__schedule div p {
+    width: 123px;
+  }
+
+  .banner-product-list__schedule-text {
+    width: 400px !important;
+    margin-top: 0;
+    color: var(--05-color-gray);
+  }
+} 
+
+@media (max-width: 768px) {
+  .banner-product-list {
+    margin-top: 16px;
+    max-width: 288px;
+    padding: 0;
+  }  
+
+  .banner-product-list__image {
+    width: 20px;
+    height: 20px;
+  }
+
+  .banner-product-list__original, .banner-product-list__schedule {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    height: fit-content;
+  }
+
+  .banner-product-list__original {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    gap: 0px
+  }
+
+  .banner-product-list__schedule {
+    position: relative;
+  }
+
+  .banner-product-list__schedule img {
+    position: absolute;
+    left: 28px;
+    top: 8px;
+  }
+
+  .banner-product-list__schedule div  {
+    flex-direction: column;
+    gap: 2px
+  }
+
+  .banner-product-list__schedule div p {
+    width: fit-content;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+
+
+  .banner-product-list__schedule-text {
+    width: fit-content !important;
+    margin-top: 0;
+    text-align: center;
+    margin-bottom: 6px;
+    margin-top: 0 !important;
+    font-size: 12px;
+  }
+
+}

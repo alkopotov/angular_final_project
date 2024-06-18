@@ -101,7 +101,7 @@
 
 .dialog-product-added__contacts {
   display: flex;
-  align-items: center;
+  align-items: center;  
   gap: 16px;
   margin-top: 8px;
   margin-left: 35px;

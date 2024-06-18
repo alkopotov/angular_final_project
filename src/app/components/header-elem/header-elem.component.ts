@@ -40,7 +40,7 @@ export class HeaderElemComponent implements OnInit {
   public topNavItems: any[] = [
     {
       title: 'Весь каталог',
-      link: '/catalog',
+      link: '/products/category/2',
     },
     {
       title: 'Акции',

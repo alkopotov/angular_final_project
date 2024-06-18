@@ -4,9 +4,10 @@ import { DialogCallbackComponent } from '../components/dialog-callback/dialog-ca
 import { DialogBasketComponent } from '../components/dialog-basket/dialog-basket.component';
 import { DialogCreditComponent } from '../components/dialog-credit/dialog-credit.component';
 import { DialogProductAddedComponent } from '../components/dialog-product-added/dialog-product-added.component';
+import { DialogFilterElemComponent } from '../components/dialog-filter-elem/dialog-filter-elem.component';
 
 
-export type DialogWindowType = 'basket' | 'credit' | 'callback' | 'catalog' | 'addToCart' | 'oneClick' | 'cheaperForm' | 'productAddedToBasket';
+export type DialogWindowType = 'basket' | 'credit' | 'callback' | 'catalog' | 'addToCart' | 'oneClick' | 'cheaperForm' | 'productAddedToBasket' | 'filterElem';
 
 
 @Injectable({
@@ -25,7 +26,8 @@ export class DialogDispatcherService {
     addToCart: null,
     oneClick: null,
     cheaperForm: null,
-    productAddedToBasket: DialogProductAddedComponent
+    productAddedToBasket: DialogProductAddedComponent,
+    filterElem: DialogFilterElemComponent,
   }
 
   private _dialogCreditProductId: number = 1;

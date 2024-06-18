@@ -1,0 +1,12 @@
+.filter-input-checkbox__label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.filter-input-checkbox {
+  transform: scale(1.3);
+}

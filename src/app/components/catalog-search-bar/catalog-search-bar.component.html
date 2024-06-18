@@ -1,5 +1,5 @@
 <div class="search_container">
-    <input class={{classModded}} type="text" placeholder="Filter by name" [(ngModel)]="productService.searchQuery" (focus)="showList = true" (blur)="hideListOnBlur()">
+    <input class={{classModded}} type="text" placeholder="Поиск по каталогу товаров" [(ngModel)]="productService.searchQuery" (focus)="showList = true" (blur)="hideListOnBlur()">
     @if(showList){
     <div class="test_list">
 @for(product of productService.computedProducts(); track product.id){ 
