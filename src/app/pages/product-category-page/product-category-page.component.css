@@ -60,6 +60,7 @@
   width: calc(50vw - 300px);
   background-color: var(--light_grey-color-gray);
   position: relative;
+  min-height: 1160px;
 }
 
 .product-category-page__banner-wrapper {
