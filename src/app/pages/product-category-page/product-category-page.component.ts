@@ -8,11 +8,12 @@ import { CategoryChipsListComponent } from '../../components/category-chips-list
 import { BannerProductListComponent } from '../../components/banner-product-list/banner-product-list.component';
 import { FormsModule } from '@angular/forms';
 import { DialogDispatcherService } from '../../services/dialog-dispatcher.service';
+import { CategoryPageBannerComponent } from '../../components/category-page-banner/category-page-banner.component';
 
 @Component({
   selector: 'app-product-category-page',
   standalone: true,
-  imports: [FilterElemComponent, ProductListComponent, ProductCardComponent, CategoryChipsListComponent, BannerProductListComponent, FormsModule],
+  imports: [FilterElemComponent, ProductListComponent, ProductCardComponent, CategoryChipsListComponent, BannerProductListComponent, FormsModule, CategoryPageBannerComponent],
   templateUrl: './product-category-page.component.html',
   styleUrl: './product-category-page.component.css'
 })
