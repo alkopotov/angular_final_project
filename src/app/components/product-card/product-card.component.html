@@ -12,7 +12,7 @@
     <div class="product-card__title">{{product | productName}}</div>
     <div class="product-card__image-wrapper" routerLink="/products/{{product.id}}">
       <div class="product-card__image"
-        [style]="'background-image: url(http://localhost:1452/' + product.images[0] + ')'">
+        [style]="'background-image: url(' + productService.getApiUrl() +'/'+ product.images[0] + ')'">
       </div>
     </div>
   </div>

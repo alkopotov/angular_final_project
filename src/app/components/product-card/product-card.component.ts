@@ -1,5 +1,5 @@
 import { Component, Input, inject } from '@angular/core';
-import { Product } from '../../services/products-worker.service';
+import { Product, ProductsWorkerService } from '../../services/products-worker.service';
 import { HeartIconComponent } from '../svg_components/heart-icon/heart-icon.component';
 import { RatingComponent } from '../rating/rating.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -25,7 +25,7 @@ registerLocaleData(localeRu, 'ru-RU', localeRuExtra);
 })
 export class ProductCardComponent {
 
-  constructor(public cartStorageService: CartStorageService) { }
+  constructor(public cartStorageService: CartStorageService, public productService: ProductsWorkerService) { }
 
   @Input() product: Product;
 

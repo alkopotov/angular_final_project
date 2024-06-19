@@ -44,7 +44,7 @@ export class HeaderElemComponent implements OnInit {
     },
     {
       title: 'Акции',
-      link: '/sales',
+      link: '/products/category/7',
       before: 'assets/icons/fire_icon.svg',
     },
     {
