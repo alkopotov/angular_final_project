@@ -211,6 +211,7 @@
   line-height: 19.09px;
   text-align: center;
   color: var(--prime-color-blue);
+  cursor: pointer;
 }
 .product-card__available-price-tablet {
   display: none;

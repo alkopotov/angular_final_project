@@ -38,7 +38,9 @@ export class ProductCardComponent {
     this.dialogService.openDialog('credit');
   }
 
-  public handleOpenInformOnDelivery(): void {
+  public handleOpenInormAvailable(): void {
+    this.dialogService.setDialogCreditProductId(this.product.id);
+    this.dialogService.openDialog('informAvailable');
     
   }
   public handleAddToCart(): void {  

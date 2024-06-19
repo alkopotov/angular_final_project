@@ -1,7 +1,10 @@
+
 <section class="dialog-credit">
   <div class="dialog-credit__close-button" (click)="dialogRef.close()">
     <app-close-icon></app-close-icon>
   </div>
+
+  @if(product) {
   <img src="{{productService.getApiUrl() + '/' + product.images[0]}}" alt="{{product.name + ' image'}}"
     class="dialog-credit__image dialog-credit__image_desk">
   <div class="dialog-credit__content">
@@ -87,4 +90,6 @@
       </div>
     </div>
   </div>
+  }
+
 </section>

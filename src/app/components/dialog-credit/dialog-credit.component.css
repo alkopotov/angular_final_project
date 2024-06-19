@@ -67,6 +67,7 @@
   height: 162px;
   top: 48px;
   left: 32px;
+  object-fit: contain;
 }
 
 .dialog-credit__image_mob {
