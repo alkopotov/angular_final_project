@@ -54,5 +54,12 @@
   .product-list__header {
     margin-bottom: 16px;
   }
+}
+
+@media (max-width: 768px) {
+  .product-list__empty {
+    padding: 16px;
+    text-align: center;
+  }
   
 }
