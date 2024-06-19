@@ -38,6 +38,9 @@ export class ProductCardComponent {
     this.dialogService.openDialog('credit');
   }
 
+  public handleOpenInformOnDelivery(): void {
+    
+  }
   public handleAddToCart(): void {  
     this.cartStorageService.saveToCart(this.product.id, 1);
     this.dialogService.setDialogCreditProductId(this.product.id);

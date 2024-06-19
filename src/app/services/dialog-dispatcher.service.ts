@@ -5,9 +5,10 @@ import { DialogBasketComponent } from '../components/dialog-basket/dialog-basket
 import { DialogCreditComponent } from '../components/dialog-credit/dialog-credit.component';
 import { DialogProductAddedComponent } from '../components/dialog-product-added/dialog-product-added.component';
 import { DialogFilterElemComponent } from '../components/dialog-filter-elem/dialog-filter-elem.component';
+import { DialogTradeInComponent } from '../components/dialog-trade-in/dialog-trade-in.component';
 
 
-export type DialogWindowType = 'basket' | 'credit' | 'callback' | 'catalog' | 'addToCart' | 'oneClick' | 'cheaperForm' | 'productAddedToBasket' | 'filterElem';
+export type DialogWindowType = 'basket' | 'credit' | 'callback' | 'catalog' | 'addToCart' | 'oneClick' | 'cheaperForm' | 'productAddedToBasket' | 'filterElem' | 'tradeIn';
 
 
 @Injectable({
@@ -28,6 +29,7 @@ export class DialogDispatcherService {
     cheaperForm: null,
     productAddedToBasket: DialogProductAddedComponent,
     filterElem: DialogFilterElemComponent,
+    tradeIn: DialogTradeInComponent,
   }
 
   private _dialogCreditProductId: number = 1;
