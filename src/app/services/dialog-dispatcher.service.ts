@@ -7,6 +7,7 @@ import { DialogProductAddedComponent } from '../components/dialog-product-added/
 import { DialogFilterElemComponent } from '../components/dialog-filter-elem/dialog-filter-elem.component';
 import { DialogTradeInComponent } from '../components/dialog-trade-in/dialog-trade-in.component';
 import { DialogInformAvailableComponent } from '../components/dialog-inform-available/dialog-inform-available.component';
+import { DialogOneClickOrderComponent } from '../components/dialog-one-click-order/dialog-one-click-order.component';
 
 
 export type DialogWindowType = 'basket' | 'credit' | 'callback' | 'catalog'  | 'oneClick' | 'cheaperForm' | 'productAddedToBasket' | 'filterElem' | 'tradeIn' | 'informAvailable';
@@ -25,7 +26,7 @@ export class DialogDispatcherService {
     credit: DialogCreditComponent,
     callback: DialogCallbackComponent,
     catalog: null,
-    oneClick: null,
+    oneClick: DialogOneClickOrderComponent,
     cheaperForm: null,
     productAddedToBasket: DialogProductAddedComponent,
     filterElem: DialogFilterElemComponent,

@@ -56,5 +56,10 @@ export class ProductCardComponent {
   public handleAddToFavorites(): void {
     this.favoritesStorage.handleFavorites(this.product.id);
   }
+
+  public handleOpenOneClickOrder(): void {
+    this.dialogService.setDialogCreditProductId(this.product.id);
+    this.dialogService.openDialog('oneClick');
+  }
 }
 
