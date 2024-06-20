@@ -145,7 +145,7 @@
 }
 
 :host ::ng-deep .product-card__favourite-icon_active svg {
-  fill: var(--cart-color-green);
+  fill: var(--07-color-gray);
 }
 
 .product-card__available-actions {

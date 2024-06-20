@@ -32,6 +32,18 @@
     gap: 10px;
     cursor: pointer;
   }
+
+  .bottom-bar__item_favorite {
+    cursor: auto;
+  }
+
+  .bottom-bar__item_favorite_active {
+    cursor: pointer;
+  }
+
+  :host ::ng-deep .bottom-bar__item_favorite_active svg {
+    fill: var(--07-color-gray);
+  }
 }
 
 @media (max-width: 768px) {

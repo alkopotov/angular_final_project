@@ -253,6 +253,10 @@
     padding-right: 16px;
   }
 
+  .product-category-page__product-list__wrapper {
+   justify-content: center;
+  }
+  
   .product-category-page__filters-tablet {
     flex-direction: column;
   }
