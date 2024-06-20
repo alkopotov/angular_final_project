@@ -1,0 +1,186 @@
+.dialog-one-click-order {
+  width: 720px;
+  height: fit-content;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  
+  background-color: white;
+  border-radius: 16px;
+  position: relative;
+  padding-left: 206px;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.dialog-one-click-order__close-button {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  cursor: pointer;
+}
+
+.dialog-one-click-order__image {
+  width: 160px;
+  height: 160px;
+  position: absolute;
+  top: 48px;
+  left: 32px;
+  object-fit: contain;
+}
+
+.dialog-one-click-order__title {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--07-color-gray);
+}
+
+.dialog-one-click-order__product-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--01-color-black);
+  padding-right: 24px;
+  margin-bottom: 8px;
+}
+
+.dialog-one-click-order__product-initial-price {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--06-color-gray);
+  text-decoration: line-through;
+}
+
+.dialog-one-click-order__product-final-price {
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--01-color-black);
+}
+
+.dialog-one-click-order__input-phone-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 24px;
+  margin-bottom: 8px;
+  border: 1px solid #DBDBDB;
+  border-radius: 8px;
+  width: 249px;
+  height: 56px;
+}
+
+.dialog-one-click-order__phone-prefix {
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--05-color-gray);
+  padding-left: 16px;
+}
+
+.dialog-one-click-order__input-phone {
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--05-color-gray);
+  padding-left: 6px;
+  width: 180px;
+  height: 100%;
+  border: none;
+  outline: none;
+} 
+
+.dialog-one-click-order__button {
+  width: 249px;
+  height: 56px;
+  background-color: var(--prime-color-blue);
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+}
+
+.dialog-one-click-order__text {
+  margin-top: 24px;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--07-color-gray);
+}
+
+.dialog-one-click-order__contacts {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.dialog-one-click-order__phone {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--01-color-black);
+}
+@media (max-width: 768px) {
+  .dialog-one-click-order {
+    width: 288px;
+    min-height: 260px;
+    padding: 16px;
+  }
+
+  .dialog-one-click-order__close-button {
+    top: 16px;
+    right: 16px;
+  }
+
+  .dialog-one-click-order__image {
+    width: 54px;
+    height: 54px;
+    top: 51px;
+    left: 16px;
+  }
+
+  .dialog-one-click-order__title {
+    margin-top: 8px;
+  }
+  
+  .dialog-one-click-order__product-title {
+    margin-top: 12px;
+    font-size: 18px;
+    margin-left: 70px;
+    padding-right: 16px;
+  }
+
+  .dialog-one-click-order__product-prices-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    margin-left: 70px;
+  }
+
+  .dialog-one-click-order__product-initial-price {
+    font-size: 14px;
+  }
+
+  .dialog-one-click-order__product-final-price {
+    font-size: 16px;
+  }
+  .dialog-one-click-order__input-phone-wrapper {
+    margin-top: 15px;
+  }
+
+  .dialog-one-click-order__phone {
+    font-size: 16px;
+  }
+
+  .dialog-one-click-order__contacts {
+    gap: 8px;
+  }
+
+  :host ::ng-deep .dialog-one-click-order__contacts div{
+   gap: 8px;
+  }
+
+  :host ::ng-deep .dialog-one-click-order__contacts img {
+    width: 24px;
+    height: 24px;
+  }
+
+}

@@ -1,5 +1,5 @@
 import { Component, Input, inject } from '@angular/core';
-import { Product } from '../../services/products-worker.service';
+import { Product, ProductsWorkerService } from '../../services/products-worker.service';
 import { HeartIconComponent } from '../svg_components/heart-icon/heart-icon.component';
 import { RatingComponent } from '../rating/rating.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -13,6 +13,7 @@ import { DialogDispatcherService } from '../../services/dialog-dispatcher.servic
 import { CartStorageService } from '../../services/cart-storage.service';
 import { CartInIconComponent } from '../svg_components/cart-in-icon/cart-in-icon.component';
 import { ProductNamePipe } from '../../pipes/product-name.pipe';
+import { FavoritesStorageService } from '../../services/favorites-storage.service';
 
 
 registerLocaleData(localeRu, 'ru-RU', localeRuExtra);
@@ -25,7 +26,10 @@ registerLocaleData(localeRu, 'ru-RU', localeRuExtra);
 })
 export class ProductCardComponent {
 
-  constructor(public cartStorageService: CartStorageService) { }
+  constructor(
+    public cartStorageService: CartStorageService,
+    public productService: ProductsWorkerService,
+    public favoritesStorage: FavoritesStorageService) { }
 
   @Input() product: Product;
 
@@ -38,9 +42,24 @@ export class ProductCardComponent {
     this.dialogService.openDialog('credit');
   }
 
+  public handleOpenInormAvailable(): void {
+    this.dialogService.setDialogCreditProductId(this.product.id);
+    this.dialogService.openDialog('informAvailable');
+    
+  }
   public handleAddToCart(): void {  
     this.cartStorageService.saveToCart(this.product.id, 1);
     this.dialogService.setDialogCreditProductId(this.product.id);
     this.dialogService.openDialog('productAddedToBasket');
   }
+
+  public handleAddToFavorites(): void {
+    this.favoritesStorage.handleFavorites(this.product.id);
+  }
+
+  public handleOpenOneClickOrder(): void {
+    this.dialogService.setDialogCreditProductId(this.product.id);
+    this.dialogService.openDialog('oneClick');
+  }
 }
+

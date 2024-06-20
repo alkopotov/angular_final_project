@@ -1,10 +1,29 @@
+@if(products.length) {
 <section class="product-list">
   @if(title) {
     <h2 class="product-list__header">{{title}}</h2>
   }
   <div class="product-list__cards">
-    @for(product of products; track product.id) {
+    @for(product of productsOnPage; track product.id) {
     <app-product-card [product]="product"></app-product-card>
     }
-  </div> 
+  </div>
+  @if(numberOfPages > 1) {
+    <div class="product-list__pagination">
+      <button class="product-list__pagination-button" (click)="currentPage = currentPage - 1" [disabled]="currentPage === 1"><svg width="10" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9.80001 3.0001L3.80001 9.0001L9.80001 15.0001L8.60001 17.4001L0.200012 9.0001L8.60001 0.600098L9.80001 3.0001Z" fill="#706E6E"/>
+        </svg>
+        </button>
+      @for (item of paginationButtons; track $index) {
+        <button [class]="currentPage === item ? 'product-list__pagination-button product-list__pagination-button_active' : 'product-list__pagination-button'" (click)="currentPage = item" [disabled]="currentPage === item">{{item}}</button>
+      }
+      <button class="product-list__pagination-button" (click)="currentPage = currentPage + 1" [disabled]="currentPage === numberOfPages"><svg width="10" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0.200012 15.0001L6.20001 9.0001L0.200012 3.0001L1.40001 0.600098L9.80001 9.0001L1.40001 17.4001L0.200012 15.0001Z" fill="#706E6E"/>
+        </svg>
+        </button>
+    </div>
+  }
 </section>
+} @else {
+  <p class="product-list__empty">Товары с указанными характеристиками не найдены, измените условия фильтрации</p>
+}

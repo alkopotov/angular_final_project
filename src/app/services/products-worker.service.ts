@@ -5,6 +5,7 @@ import { ProductLoggingService } from './product-logging.service';
 
 export interface Product { 
   id: number;
+  createdAt: string,
   name: string,
   price: number,
   discount_price: number,
@@ -53,7 +54,7 @@ export interface Characteristics{
   providedIn: 'root'
 })
 export class ProductsWorkerService {
-  public baseUrl = 'http://localhost:1452';
+  public baseUrl = 'https://angular-final-project-backend.onrender.com';
   public products: Product[] = [];
   public searchQuery: string = ''
   public priceVal = 0

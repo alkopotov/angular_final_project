@@ -1,0 +1,20 @@
+
+  <section class="dialog-inform-available">
+    <div class="dialog-inform-available__close-button" (click)="dialogRef.close()">
+      <app-close-icon></app-close-icon>
+    </div>
+    @if(product) {
+      <img src="{{productService.getApiUrl() + '/' + product.images[0]}}" alt="{{product.name + ' image'}}" class="dialog-inform-available__image">
+      
+      <p class="dialog-inform-available__title">Сообщить о поступлении</p>
+      <h2 class="dialog-inform-available__product-title">{{product | productName}}</h2>
+      <div class="dialog-inform-available__input-phone-wrapper">
+        <div class="dialog-inform-available__phone-prefix">+7</div>
+        <input type="text" placeholder="123 456 78 90" class="dialog-inform-available__input-phone" name="" id="">
+      </div>
+      <button class="dialog-inform-available__button">сообщить о поступлении</button>
+
+    }
+  </section>
+
+

@@ -4,6 +4,8 @@ import { CartIconComponent } from '../svg_components/cart-icon/cart-icon.compone
 import { HeartIconComponent } from '../svg_components/heart-icon/heart-icon.component';
 import { CompareIconComponent } from '../svg_components/compare-icon/compare-icon.component';
 import { DialogDispatcherService } from '../../services/dialog-dispatcher.service';
+import { FavoritesStorageService } from '../../services/favorites-storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bottom-bar',
@@ -13,5 +15,14 @@ import { DialogDispatcherService } from '../../services/dialog-dispatcher.servic
   styleUrl: './bottom-bar.component.css'
 })
 export class BottomBarComponent {
+
+  constructor(private _router: Router) { }
   public dialogService = inject(DialogDispatcherService);
+  public favoritesStorage = inject(FavoritesStorageService);
+
+  public handleOpenFavorites(): void {
+    if (this.favoritesStorage.productsInFavorites.length > 0) {
+      this._router.navigate(['/products/category/8']);
+    }
+  }
 }

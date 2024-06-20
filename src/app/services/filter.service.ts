@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Product, ProductsWorkerService } from './products-worker.service';
+import { FavoritesStorageService } from './favorites-storage.service';
 
 
 export type ProductFilter = 'Процессор' | 'Объем встроенной памяти' | 'Диагональ' | 'Циферблат'
 
-export type ProductCategory = 'Аксессуары' | 'Смартфоны' | 'Планшеты' | 'Компьютеры' | 'Часы' | 'Гаджеты'
+export type ProductCategory = 'Аксессуары' | 'Смартфоны' | 'Планшеты' | 'Компьютеры' | 'Часы' | 'Гаджеты' | 'Акции' | 'Избранное'
 
 export type SortingOrder = 'default' | 'priceAsc' | 'priceDesc'
 
@@ -20,7 +21,7 @@ export type FilterCategory = {
 })
 export class FilterService {
 
-  constructor(private productService: ProductsWorkerService) { }
+  constructor(private productService: ProductsWorkerService, private favoritesStorage: FavoritesStorageService) { }
 
   private _currentCategory: number = 1;
 
@@ -38,7 +39,9 @@ export class FilterService {
     3: 'Компьютеры',
     4: 'Планшеты',
     5: 'Часы',
-    6: 'Гаджеты'
+    6: 'Гаджеты',
+    7: 'Акции',
+    8: 'Избранное'
   }
 
   public categoryFilters: Record<number, ProductFilter[]> = {
@@ -47,7 +50,9 @@ export class FilterService {
     3: ['Процессор', 'Объем встроенной памяти'],
     4: ['Объем встроенной памяти', 'Диагональ'],
     5: ['Процессор', 'Циферблат'],
-    6: []
+    6: [],
+    7: [],
+    8: [],
   }
 
   public minPrice: number;
@@ -67,8 +72,15 @@ export class FilterService {
   }
 
   public get productsInCategory(): Product[] {
-    return this.productService.products.filter(el => el.category === this.productCategories[this._currentCategory])
-  }
+    if (this.currentCategoryTitle === 'Акции') {
+      return this.productService.products.filter(el => el.discount_price && el.is_available);
+    }
+    if (this.currentCategoryTitle === 'Избранное') {
+      return this.favoritesStorage.filterProductsByFavorites(this.productService.products);
+    }
+      return this.productService.products.filter(el => el.category === this.productCategories[this._currentCategory]);
+    }
+  
 
   public get minRangeValue(): number {
     return Math.min(...this.productsInCategory.map(el => el.discount_price || el.price))
@@ -80,7 +92,6 @@ export class FilterService {
 
 
   public get chipsInCategory(): string[] {
-
     let result = new Set;
     this.productsInCategory.forEach(product => {
       result.add(product.name);

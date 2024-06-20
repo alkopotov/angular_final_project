@@ -5,9 +5,12 @@ import { DialogBasketComponent } from '../components/dialog-basket/dialog-basket
 import { DialogCreditComponent } from '../components/dialog-credit/dialog-credit.component';
 import { DialogProductAddedComponent } from '../components/dialog-product-added/dialog-product-added.component';
 import { DialogFilterElemComponent } from '../components/dialog-filter-elem/dialog-filter-elem.component';
+import { DialogTradeInComponent } from '../components/dialog-trade-in/dialog-trade-in.component';
+import { DialogInformAvailableComponent } from '../components/dialog-inform-available/dialog-inform-available.component';
+import { DialogOneClickOrderComponent } from '../components/dialog-one-click-order/dialog-one-click-order.component';
 
 
-export type DialogWindowType = 'basket' | 'credit' | 'callback' | 'catalog' | 'addToCart' | 'oneClick' | 'cheaperForm' | 'productAddedToBasket' | 'filterElem';
+export type DialogWindowType = 'basket' | 'credit' | 'callback' | 'catalog'  | 'oneClick' | 'cheaperForm' | 'productAddedToBasket' | 'filterElem' | 'tradeIn' | 'informAvailable';
 
 
 @Injectable({
@@ -23,13 +26,15 @@ export class DialogDispatcherService {
     credit: DialogCreditComponent,
     callback: DialogCallbackComponent,
     catalog: null,
-    addToCart: null,
-    oneClick: null,
+    oneClick: DialogOneClickOrderComponent,
     cheaperForm: null,
     productAddedToBasket: DialogProductAddedComponent,
     filterElem: DialogFilterElemComponent,
+    tradeIn: DialogTradeInComponent,
+    informAvailable: DialogInformAvailableComponent,
   }
 
+  // Используется для передачи product_id модальным окнам, отображающим конкретный продукт
   private _dialogCreditProductId: number = 1;
 
   public setDialogCreditProductId(id: number): void {

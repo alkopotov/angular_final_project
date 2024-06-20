@@ -3,7 +3,7 @@ import { MainLogoComponent } from '../svg_components/main-logo/main-logo.compone
 import { PhoneIconComponent } from '../svg_components/phone-icon/phone-icon.component';
 import { HeartIconComponent } from '../svg_components/heart-icon/heart-icon.component';
 import { CompareIconComponent } from '../svg_components/compare-icon/compare-icon.component';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { TripplePointComponent } from '../svg_components/tripple-point/tripple-point.component';
 import { CartIconComponent } from '../svg_components/cart-icon/cart-icon.component';
 import { HeaderBottomComponent } from '../header-bottom/header-bottom.component';
@@ -13,6 +13,7 @@ import { HamburgerMenuComponent } from './hamburger-menu/hamburger-menu.componen
 import { DialogDispatcherService } from '../../services/dialog-dispatcher.service';
 import { CatalogSearchBarComponent } from '../catalog-search-bar/catalog-search-bar.component';
 import { CartStorageService } from '../../services/cart-storage.service';
+import { FavoritesStorageService } from '../../services/favorites-storage.service';
 
 
 @Component({
@@ -44,7 +45,7 @@ export class HeaderElemComponent implements OnInit {
     },
     {
       title: 'Акции',
-      link: '/sales',
+      link: '/products/category/7',
       before: 'assets/icons/fire_icon.svg',
     },
     {
@@ -74,17 +75,23 @@ export class HeaderElemComponent implements OnInit {
   ];
 
 
-  constructor(public cartStorageService: CartStorageService){}
-  
+  constructor(public cartStorageService: CartStorageService, private _router: Router, public favoritesStorage: FavoritesStorageService) { }
+
   // public OpenDialog() {
   //   this.dialog.open(CallbackModalComponent, {})
   // }
 
   public DevType = inject(DevTypeService);
-  public dialogService= inject(DialogDispatcherService);
-  
+  public dialogService = inject(DialogDispatcherService);
+
 
   ngOnInit(): void {
     this.DevType.getDevType();
+  }
+
+  public handleOpenFavorites(): void {
+    if (this.favoritesStorage.productsInFavorites.length > 0) {
+      this._router.navigate(['/products/category/8'])
+    }
   }
 }

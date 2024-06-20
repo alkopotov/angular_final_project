@@ -4,7 +4,7 @@
       <app-rating [rating]="product.rating"></app-rating>
       <p class="product-card__reviews">({{product.count_review}})</p>
     </div>
-    <div class="product-card__favourite-icon" (click)="handleOpenCredit()">
+    <div [class]="favoritesStorage.includedInFavorites(product.id) ? 'product-card__favourite-icon product-card__favourite-icon_active' : 'product-card__favourite-icon'" (click)="handleAddToFavorites()">
       <app-heart-icon></app-heart-icon>
     </div>
   </div>
@@ -12,7 +12,7 @@
     <div class="product-card__title">{{product | productName}}</div>
     <div class="product-card__image-wrapper" routerLink="/products/{{product.id}}">
       <div class="product-card__image"
-        [style]="'background-image: url(http://localhost:1452/' + product.images[0] + ')'">
+        [style]="'background-image: url(' + productService.getApiUrl() +'/'+ product.images[0] + ')'">
       </div>
     </div>
   </div>
@@ -88,7 +88,7 @@
       <div class="product-card__available-actions">
         <span class="product-card__available-cheaper" (click)="dialogService.openDialog('cheaperForm')">Хочу
           дешевле</span>
-        <span class="product-card__available-buy" (click)="dialogService.openDialog('oneClick')">Kупить в 1 клик</span>
+        <span class="product-card__available-buy" (click)="handleOpenOneClickOrder()">Kупить в 1 клик</span>
       </div>
     </div>
 
@@ -99,7 +99,7 @@
         <p>Ожидается поступление</p>
       </div>
       <p class="product-card__not-available-description"> Мы можем сообщить вам, когда товар появится в наличии</p>
-      <button class="product-card__button-not-available">Cooбщить о поступлении</button>
+      <button class="product-card__button-not-available" (click)="handleOpenInormAvailable()">Cooбщить о поступлении</button>
     </div>
     }
   </div>

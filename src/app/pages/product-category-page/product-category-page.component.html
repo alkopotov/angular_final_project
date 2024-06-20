@@ -62,6 +62,15 @@
   <section class="product-category-page__product-list__wrapper">
     <app-product-list [products]="filterService.displayedProducts"></app-product-list>
   </section>
-
 </main>
+<div class="product-category-page__banner-tablet">
+  <app-category-page-banner></app-category-page-banner>
+</div>
+<div class="product-category-page__bottom-banner">
+  <h3 class="product-category-page__bottom-banner-header">{{bottomBannerContent.header}}</h3>
+  <p class="product-category-page__bottom-banner-lead">{{bottomBannerContent.text[0]}}</p>
+  @for(item of bottomBannerContent.text.slice(1); track $index) {
+    <p class="product-category-page__bottom-banner-text">{{item}}</p>
+  }
+</div>
 

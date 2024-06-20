@@ -1,0 +1,33 @@
+<section class="dialog-one-click-order">
+  <div class="dialog-one-click-order__close-button" (click)="dialogRef.close()">
+    <app-close-icon></app-close-icon>
+  </div>
+  @if(product) {
+    <img src="{{productService.getApiUrl() + '/' + product.images[0]}}" alt="{{product.name + ' image'}}" class="dialog-one-click-order__image">
+    
+    <p class="dialog-one-click-order__title">Купить в 1 клик</p>
+    <h2 class="dialog-one-click-order__product-title">{{product | productName}}</h2>
+    @if(product.discount_price) {
+      <div class="dialog-one-click-order__product-prices-wrapper">
+        <p class="dialog-one-click-order__product-initial-price">{{product.price | number : '1.0-0' : 'ru-RU'}}₽</p>
+        <p class="dialog-one-click-order__product-final-price">{{product.discount_price | number : '1.0-0' : 'ru-RU'}}₽</p>
+      </div>
+    } @else {
+      <p class="dialog-one-click-order__product-final-price">{{product.price | number : '1.0-0' : 'ru-RU' }}₽</p>}
+    <div class="dialog-one-click-order__input-phone-wrapper">
+      <div class="dialog-one-click-order__phone-prefix">+7</div>
+      <input type="text" placeholder="123 456 78 90" class="dialog-one-click-order__input-phone" name="" id="">
+    </div>
+    <button class="dialog-one-click-order__button">оформить заказ</button>
+
+    <p class="dialog-one-click-order__text">Либо позвоните или напишите нам</p>
+
+    <div class="dialog-one-click-order__contacts">
+      <p class="dialog-one-click-order__phone">+7 (499) 350-66-04</p>
+      <app-social-media-block></app-social-media-block>
+    </div>
+
+
+
+  }
+</section>

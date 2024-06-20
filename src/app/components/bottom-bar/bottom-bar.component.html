@@ -7,7 +7,7 @@
     <app-cart-icon></app-cart-icon>
     <p class="bottom-bar__item-title">корзина</p>
   </div>
-  <div class="bottom-bar__item bottom-bar__item_favorite">
+  <div [class]=" favoritesStorage.productsInFavorites.length > 0 ? 'bottom-bar__item bottom-bar__item_favorite bottom-bar__item_favorite_active' : 'bottom-bar__item bottom-bar__item_favorite'" (click)="handleOpenFavorites()">
     <app-heart-icon></app-heart-icon>
     <p class="bottom-bar__item-title">избранное</p>
   </div>

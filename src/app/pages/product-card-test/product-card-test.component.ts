@@ -15,6 +15,7 @@ export class ProductCardTestComponent implements OnInit{
   product: Product = {
     id: 1,
     name: '',
+    createdAt: '',
     price: 1,
     discount_price: 1,
     guarantee: 1,

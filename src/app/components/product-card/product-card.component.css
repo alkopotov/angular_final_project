@@ -144,6 +144,10 @@
   height: 24px;
 }
 
+:host ::ng-deep .product-card__favourite-icon_active svg {
+  fill: var(--07-color-gray);
+}
+
 .product-card__available-actions {
   display: flex;
   justify-content: space-between;
@@ -211,6 +215,7 @@
   line-height: 19.09px;
   text-align: center;
   color: var(--prime-color-blue);
+  cursor: pointer;
 }
 .product-card__available-price-tablet {
   display: none;

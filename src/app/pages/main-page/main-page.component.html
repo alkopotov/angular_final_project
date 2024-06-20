@@ -1,18 +1,18 @@
 <app-banner-slider></app-banner-slider>
-@if (productsWorkerService.products.length > 0) {
+@if (getPopulars().length > 0) {
   <div class="product-list__wrapper">
   <app-product-list
     title="Самое популярное"
-    [products]="productsWorkerService.products.slice(0, 12)"></app-product-list>
+    [products]="getPopulars()"></app-product-list>
   </div>
 }
 <app-banner-text></app-banner-text>
 <app-banner-promo></app-banner-promo>
-@if ((productsWorkerService.products.length > 0)) {
+@if ((getNewProducts().length > 0)) {
   <div class="product-list__wrapper">
   <app-product-list
     title="Новинки"
-    [products]="productsWorkerService.products.slice(productsWorkerService.products.length - 12)"></app-product-list>
+    [products]="getNewProducts()"></app-product-list>
   </div>
 }
 

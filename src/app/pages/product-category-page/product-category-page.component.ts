@@ -17,15 +17,31 @@ import { CategoryPageBannerComponent } from '../../components/category-page-bann
   templateUrl: './product-category-page.component.html',
   styleUrl: './product-category-page.component.css'
 })
-export class ProductCategoryPageComponent implements OnInit{
+export class ProductCategoryPageComponent implements OnInit {
 
 
-  constructor(public routes: ActivatedRoute, public filterService: FilterService, public dialogService: DialogDispatcherService) { 
+  constructor(public routes: ActivatedRoute, public filterService: FilterService, public dialogService: DialogDispatcherService) {
     this.routes.paramMap.subscribe((params) => this.ngOnInit())
   }
 
   public ngOnInit(): void {
     this.filterService.currentCategory = this.routes.snapshot.params['id'];
     this.filterService.resetFilterService();
+  }
+
+  public bottomBannerContent = {
+    header: 'Новые модели техники Apple по выгодным ценам',
+    text: [
+      'Для тех, кто хочет приобрести новую модель техники Apple, наш магазин предлагает:',
+      'Низкие цены на все виды устройств, недорогие аксессуары;',
+      'Оригинальные подарки бренда;',
+      'Новая линейка смартфонов и проверенные старые модели;',
+      'Лаконичный дизайн, большой выбор цветов и оттенков;',
+      'Все товары в каталоге есть в наличии и доступны для покупки в кредит и рассрочку;',
+      'Быстрая доставка по Москве и Санкт-Петербургу',
+      'Гарантия на все модели телефонов;',
+      'Все способы оплаты!',
+      'Товары, представленные на нашем сайте,сертифицированы. Мы занимаемся продажей айфонов с 2013 года. Вы всегда можете прочитать отзывы о покупке наших клиентов, позвонить в магазин и получить консультацию по любой модели Apple'
+    ]
   }
 }
