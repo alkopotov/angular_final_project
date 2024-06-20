@@ -1,21 +1,41 @@
 <section class="product">
   @if (DevType.devType === 'tablet') {
-    <h1 class="wrapper-descr__title">{{product.brand + ' ' + product.name + ' ' + this.getDescription()}}</h1>
+    <h1 class="wrapper-descr__title">{{product.brand + ' ' + product.name + ' ' + (selectedMemory ? selectedMemory + 'GB' : '')}}</h1>
   }
   <div class="wrapper">
     <div class="wrapper-imgs">
-      <img class="wrapper-imgs__main" [src]="baseUrl + '/' + product.images[0]" [alt]="product.name">
+      <img class="wrapper-imgs__main" [src]="baseUrl + '/' + selectedImage" [alt]="product.name">
+      <div class="wrapper-imgs-block">
+        @for (item of productImagesArr; track item) {
+          <img
+            class="wrapper-imgs-block__img"
+            [class.active]="item.image === selectedImage"
+            [src]="baseUrl + '/' + item.image"
+            (click)="onImageClick(item.image)"
+          >
+        }
+      </div>
     </div>
     <div class="wrapper-descr">
       @if(DevType.devType === 'desktop') {
-        <h1 class="wrapper-descr__title">{{product.brand + ' ' + product.name + ' ' + this.getDescription()}}</h1>
+        <h1 class="wrapper-descr__title">{{product.brand + ' ' + product.name + ' ' + (selectedMemory ? selectedMemory + 'GB' : '')}}</h1>
       }
       <div class="mini-wrap">
         <div>
-          <h4 class="mini-wrap__title">Объем памяти</h4>
-          <div class="mini-wrap__memory">
-            <p>Выбор пока не продоставляется бекендом</p>
-          </div>
+          @if (productMemoryArr.length !== 0) {
+            <h4 class="mini-wrap__title">Объем памяти</h4>
+            <div class="mini-wrap__memory">
+              @for(memory of productMemoryArr; track memory) {
+                <div
+                  class="mini-wrap__memory-item"
+                  (click)="onMemorySelect(memory)"
+                  [class.active]="memory === this.selectedMemory"
+                >
+                  {{ memory }}GB
+                </div>
+              }
+            </div>
+          }
           <h4 class="mini-wrap__title">Характеристики</h4>
           <div class="mini-wrap__characteristics">
             @for (item of product.characteristics; track $index) {
@@ -30,19 +50,19 @@
           <div class="buy-isAvailable">
             <div
               class="buy-isAvailable__indicator"
-              [class.available]="product.is_available"
-              [class.not-available]="!product.is_available"
+              [class.available]="isProductAvailable"
+              [class.not-available]="!isProductAvailable"
             ></div>
-            @if (product.is_available) {
+            @if (isProductAvailable) {
               <p>в наличии</p>
             } @else {
               <p>нет в наличии</p>
             }
           </div>
-          @if (product.discount_price !== null) {
-            <p class="buy-discount">{{product.discount_price | number : '1.0-0' : 'ru-RU'}} ₽</p>
+          @if (productPrice.discount !== null) {
+            <p class="buy-discount">{{productPrice.discount | number : '1.0-0' : 'ru-RU'}} ₽</p>
           }
-          <p class="buy-price">{{product.price | number : '1.0-0' : 'ru-RU'}} ₽</p>
+          <p class="buy-price">{{productPrice.price | number : '1.0-0' : 'ru-RU'}} ₽</p>
           <button class="but-btn">Добавить в корзину</button>
           <p class="buy-one-click">Купить в 1 клик</p>
           <form class="buy-form" method="post">

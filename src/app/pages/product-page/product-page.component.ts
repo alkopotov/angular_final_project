@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, TemplateRef } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Product, ProductsWorkerService } from '../../services/products-worker.service';
 import { Router, NavigationEnd } from '@angular/router';
@@ -7,6 +7,7 @@ import { ProductQuestionsComponent } from '../../components/product-questions/pr
 import { ProductAdvantagesComponent } from '../../components/product-advantages/product-advantages.component';
 import { DecimalPipe } from '@angular/common';
 import { DevTypeService } from '../../services/dev-type.service';
+import { FormsModule } from '@angular/forms';
 
 interface DeliveryItem {
   id: number;
@@ -22,6 +23,11 @@ interface EarItem {
   descr: string;
 }
 
+interface priceItem {
+  price: number
+  discount: number | null
+}
+
 @Component({
   selector: 'app-product-page',
   standalone: true,
@@ -30,14 +36,24 @@ interface EarItem {
     RouterLink,
     ProductReceivingComponent,
     ProductQuestionsComponent,
-    ProductAdvantagesComponent
+    ProductAdvantagesComponent,
+    FormsModule
   ],
   templateUrl: './product-page.component.html',
   styleUrl: './product-page.component.css'
 })
 export class ProductPageComponent implements OnInit {
   public product: Product;
+  public productList: Product[] = [];
+  public productMemoryArr: any[] = [];
+  public productImagesArr: any[] = [];
+  public productPrice: priceItem = {price: 0, discount: 0};
+  public isProductAvailable: boolean;
+  public selectedMemory: any;
+  public selectedImage: any;
+
   public DevType = inject(DevTypeService);
+
   public deliveryArr: DeliveryItem[] = [
     { id: 1, img: '/assets/images/product-page/delivery/1.svg', from: 'Доставим в Санкт-Петербурге', to: 'сегодня до 15:16' },
     { id: 2, img: '/assets/images/product-page/delivery/2.svg', from: 'Самовывоз', to: 'Лиговский проспект 33/35' },
@@ -52,14 +68,67 @@ export class ProductPageComponent implements OnInit {
   ]
   
   public baseUrl = this.productService.getApiUrl();
-  public getDescription(): string {
-    let memory = this.product.characteristics.find((characteristic) => characteristic.characteristic === 'Объем встроенной памяти');
-    if (memory) {
-      return memory.value + ' ГБ ' + this.product.color.toLowerCase();
+  public getProductMemory(): void {
+    const uniqueMemories = new Set<string>();
+
+    const sameNamedProducts = this.productList.filter((p) => p.name === this.product.name);
+
+    sameNamedProducts.forEach((p) => {
+      const memoryCharacteristic = p.characteristics.find((characteristic) => characteristic.characteristic === 'Объем встроенной памяти')?.value;
+      if (memoryCharacteristic && !uniqueMemories.has(memoryCharacteristic)) {
+        uniqueMemories.add(memoryCharacteristic);
+      }
+    });
+  
+    this.productMemoryArr = [...uniqueMemories];
+    this.productMemoryArr.sort((a, b) => a - b);
+
+    // console.log(this.productMemoryArr);
+    
+  }
+  public onMemorySelect(memory: string): void {
+    this.selectedMemory = memory;
+    this.updateProductDetails();
+  }
+  public getProductImages(): void {
+    const uniqueImages = new Set<string>();
+    const sameNamedProducts = this.productList.filter((p) => p.name === this.product.name);
+  
+    sameNamedProducts.forEach((p) => {
+      p.images.forEach((image) => {
+        const uniqueIdentifier = `${image}-${p.color}`;
+        if (!uniqueImages.has(uniqueIdentifier)) {
+          uniqueImages.add(uniqueIdentifier);
+          this.productImagesArr.push(
+            { image, color: p.color }
+          );
+        }
+      });
+    });
+    console.log(this.productImagesArr); 
+  }
+  public onImageClick(image: string) {
+    this.selectedImage = image;
+    this.updateProductDetails();
+  }
+  public updateProductDetails(): void {
+    const selectedProduct = this.productList.find((p) => 
+      p.name === this.product.name && 
+      p.images.includes(this.selectedImage) && 
+      (
+        !this.selectedMemory ||
+        p.characteristics.some((characteristic) => characteristic.characteristic === 'Объем встроенной памяти' && characteristic.value === this.selectedMemory)
+      )
+    );    
+
+    if (selectedProduct) {
+      this.productPrice = { price: selectedProduct.price, discount: selectedProduct.discount_price };
+      this.isProductAvailable = selectedProduct.is_available;
     } else {
-      return this.product.color.toLowerCase();
+      this.isProductAvailable = false;
     }
   }
+ 
 
   constructor (
     private route: ActivatedRoute,
@@ -68,19 +137,30 @@ export class ProductPageComponent implements OnInit {
   ){}
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.route.paramMap.subscribe(params => {
+      const id = Number(params.get('id'));
 
-    this.DevType.getDevType();
+      this.DevType.getDevType();
 
-    this.productService.getOneProduct(id).subscribe((product: Product) => {
-      this.product = product;
-    });
+      this.productList = this.productService.products;
 
-    // Автоматический скролл до верхней точки страницы при переходе на нее
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        window.scroll(0, 0);
-      }
-    });
+      this.productService.getOneProduct(id).subscribe((product: Product) => {
+        this.product = product;
+        this.selectedImage = product.images[0];
+        this.selectedMemory = this.product.characteristics.find((characteristic) => characteristic.characteristic === 'Объем встроенной памяти')?.value;
+        this.productPrice = { price: product.price, discount: product.discount_price };
+        this.isProductAvailable = product.is_available;
+
+        this.getProductMemory();
+        this.getProductImages();
+      });
+
+      // Автоматический скролл до верхней точки страницы при переходе на нее
+      this.router.events.subscribe(event => {
+        if (event instanceof NavigationEnd) {
+          window.scroll(0, 0);
+        }
+      });
+    })
   }
 }
