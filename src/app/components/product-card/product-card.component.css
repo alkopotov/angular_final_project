@@ -144,6 +144,10 @@
   height: 24px;
 }
 
+:host ::ng-deep .product-card__favourite-icon_active svg {
+  fill: var(--cart-color-green);
+}
+
 .product-card__available-actions {
   display: flex;
   justify-content: space-between;

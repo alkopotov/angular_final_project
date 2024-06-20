@@ -33,6 +33,7 @@ export class DialogDispatcherService {
     informAvailable: DialogInformAvailableComponent,
   }
 
+  // Используется для передачи product_id модальным окнам, отображающим конкретный продукт
   private _dialogCreditProductId: number = 1;
 
   public setDialogCreditProductId(id: number): void {

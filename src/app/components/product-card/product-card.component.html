@@ -4,7 +4,7 @@
       <app-rating [rating]="product.rating"></app-rating>
       <p class="product-card__reviews">({{product.count_review}})</p>
     </div>
-    <div class="product-card__favourite-icon" (click)="handleOpenCredit()">
+    <div [class]="favoritesStorage.includedInFavorites(product.id) ? 'product-card__favourite-icon product-card__favourite-icon_active' : 'product-card__favourite-icon'" (click)="handleAddToFavorites()">
       <app-heart-icon></app-heart-icon>
     </div>
   </div>
