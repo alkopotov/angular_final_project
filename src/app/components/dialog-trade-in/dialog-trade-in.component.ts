@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CloseIconComponent } from '../svg_components/close-icon/close-icon.component';
 import { DialogRef } from '@angular/cdk/dialog';
-import { Product } from '../../services/products-worker.service';
 
 @Component({
   selector: 'app-dialog-trade-in',
@@ -12,7 +11,6 @@ import { Product } from '../../services/products-worker.service';
 })
 export class DialogTradeInComponent {
 
-  @Input() public product: Product;
 
   constructor(public dialogRef: DialogRef) { }
 
