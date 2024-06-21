@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, HostListener, ElementRef, OnInit, OnDestroy } from '@angular/core';
 import { TripplePointComponent } from '../svg_components/tripple-point/tripple-point.component';
-import { Router, RouterLink} from '@angular/router';
+import { Router, RouterLink, NavigationEnd} from '@angular/router';
 import { Product, ProductsWorkerService } from '../../services/products-worker.service';
 import { Subscription } from 'rxjs';
 
@@ -29,6 +29,12 @@ export class CatalogPopupComponent implements OnInit, OnDestroy {
       this.productService.forPopupProducts(id);
     });
     this.productService.setCategoryForPopup(this.productService.categoryForPopup.value);
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.showPopup = false;
+      }
+    });
+
   }
 
   ngOnDestroy(): void {

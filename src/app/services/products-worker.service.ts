@@ -101,7 +101,7 @@ export class ProductsWorkerService {
 
   public forPopupProducts(numCat: number) {
     this.http.get<Product[]>(`${this.baseUrl}/api/category/${numCat}`).subscribe((products) => {
-      this.forPopup = products.slice(0, 12);
+      this.forPopup = products;
     });
   }
   
