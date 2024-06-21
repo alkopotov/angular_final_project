@@ -314,9 +314,17 @@ p {
     gap: 30px;
   }
 
+  .wrapper-imgs-block {
+    justify-content: center;
+  }
+
+  .wrapper-imgs-block__img {
+    width: 150px;
+  }
+
   .wrapper-imgs__main {
     display: block;
-    margin: 0 auto;
+    margin: 0 auto 30px;
   }
 
   .wrapper-descr__title {
@@ -388,4 +396,89 @@ p {
   }
 }
 
-@media screen and (max-width: 768px) {}
+@media screen and (max-width: 768px) {
+  .product {
+    padding: 24px 16px 0;
+  }
+
+  .wrapper-imgs__main {
+    width: 100%;
+  }
+
+  .wrapper-imgs-block__img {
+    width: calc(100% / 4);
+  }
+
+  .wrapper-descr__title {
+    font-size: 24px;
+    line-height: unset;
+  }
+
+  .mini-wrap {
+    display: flex;
+    grid-template-columns: unset;
+    flex-direction: column-reverse;
+    gap: 0;
+  }
+
+  .mini-wrap__characteristics {
+    gap: 12px;
+  }
+
+  .characteristic-line {
+    justify-content: unset;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .buy {
+    padding: 24px 16px;
+    margin-bottom: 67px;
+  }
+
+  .ear-title {
+    flex-direction: column-reverse;
+  }
+
+  .ear-title img {
+    margin: 0;
+    width: 50vw;
+  }
+
+  .ear-wrapper {
+    text-align: center;
+  }
+
+  .ear-title__title {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  .ear-title__descr {
+    margin-bottom: 16px;
+    font-size: 16px;
+  }
+
+  .ear-wrap-right-block__title {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .ear-wrap-right-block__descr {
+    font-size: 16px;
+  }
+
+  .your-product {
+    text-align: center;
+  }
+
+  .your-product__img {
+    width: 60vw;
+    margin-bottom: 32px;
+  }
+
+  .your-product__title {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+}

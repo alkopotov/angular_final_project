@@ -54,4 +54,28 @@ p {
 	}
 }
 
-@media screen and (max-width: 768px) {}
+@media screen and (max-width: 768px) {
+	.cotainer {
+		max-width: 100%;
+		padding: 0 16px;
+	}
+	.advantages-wrap {
+		flex-direction: column;
+		flex-wrap: nowrap;
+		justify-content: unset;
+		align-items: unset;
+		gap: 38px;
+	}
+
+	.advantages-wrap-item {
+		padding: 0;
+		display: grid;
+		grid-column-gap: 16px;
+		text-align: unset;
+		grid-template-columns: 33px 1fr;
+	}
+
+	.advantages-wrap-item p {
+		grid-column: 2 span;
+	}
+}
