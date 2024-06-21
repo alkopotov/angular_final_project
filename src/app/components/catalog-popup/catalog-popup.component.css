@@ -1,0 +1,52 @@
+.header-middle__button{
+    background-color: var(--prime-color-blue);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    padding: 8px 16px;
+    font-size: 20px;
+    font-weight: 400;
+    cursor: pointer;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+
+  .btn_container{
+    position: relative;
+  }
+
+  .popup{
+    position: absolute;
+    position: absolute;
+    z-index: 1010101010;
+    display: flex;
+    background-color: #fff;
+  }
+
+
+.links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.links > div {
+  background-color: #f0f0f0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.links > div > p {
+  margin: 0;
+}
+
+.links > a {
+  color: var(--prime-color-blue);
+  cursor: pointer;
+}
+
+.links > a:hover {
+  text-decoration: underline;
+}

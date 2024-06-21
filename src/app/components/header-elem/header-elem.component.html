@@ -54,7 +54,7 @@
 
   @if(DevType.devType === 'desktop') {
     <section class="header-middle">
-      <button class="header-middle__button" routerLink="/catalog"> <app-tripple-point></app-tripple-point>Каталог товаров</button>
+      <app-catalog-popup (closePopup)="showPopup = false"></app-catalog-popup>
       <!-- <input type="text" placeholder="Поиск по каталогу товаров" class="header__search-input"> -->
       <app-catalog-search-bar  classModded="header__search-input"></app-catalog-search-bar>
       <div [class]="favoritesStorage.productsInFavorites.length > 0 ? 'header-middle__favorites-button header-middle__favorites-button_active' : ' header-middle__favorites-button'" (click)="handleOpenFavorites()">

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map, of, tap } from 'rxjs';
+import { BehaviorSubject, Observable, map, of, tap } from 'rxjs';
 import { ProductLoggingService } from './product-logging.service';
 
 export interface Product { 
@@ -67,8 +67,9 @@ export class ProductsWorkerService {
     { "id": 5, "name": "Часы" },
     { "id": 6, "name": "Наушники" }
   ]
-
+  public forPopup: Product[] = [];
   public filteredProducts: Product[] = [];
+  public categoryForPopup = new BehaviorSubject<number>(2);
 
 
 
@@ -100,8 +101,15 @@ export class ProductsWorkerService {
     });
   }
 
-
-
+  public forPopupProducts(numCat: number) {
+    this.http.get<Product[]>(`${this.baseUrl}/api/category/${numCat}`).subscribe((products) => {
+      this.forPopup = products.slice(0, 12);
+    });
+  }
+  
+  public setCategoryForPopup(id: number) {
+    this.categoryForPopup.next(id);
+  }
 
   getOneProduct(id: number): Observable<Product>{
     return this.http.get<Product>(`${this.baseUrl}/api/products/${id}`).pipe(

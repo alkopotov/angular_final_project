@@ -1,0 +1,24 @@
+<div class="btn_container">
+  <button class="header-middle__button" (click)="showPopupSwitch()">
+    <app-tripple-point></app-tripple-point>Каталог товаров
+  </button>
+  @if(showPopup){
+  <div class="popup">
+    <div class="category_column">
+      @for(category of productService.categories; track category.id){
+      <div (click)="setCategory(category.id)">
+        {{ category.name }}
+      </div>
+      }
+    </div>
+    <div class="links">
+      @for(product of productService.forPopup; track product.id){
+      <div>
+        <p (click)="goToProductCard(product.id)">{{ product.name }}</p>
+      </div>
+      }
+      <a [routerLink]="['/products/category', productService.categoryForPopup.value]">Смотреть всё</a>
+    </div>
+  </div>
+  }
+</div>

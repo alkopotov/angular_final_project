@@ -14,6 +14,7 @@ import { DialogDispatcherService } from '../../services/dialog-dispatcher.servic
 import { CatalogSearchBarComponent } from '../catalog-search-bar/catalog-search-bar.component';
 import { CartStorageService } from '../../services/cart-storage.service';
 import { FavoritesStorageService } from '../../services/favorites-storage.service';
+import { CatalogPopupComponent } from '../catalog-popup/catalog-popup.component';
 
 
 @Component({
@@ -30,13 +31,14 @@ import { FavoritesStorageService } from '../../services/favorites-storage.servic
     CartIconComponent,
     HeaderBottomComponent,
     BottomBarComponent,
-    CatalogSearchBarComponent
+    CatalogSearchBarComponent,
+    CatalogPopupComponent
   ],
   templateUrl: './header-elem.component.html',
   styleUrl: './header-elem.component.css'
 })
 export class HeaderElemComponent implements OnInit {
-
+  isPopupOpen = false;
 
   public topNavItems: any[] = [
     {
@@ -94,4 +96,5 @@ export class HeaderElemComponent implements OnInit {
       this._router.navigate(['/products/category/8'])
     }
   }
+  showPopup = false;
 }
