@@ -1,0 +1,26 @@
+@if(showPopup){
+    <div class="popup">
+      <div class="category_column">
+        @for(category of productService.categories; track category.id){
+        <div class="category" [class.active]="category.id === productService.categoryForPopup.value" (click)="setCategory(category.id)">
+          <p>{{ category.name }}</p>
+        </div>
+        }
+      </div>
+      <div>
+        <div class="links">
+        <!-- @for(product of productService.forPopup; track product.id){
+        <div class="link">
+          <img [src]="productService.getApiUrl() + '/' +product.images[0]" class="popup_image" alt="">
+          <div class="links_content">
+            <p  class="link_header" (click)="goToProductCard(product.id)">{{ product.name }}</p>
+            <p>от {{product.price}} ₽</p>
+          </div>
+        </div>
+        } -->
+      </div>
+        <a class="relocate" [routerLink]="['/products/category', productService.categoryForPopup.value]">Смотреть всё</a>
+      </div>
+    </div>
+    }
+

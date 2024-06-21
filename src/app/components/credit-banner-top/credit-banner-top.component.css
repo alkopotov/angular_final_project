@@ -10,18 +10,6 @@
     display: none;   
 }
 
-/* @media (max-width: 768px) {
-    .banner_credit-block{
-        display: none;
-    }
-
-    .banner_credit-block_mid{
-        display: block;
-        margin: 0 auto 56px;
-        width: 720px;
-    }
-} */
-
 
 .banner_credit{
     width: 100%;
@@ -35,7 +23,7 @@
     width: 1200px;
     height: 189px;
     border-radius: 16px;
-    background: linear-gradient(to top right, #7EBEFF, #0071E4);
+    background:linear-gradient(269.84deg, #0071E4 0.08%, #7EBEFF 99.92%);
 }
 
 .banner_credit-text> h1, p {
@@ -54,4 +42,24 @@
     position: absolute;
     left: 15%;
     bottom: 0px;
+}
+
+
+
+@media (max-width: 1230px) {
+    .banner_credit-block{
+        margin: 0 auto 56px;
+        width: 900px;
+    }
+    .banner_credit-text{
+        position: absolute;
+        left: 50%;
+    }
+    .girl_sits{
+        position: absolute;
+        left: 15%;
+        bottom: 0px;
+    }
+    
+    
 }
