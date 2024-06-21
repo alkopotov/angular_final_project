@@ -86,31 +86,6 @@
     color: var(--01-color-black);
 }
 
-.pickup-item__subway {
-    background-color: var(--light_grey-color-gray);
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    border-radius: 16px;
-    padding-left: 8px;
-    margin-right: 32px;
-}
-
-.pickup-item__subway.from {
-    background: no-repeat url('/assets/images/delivery-page/man.svg') left center;
-    padding: 4px 0px 4px 14px;
-    font-size: 14px;
-    color: var(--09-color-black);
-    margin-right: 0;
-}
-
-.pickup-item__subway.name {
-    background: no-repeat url('/assets/images/delivery-page/subway.png') left center;
-    padding: 4px 16px 4px 20px;
-    color: var(--07-color-gray);
-    margin-right: 0;
-}
-
 .pickup-item__work-time {
     background: no-repeat url('/assets/images/delivery-page/time.svg') left center / contain;
     padding-left: 26px;
@@ -319,10 +294,6 @@
         display: inline-block;
     }
 
-    .pickup-item__subway.from {
-        margin-right: 3px;
-    }
-
     .convenience {
         position: relative;
         height: 233px;
@@ -456,17 +427,6 @@
         font-size: 16px;
         margin-right: 0;
         margin-bottom: 4px;
-    }
-
-    .pickup-item__subway {
-        margin-right: 0;
-        margin-bottom: 8px;
-    }
-
-    .pickup-item__subway.from,
-    .pickup-item__subway.name {
-        font-size: 12px;
-        margin: 0;
     }
 
     .pickup-item__work-time {

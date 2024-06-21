@@ -7,7 +7,7 @@ import { ContactsPageComponent } from './pages/contacts-page/contacts-page.compo
 import { WarrantyPageComponent } from './pages/warranty-page/warranty-page.component';
 import { CreditPageComponent } from './pages/credit-page/credit-page.component';
 import { AllProductsTestComponent } from './pages/all-products-test/all-products-test.component';
-import { ProductCardTestComponent } from './pages/product-card-test/product-card-test.component';
+import { ProductPageComponent } from './pages/product-page/product-page.component';
 import { ProductCategoryPageComponent } from './pages/product-category-page/product-category-page.component';
 
 export const routes: Routes = [ 
@@ -18,7 +18,7 @@ export const routes: Routes = [
   { path: 'warranty', component: WarrantyPageComponent },
   { path: 'credit', component: CreditPageComponent},
   { path: 'products/category/:id', component: ProductCategoryPageComponent},
-  { path: 'test_all', component: AllProductsTestComponent },
-  { path: 'test_all/:id', component: ProductCardTestComponent },
+  { path: 'products', component: AllProductsTestComponent },
+  { path: 'products/:id', component: ProductPageComponent },
   { path: '**', component: NotFoundPageComponent }
 ];

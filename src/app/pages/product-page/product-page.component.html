@@ -1,0 +1,142 @@
+<section class="product">
+  @if (DevType.devType === 'tablet') {
+    <h1 class="wrapper-descr__title">{{product.brand + ' ' + product.name + ' ' + (selectedMemory ? selectedMemory + 'GB' : '')}}</h1>
+  }
+  <div class="wrapper">
+    <div class="wrapper-imgs">
+      <img class="wrapper-imgs__main" [src]="baseUrl + '/' + selectedImage" [alt]="product.name">
+      <div class="wrapper-imgs-block">
+        @for (item of productImagesArr; track item) {
+          <img
+            class="wrapper-imgs-block__img"
+            [class.active]="item.image === selectedImage"
+            [src]="baseUrl + '/' + item.image"
+            (click)="onImageClick(item.image)"
+          >
+        }
+      </div>
+    </div>
+    <div class="wrapper-descr">
+      @if(DevType.devType === 'desktop') {
+        <h1 class="wrapper-descr__title">{{product.brand + ' ' + product.name + ' ' + (selectedMemory ? selectedMemory + 'GB' : '')}}</h1>
+      }
+      <div class="mini-wrap">
+        <div>
+          @if (productMemoryArr.length !== 0) {
+            <h4 class="mini-wrap__title">Объем памяти</h4>
+            <div class="mini-wrap__memory">
+              @for(memory of productMemoryArr; track memory) {
+                <div
+                  class="mini-wrap__memory-item"
+                  (click)="onMemorySelect(memory)"
+                  [class.active]="memory === this.selectedMemory"
+                >
+                  {{ memory }}GB
+                </div>
+              }
+            </div>
+          }
+          <h4 class="mini-wrap__title">Характеристики</h4>
+          <div class="mini-wrap__characteristics">
+            @for (item of product.characteristics; track $index) {
+            <div class="characteristic-line">
+              <p>{{item.characteristic}}</p>
+              <p>{{item.value}} {{item.unit_type !== "значение" ? item.unit_type : ''}}</p>
+            </div>
+            }
+          </div>
+        </div>
+        <div class="buy">
+          <div class="buy-isAvailable">
+            <div
+              class="buy-isAvailable__indicator"
+              [class.available]="isProductAvailable"
+              [class.not-available]="!isProductAvailable"
+            ></div>
+            @if (isProductAvailable) {
+              <p>в наличии</p>
+            } @else {
+              <p>нет в наличии</p>
+            }
+          </div>
+          @if (productPrice.discount !== null) {
+            <p class="buy-discount">{{productPrice.discount | number : '1.0-0' : 'ru-RU'}} ₽</p>
+          }
+          <p class="buy-price">{{productPrice.price | number : '1.0-0' : 'ru-RU'}} ₽</p>
+          <button class="but-btn">Добавить в корзину</button>
+          <p class="buy-one-click">Купить в 1 клик</p>
+          <form class="buy-form" method="post">
+            <input
+              class="buy-form__input-phone"
+              type="tel"
+              name="phone"
+              placeholder="Ваш номер телефона"
+            >
+            <input
+              class="buy-form__buy-btn"
+              type="submit"
+              value="Купить"
+            >
+          </form>
+          <div class="buy-credit">
+            <img src="/assets/images/product-page/credit.svg" alt="Credit Image">
+            <p class="buy-credit__descr">Купить в кредит</p>
+          </div>
+          <div class="buy-credit-wrap">
+            @for (item of deliveryArr; track item.id) {
+              <div class="buy-credit-wrap__item">
+                <img class="buy-credit-wrap__item-img" [src]="item.img" [alt]="item.from">
+                <div>
+                  <h5 class="buy-credit-wrap__item_title">{{ item.from }}</h5>
+                  <p class="buy-credit-wrap__item_descr">{{ item.to }}</p>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-product-receiving></app-product-receiving>
+<app-product-questions></app-product-questions>
+<app-product-advantages></app-product-advantages>
+
+<section class="ear">
+  <div class="ear-title">
+    <img src="/assets/images/product-page/buy/main.png">
+    <div>
+      <h2 class="ear-title__title">
+        Купить Nothing Ear(1)
+      </h2>
+      <p class="ear-title__descr">
+        в наличии в Санкт-Петербурге
+      </p>
+    </div>
+  </div>
+  <div class="ear-wrap">
+    @for (item of earDescrArr; track item.id) {
+      <div class="ear-wrap-block">
+        <img class="ear-wrap-block__img" [src]="item.img" alt="item.title">
+        <div class="ear-wrap-right-block">
+          <h3 class="ear-wrap-right-block__title">
+            {{ item.title }}
+          </h3>
+          <p class="ear-wrap-right-block__descr">
+            {{ item.descr }}
+          </p>
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+@if (DevType.devType === 'tablet') {
+  <div class="your-product">
+    <img class="your-product__img" [src]="baseUrl + '/' + product.images[0]" [alt]="product.name">
+    <h2 class="your-product__title">{{ product.name }}</h2>
+    <p class="your-product__descr">Уже почти ваш</p>
+    <a class="your-product__link" routerLink="/" href="">Выбрать модель</a>
+  </div>
+}
