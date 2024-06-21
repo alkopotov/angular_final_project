@@ -10,7 +10,7 @@
     display: none;   
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .banner_credit-block{
         display: none;
     }
@@ -20,10 +20,10 @@
         margin: 0 auto 56px;
         width: 720px;
     }
-}
+} */
 
 
-/* .banner_credit{
+.banner_credit{
     width: 100%;
 }
 .banner_credit-block{
@@ -43,9 +43,15 @@
 }
 
 
+.banner_credit-text{
+    position: absolute;
+    left: 40%;
+}
+
+
 
 .girl_sits{
     position: absolute;
-    left: 25px;
+    left: 15%;
     bottom: 0px;
-} */
+}
