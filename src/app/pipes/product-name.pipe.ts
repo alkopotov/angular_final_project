@@ -10,7 +10,7 @@ export class ProductNamePipe implements PipeTransform {
   transform(value: Product, ...args: unknown[]): string {
     let name: string = value.name.toLowerCase().includes(value.brand.toLowerCase()) ? value.name : `${value.brand} ${value.name}`;
     switch (value.category) {
-      case 'Аксессуары' || 'Гаджеты':
+      case 'Аксессуары':
         return `${name} ${value.color.toLowerCase() !== 'none' ? value.color.toLowerCase(): ''}`;
       case 'Гаджеты':
         return `${name} ${value.color.toLowerCase() !== 'none' ? value.color.toLowerCase(): ''}`;
