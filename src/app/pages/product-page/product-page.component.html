@@ -60,9 +60,12 @@
             }
           </div>
           @if (productPrice.discount !== null) {
-            <p class="buy-discount">{{productPrice.discount | number : '1.0-0' : 'ru-RU'}} ₽</p>
+            <p class="buy-discount">{{productPrice.price | number : '1.0-0' : 'ru-RU'}} ₽</p>
+            <p class="buy-price">{{productPrice.discount | number : '1.0-0' : 'ru-RU'}} ₽</p>
+          } @else {
+            <p class="buy-price">{{productPrice.price | number : '1.0-0' : 'ru-RU'}} ₽</p>
           }
-          <p class="buy-price">{{productPrice.price | number : '1.0-0' : 'ru-RU'}} ₽</p>
+          
           <button class="but-btn">Добавить в корзину</button>
           <p class="buy-one-click">Купить в 1 клик</p>
           <form class="buy-form" method="post">
