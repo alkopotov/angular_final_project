@@ -51,15 +51,14 @@
           }
         </div>
         @if(cartStorageService.hasProductWithId(product.id)) {
-        <button class="product-card__button-available-tablet product-card__button-available-tablet__incart">
-          @if (product.discount_price) {
-          <span class="product-card__final-price-tablet">{{product.discount_price | number : '1.0-0' : 'ru-RU'}}
-            ₽</span>
-          } @else {
-          <span class="product-card__final-price-tablet">{{product.price | number : '1.0-0' : 'ru-RU'}} ₽</span>
-          }
-          <app-cart-in-icon></app-cart-in-icon>
-        </button>
+          <button class="product-card__button-available-tablet product-card__button-available-tablet__incart">
+            @if (product.discount_price) {
+              <span class="product-card__final-price-tablet">{{product.discount_price | number : '1.0-0' : 'ru-RU'}} ₽</span>
+            } @else {
+              <span class="product-card__final-price-tablet">{{product.price | number : '1.0-0' : 'ru-RU'}} ₽</span>
+            }
+            <app-cart-in-icon></app-cart-in-icon>
+          </button>
         } @else {
         <button class="product-card__button-available-tablet" (click)="handleAddToCart()">
           @if (product.discount_price) {
