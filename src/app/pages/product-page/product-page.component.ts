@@ -55,16 +55,16 @@ export class ProductPageComponent implements OnInit {
   public DevType = inject(DevTypeService);
 
   public deliveryArr: DeliveryItem[] = [
-    { id: 1, img: '/assets/images/product-page/delivery/1.svg', from: 'Доставим в Санкт-Петербурге', to: 'сегодня до 15:16' },
-    { id: 2, img: '/assets/images/product-page/delivery/2.svg', from: 'Самовывоз', to: 'Лиговский проспект 33/35' },
-    { id: 3, img: '/assets/images/product-page/delivery/3.svg', from: 'Доставим по России', to: 'до 22.12.2022' }
+    { id: 1, img: 'assets/images/product-page/delivery/1.svg', from: 'Доставим в Санкт-Петербурге', to: 'сегодня до 15:16' },
+    { id: 2, img: 'assets/images/product-page/delivery/2.svg', from: 'Самовывоз', to: 'Лиговский проспект 33/35' },
+    { id: 3, img: 'assets/images/product-page/delivery/3.svg', from: 'Доставим по России', to: 'до 22.12.2022' }
   ]
   public earDescrArr: EarItem[] = [
-    { id: 1, img: '/assets/images/product-page/buy/1.png', title: 'Текст про OS', descr: 'Design that goes beyond the surface. Dual-side Gorilla® Glass gives toughness. Advanced vibration motors make touch responses life-like. The symmetrical bezels and aluminium frame adds elegance, lightness and durability.' },
-    { id: 2, img: '/assets/images/product-page/buy/2.png', title: 'Текст про OS', descr: 'Design that goes beyond the surface. Dual-side Gorilla® Glass gives toughness. Advanced vibration motors make touch responses life-like. The symmetrical bezels and aluminium frame adds elegance, lightness and durability.' },
-    { id: 3, img: '/assets/images/product-page/buy/3.png', title: 'Текст про OS', descr: 'Design that goes beyond the surface. Dual-side Gorilla® Glass gives toughness. Advanced vibration motors make touch responses life-like. The symmetrical bezels and aluminium frame adds elegance, lightness and durability.' },
-    { id: 4, img: '/assets/images/product-page/buy/4.png', title: 'Текст про OS', descr: 'Design that goes beyond the surface. Dual-side Gorilla® Glass gives toughness. Advanced vibration motors make touch responses life-like. The symmetrical bezels and aluminium frame adds elegance, lightness and durability.' },
-    { id: 5, img: '/assets/images/product-page/buy/5.png', title: 'Текст про OS', descr: 'Design that goes beyond the surface. Dual-side Gorilla® Glass gives toughness. Advanced vibration motors make touch responses life-like. The symmetrical bezels and aluminium frame adds elegance, lightness and durability.' },
+    { id: 1, img: 'assets/images/product-page/buy/1.png', title: 'Текст про OS', descr: 'Design that goes beyond the surface. Dual-side Gorilla® Glass gives toughness. Advanced vibration motors make touch responses life-like. The symmetrical bezels and aluminium frame adds elegance, lightness and durability.' },
+    { id: 2, img: 'assets/images/product-page/buy/2.png', title: 'Текст про OS', descr: 'Design that goes beyond the surface. Dual-side Gorilla® Glass gives toughness. Advanced vibration motors make touch responses life-like. The symmetrical bezels and aluminium frame adds elegance, lightness and durability.' },
+    { id: 3, img: 'assets/images/product-page/buy/3.png', title: 'Текст про OS', descr: 'Design that goes beyond the surface. Dual-side Gorilla® Glass gives toughness. Advanced vibration motors make touch responses life-like. The symmetrical bezels and aluminium frame adds elegance, lightness and durability.' },
+    { id: 4, img: 'assets/images/product-page/buy/4.png', title: 'Текст про OS', descr: 'Design that goes beyond the surface. Dual-side Gorilla® Glass gives toughness. Advanced vibration motors make touch responses life-like. The symmetrical bezels and aluminium frame adds elegance, lightness and durability.' },
+    { id: 5, img: 'assets/images/product-page/buy/5.png', title: 'Текст про OS', descr: 'Design that goes beyond the surface. Dual-side Gorilla® Glass gives toughness. Advanced vibration motors make touch responses life-like. The symmetrical bezels and aluminium frame adds elegance, lightness and durability.' },
   ]
   
   public baseUrl = this.productService.getApiUrl();
