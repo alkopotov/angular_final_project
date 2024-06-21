@@ -10,7 +10,7 @@ p {
 
 .product {
   max-width: 1248px;
-  padding: 0 24px;
+  padding: 40px 24px 0 24px;
   margin: 0 auto;
 }
 
@@ -219,6 +219,15 @@ p {
   gap: 8px;
   margin-bottom: 20px;
   cursor: pointer;
+
+  border: 3px solid transparent;
+  width: max-content;
+  padding: 3px;
+  border-radius: 8px;
+}
+
+.buy-credit:hover {
+  border-color: #1876f275;
 }
 
 .buy-credit__descr {
@@ -303,6 +312,24 @@ p {
 
 .ear-wrap-right-block__descr {
   max-width: 420px;
+}
+
+.visited-products {
+  max-width: 1248px;
+  padding: 24px 0 24px 24px;
+  margin: 0 auto;
+}
+
+.visited-products__title {
+  font-size: 40px;
+  margin-bottom: 24px;
+}
+
+.visited-products-wrap {
+  height: 650px;
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
 }
 
 @media screen and (max-width: 1280px) {
@@ -394,6 +421,10 @@ p {
     border-radius: 12px;
     width: 272px;
     text-align: center;
+  }
+
+  .visited-products-wrap {
+    height: 400px;
   }
 }
 

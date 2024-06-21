@@ -163,3 +163,14 @@
     <a class="your-product__link" routerLink="/" href="">Выбрать модель</a>
   </div>
 }
+
+@if (this.Logging.getViewedProducts().length !== 0) {
+  <section class="visited-products">
+    <h2 class="visited-products__title">Вы смотрели</h2>
+    <div class="visited-products-wrap">
+      @for(product of this.Logging.getViewedProducts().slice(this.Logging.getViewedProducts().length - 4, this.Logging.getViewedProducts().length).reverse(); track product.id) {
+        <app-product-card [product]="product"></app-product-card>
+      }
+    </div>
+  </section>
+}

@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { ProductLoggingService } from '../../services/product-logging.service';
 import { CartStorageService } from '../../services/cart-storage.service';
 import { DialogDispatcherService } from '../../services/dialog-dispatcher.service';
+import { ProductCardComponent } from '../../components/product-card/product-card.component';
 
 interface DeliveryItem {
   id: number;
@@ -40,6 +41,7 @@ interface priceItem {
     ProductReceivingComponent,
     ProductQuestionsComponent,
     ProductAdvantagesComponent,
+    ProductCardComponent,
     FormsModule
   ],
   templateUrl: './product-page.component.html',
@@ -59,6 +61,7 @@ export class ProductPageComponent implements OnInit {
   public DevType = inject(DevTypeService);
   public Cart = inject(CartStorageService);
   public Dialog = inject(DialogDispatcherService);
+  public Logging = inject(ProductLoggingService);
 
   public deliveryArr: DeliveryItem[] = [
     { id: 1, img: 'assets/images/product-page/delivery/1.svg', from: 'Доставим в Санкт-Петербурге', to: 'сегодня до 15:16' },
@@ -87,10 +90,7 @@ export class ProductPageComponent implements OnInit {
     });
   
     this.productMemoryArr = [...uniqueMemories];
-    this.productMemoryArr.sort((a, b) => a - b);
-
-    // console.log(this.productMemoryArr);
-    
+    this.productMemoryArr.sort((a, b) => a - b);    
   }
   public onMemorySelect(memory: string): void {
     this.selectedMemory = memory;
@@ -111,7 +111,6 @@ export class ProductPageComponent implements OnInit {
         }
       });
     });
-    console.log(this.productImagesArr); 
   }
   public onImageClick(image: string) {
     this.selectedImage = image;
@@ -167,6 +166,7 @@ export class ProductPageComponent implements OnInit {
         this.productPrice = { price: product.price, discount: product.discount_price };
         this.isProductAvailable = product.is_available;
         this.productLoggingService.logViewedProduct(product);
+        
         this.getProductMemory();
         this.getProductImages();
       });
@@ -177,7 +177,6 @@ export class ProductPageComponent implements OnInit {
           window.scroll(0, 0);
         }
       });
-      
     })
   }
 }
