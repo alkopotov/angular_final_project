@@ -93,8 +93,6 @@ export class ProductsWorkerService {
     });
   }
 
-
-
   public getProductCategory(numCat: number): void {
     this.http.get<Product[]>(`${this.baseUrl}/api/category/${numCat}`).subscribe((products) => {
       this.filteredProducts = products;
@@ -112,9 +110,7 @@ export class ProductsWorkerService {
   }
 
   getOneProduct(id: number): Observable<Product>{
-    return this.http.get<Product>(`${this.baseUrl}/api/products/${id}`).pipe(
-      tap(product => this.logging.logViewedProduct(product))
-    );
+    return this.http.get<Product>(`${this.baseUrl}/api/products/${id}`)
   }
 
   computeMaxPrice(): void {

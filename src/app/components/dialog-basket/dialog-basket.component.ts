@@ -53,7 +53,7 @@ export class DialogBasketComponent {
   }
 
   handleStartShopping(): void {
-    this.router.navigate(['/catalog']);
+    this.router.navigate(['/products/category/2']);
     this.dialogRef.close();
 
   }

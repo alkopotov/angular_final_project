@@ -1,6 +1,5 @@
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { Product } from './products-worker.service';
-import { platform } from 'os';
 import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({

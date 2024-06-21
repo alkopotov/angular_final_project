@@ -7,9 +7,9 @@ import { ContactsPageComponent } from './pages/contacts-page/contacts-page.compo
 import { WarrantyPageComponent } from './pages/warranty-page/warranty-page.component';
 import { CreditPageComponent } from './pages/credit-page/credit-page.component';
 import { AllProductsTestComponent } from './pages/all-products-test/all-products-test.component';
-import { ProductCardTestComponent } from './pages/product-card-test/product-card-test.component';
+import { ProductPageComponent } from './pages/product-page/product-page.component';
 import { ProductCategoryPageComponent } from './pages/product-category-page/product-category-page.component';
-import { ViewedProductsTestComponent } from './components/viewed-products-test/viewed-products-test.component';
+import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.component';
 
 export const routes: Routes = [ 
   { path: '', component: MainPageComponent },
@@ -18,9 +18,9 @@ export const routes: Routes = [
   { path: 'contacts', component:ContactsPageComponent },
   { path: 'warranty', component: WarrantyPageComponent },
   { path: 'credit', component: CreditPageComponent},
+  { path: 'favorites', component: FavoritesPageComponent},
   { path: 'products/category/:id', component: ProductCategoryPageComponent},
-  { path: 'test_all', component: AllProductsTestComponent },
-  { path: 'test_all/:id', component: ProductCardTestComponent },
-  { path: 'test_log', component: ViewedProductsTestComponent },
+  { path: 'products', component: AllProductsTestComponent },
+  { path: 'products/:id', component: ProductPageComponent },
   { path: '**', component: NotFoundPageComponent }
 ];

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProductCardTestComponent } from './product-card-test.component';
+import { FavoritesPageComponent } from './favorites-page.component';
 
-describe('ProductCardTestComponent', () => {
-  let component: ProductCardTestComponent;
-  let fixture: ComponentFixture<ProductCardTestComponent>;
+describe('FavoritesPageComponent', () => {
+  let component: FavoritesPageComponent;
+  let fixture: ComponentFixture<FavoritesPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ProductCardTestComponent]
+      imports: [FavoritesPageComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ProductCardTestComponent);
+    fixture = TestBed.createComponent(FavoritesPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

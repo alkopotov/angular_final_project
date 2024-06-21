@@ -110,10 +110,6 @@
 }
 
 .header-middle__favorites-button {
-  cursor: auto;
-}
-
-.header-middle__favorites-button_active {
   cursor: pointer;
 }
 

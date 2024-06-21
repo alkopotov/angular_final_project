@@ -14,10 +14,7 @@
             @for (item of pickupList; track item.id) {
             <div class="pickup-list__item pickup-item">
                 <p class="pickup-item__street">{{item.street}}</p>
-                <div class="pickup-item__subway">
-                    <p class="pickup-item__subway from">{{item.from_subway}} от</p>
-                    <p class="pickup-item__subway name">{{item.name_subway}}</p>
-                </div>
+                <app-subway-point [from]="item.from_subway" [name]="item.name_subway"></app-subway-point>
                 <p class="pickup-item__work-time">{{item.work_time}}</p>
             </div>
             }
@@ -25,7 +22,7 @@
         <app-map class="pickup__map"></app-map>
     </div>
     <div class="convenience">
-        <img class="convenience__img" src="/assets/images/delivery-page/bycicle.png">
+        <img class="convenience__img" src="assets/images/delivery-page/bycicle.png">
         <div class="convenience-description">
             <h2 class="convenience-description__title">
                 Доставка, которая радует

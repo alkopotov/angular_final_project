@@ -79,10 +79,6 @@ export class HeaderElemComponent implements OnInit {
 
   constructor(public cartStorageService: CartStorageService, private _router: Router, public favoritesStorage: FavoritesStorageService) { }
 
-  // public OpenDialog() {
-  //   this.dialog.open(CallbackModalComponent, {})
-  // }
-
   public DevType = inject(DevTypeService);
   public dialogService = inject(DialogDispatcherService);
 
@@ -92,9 +88,7 @@ export class HeaderElemComponent implements OnInit {
   }
 
   public handleOpenFavorites(): void {
-    if (this.favoritesStorage.productsInFavorites.length > 0) {
-      this._router.navigate(['/products/category/8'])
-    }
+      this._router.navigate(['/favorites'])
   }
   showPopup = false;
 }

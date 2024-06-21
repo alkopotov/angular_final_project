@@ -28,7 +28,7 @@ export class BannerSliderComponent implements AfterViewInit, OnDestroy{
       title: 'iPad Pro 11',
       price: 109990,
       link: '/products/category/4',
-      image: "/assets/images/banner-slider/product_2.png",
+      image: "assets/images/banner-slider/product_2.png",
       chip: 'iPad Pro 11 (2022)',
       backgroundColor: '#FFA682'
     },
@@ -36,7 +36,7 @@ export class BannerSliderComponent implements AfterViewInit, OnDestroy{
       title: 'MacBook Pro M3',
       price: 187900,
       link: '/products/category/3',
-      image: "/assets/images/banner-slider/product_3.png",
+      image: "assets/images/banner-slider/product_3.png",
       chip: 'MacBook Pro M3',
       backgroundColor: '#FCD0F0'
     },

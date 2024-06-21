@@ -1,0 +1,16 @@
+<section class="questions">
+  <div class="container">
+    <div class="questions-wrap">
+      @for (item of questions; track item.id) {
+      <div class="questions-wrap-item">
+        <h3 class="questions-wrap-item__title">
+          {{ item.title }}
+        </h3>
+        <p class="questions-wrap-item__descf">
+          {{ item.descr }}
+        </p>
+      </div>
+      }
+    </div>
+  </div>
+</section>
