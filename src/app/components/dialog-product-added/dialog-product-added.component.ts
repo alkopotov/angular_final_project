@@ -41,6 +41,6 @@ export class DialogProductAddedComponent implements OnInit{
 
   public handleContinueShopping(): void {
     this.dialogRef.close();
-    this.router.navigate(['/catalog']);
+    this.router.navigate(['/products/category/2']);
   }
 }

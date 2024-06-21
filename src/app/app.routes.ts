@@ -9,6 +9,7 @@ import { CreditPageComponent } from './pages/credit-page/credit-page.component';
 import { AllProductsTestComponent } from './pages/all-products-test/all-products-test.component';
 import { ProductPageComponent } from './pages/product-page/product-page.component';
 import { ProductCategoryPageComponent } from './pages/product-category-page/product-category-page.component';
+import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.component';
 
 export const routes: Routes = [ 
   { path: '', component: MainPageComponent },
@@ -17,6 +18,7 @@ export const routes: Routes = [
   { path: 'contacts', component:ContactsPageComponent },
   { path: 'warranty', component: WarrantyPageComponent },
   { path: 'credit', component: CreditPageComponent},
+  { path: 'favorites', component: FavoritesPageComponent},
   { path: 'products/category/:id', component: ProductCategoryPageComponent},
   { path: 'products', component: AllProductsTestComponent },
   { path: 'products/:id', component: ProductPageComponent },

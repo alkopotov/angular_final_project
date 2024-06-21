@@ -1,0 +1,31 @@
+@if(filterService.displayedProducts.length > 0) {
+  <h1 class="favorites-page__title">{{filterService.currentCategoryTitle}}</h1>
+  <div class="favorites-page__chips">
+    <div сlass="selection">
+      <label for="" >
+      Сортировать
+        <div class="select-wrapper">
+          <select name="sortingOrder" id="sortingOrder" [(ngModel)]="filterService.sortingOrder">
+            <option value="default">по умолчанию</option>
+            <option value="priceAsc">по возрастанию цены</option>
+            <option value="priceDesc">по убыванию цены</option>
+          </select>
+        </div>
+      </label>
+    </div>
+  </div>
+  <main class="favorites-page-wrapper">
+    <section class="favorites-page__product-list__wrapper">
+      <app-product-list [products]="filterService.displayedProducts"></app-product-list>
+    </section>
+  </main>
+} @else {
+  <h1 class="favorites-page__title">Избранное пусто</h1>
+  <main class="favorites-page__empty">
+    <div class="favorites-page__empty-text"><span>Нажимайте</span><app-heart-icon></app-heart-icon> <span>на понравившемся товаре, чтобы вернуться к нему позже</span> </div>
+    <button class="favorites-page__empty-button" routerLink="/products/category/2">пойти выбирать</button>
+  </main>
+} 
+
+
+
