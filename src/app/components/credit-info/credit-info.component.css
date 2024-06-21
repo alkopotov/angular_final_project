@@ -25,6 +25,16 @@
 .credit_info__small-block_paragraph {
 }
 
+.smlblc_line_head{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.smlblc_line_head>img{
+  width: 20px;
+  height: 20px;
+}
+
 .credit_info__questionnaire-block {
   width: 771px;
   height: 392px;
@@ -172,6 +182,18 @@
   .thumb_up {
     margin: 5px 8px 5px 16px;
   }
+
+  .smlblc_line_head{
+    flex-direction: row;
+    /* margin: 15px; */
+    gap: 10px;
+    align-items: center;
+  }
+
+  .smlblc_line_head>img{
+    width: 20px;
+    height: 20px;
+  }
 }
 
 @media (max-width: 900px) {
@@ -180,7 +202,7 @@
   }
 
   .credit_info__small-block {
-    width: 250px;
+    width: 280px;
     height: 70px;
     background-color: #f3f8ff;
     margin-bottom: 16px;
@@ -261,6 +283,19 @@
     width: 30px;
     height: 30px;
   }
+
+  .smlblc_line_head{
+    flex-direction: row;
+    /* margin: 15px; */
+    gap: 10px;
+    align-items: center;
+  }
+
+  .smlblc_line_head>img{
+    width: 20px;
+    height: 20px;
+  }
+
 }
 
 
@@ -271,6 +306,9 @@
       display: flex;
       flex-direction: column;
       gap: 40px;
+    }
+    .smlblc_line_head{
+      flex-direction: column;
     }
     .credit_info__small-blocks{
       display: flex;
@@ -353,6 +391,19 @@
     .thumb_up {
       margin: 5px 8px 5px 16px;
     }
+
+    .smlblc_line_head{
+      flex-direction: row;
+      margin: 15px;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .smlblc_line_head>img{
+      width: 20px;
+      height: 20px;
+    }
+  
   }
 
   
@@ -372,18 +423,30 @@
       justify-content: center;
     }
     .credit_info__small-block {
-      width: 220px;
+      width: 288px;
       height: 98px;
       background-color: #f3f8ff;
       border-radius: 16px;
     }
+
+    .smlblc_line_head{
+      flex-direction: row;
+      margin: 15px;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .smlblc_line_head>img{
+      width: 20px;
+      height: 20px;
+    }
   
     .credit_info__small-block_header {
-        font-size: 20px;
+        font-size: 16px;
     }
   
     .credit_info__small-block_paragraph {
-        font-size: 16px;
+        font-size: 14px;
     }
   
     .credit_info__questionnaire-block {

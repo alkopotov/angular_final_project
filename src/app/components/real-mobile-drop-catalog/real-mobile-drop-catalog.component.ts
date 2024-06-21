@@ -1,19 +1,18 @@
 import { Component, ElementRef, HostListener } from '@angular/core';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ProductsWorkerService } from '../../services/products-worker.service';
-import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { CatalogIconComponent } from '../svg_components/catalog-icon/catalog-icon.component';
 
 @Component({
-  selector: 'app-mobile-drop-catalog',
+  selector: 'app-real-mobile-drop-catalog',
   standalone: true,
   imports: [RouterLink, CatalogIconComponent],
-  templateUrl: './mobile-drop-catalog.component.html',
-  styleUrl: './mobile-drop-catalog.component.css'
+  templateUrl: './real-mobile-drop-catalog.component.html',
+  styleUrl: './real-mobile-drop-catalog.component.css'
 })
-export class MobileDropCatalogComponent {
+export class RealMobileDropCatalogComponent {
   public showPopup = false;
-  public isSmallScreen = false;
   private subscription: Subscription;
   constructor(private elementRef: ElementRef, public router: Router, public productService: ProductsWorkerService) {}
 
@@ -35,20 +34,11 @@ export class MobileDropCatalogComponent {
         this.showPopup = false;
       }
     });
-    this.detectScreenSize();
+
   }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
-  }
-
-  detectScreenSize(): void {
-    const screenWidth = window.innerWidth;
-    if (screenWidth < 320) {
-      this.isSmallScreen = true;
-    } else {
-      this.isSmallScreen = false;
-    }
   }
 
   showPopupSwitch() {

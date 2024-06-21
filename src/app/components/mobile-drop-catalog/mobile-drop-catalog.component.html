@@ -1,14 +1,22 @@
+<div class="catalog_drop_container">
+<div class="bottom-bar__item bottom-bar__item_catalog" (click)="showPopupSwitch()">
+    <app-catalog-icon></app-catalog-icon>
+    <p class="bottom-bar__item-title">каталог</p>
+</div>
+
 @if(showPopup){
     <div class="popup">
+        <div class="closebutton" (click)="showPopupSwitch()">X</div>
+        <div class="line"></div>
       <div class="category_column">
         @for(category of productService.categories; track category.id){
-        <div class="category" [class.active]="category.id === productService.categoryForPopup.value" (click)="setCategory(category.id)">
-          <p>{{ category.name }}</p>
+        <div class="category" [routerLink]="['/products/category', productService.categoryForPopup.value]" [class.active]="category.id === productService.categoryForPopup.value" (click)="setCategory(category.id)">
+            <p>{{ category.name }}</p>
         </div>
         }
       </div>
-      <div>
-        <div class="links">
+      <!-- <div> -->
+        <!-- <div class="links"> -->
         <!-- @for(product of productService.forPopup; track product.id){
         <div class="link">
           <img [src]="productService.getApiUrl() + '/' +product.images[0]" class="popup_image" alt="">
@@ -18,9 +26,9 @@
           </div>
         </div>
         } -->
+      <!-- </div> -->
+        <!-- <a class="relocate" [routerLink]="['/products/category', productService.categoryForPopup.value]">Смотреть всё</a> -->
       </div>
-        <a class="relocate" [routerLink]="['/products/category', productService.categoryForPopup.value]">Смотреть всё</a>
-      </div>
-    </div>
+    <!-- </div> -->
     }
-
+</div>
