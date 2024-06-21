@@ -2,9 +2,11 @@
     <div class="credit_info__small-blocks">    
         @for(block of blocks; track $index){ 
         <div class="credit_info__small-block">
+            <img [src]="(block.src)" alt="">
+            <div>
             <h2 class="credit_info__small-block_header">{{ block.header }}</h2>
             <p class="credit_info__small-block_paragraph">{{ block.paragraph }}</p>
-
+            </div> 
         </div>}
     </div>
     <div class="credit_info__questionnaire-block">
