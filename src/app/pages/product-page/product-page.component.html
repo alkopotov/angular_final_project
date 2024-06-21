@@ -68,14 +68,14 @@
             <p class="buy-price">{{productPrice.price | number : '1.0-0' : 'ru-RU'}} ₽</p>
           }
           
-          <button class="but-btn">Добавить в корзину</button>
+          <button class="but-btn" (click)="handleAddToCart()">Добавить в корзину</button>
           <p class="buy-one-click">Купить в 1 клик</p>
           <form class="buy-form" method="post">
             <input
               class="buy-form__input-phone"
               type="tel"
               name="phone"
-              placeholder="Ваш номер телефона"
+              placeholder="+7 900 654 32 45"
             >
             <input
               class="buy-form__buy-btn"
@@ -83,7 +83,7 @@
               value="Купить"
             >
           </form>
-          <div class="buy-credit">
+          <div class="buy-credit" (click)="handleOpenCredit()">
             <img src="assets/images/product-page/credit.svg" alt="Credit Image">
             <p class="buy-credit__descr">Купить в кредит</p>
           </div>

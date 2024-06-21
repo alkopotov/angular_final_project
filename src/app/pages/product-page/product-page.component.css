@@ -218,6 +218,7 @@ p {
   align-items: center;
   gap: 8px;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .buy-credit__descr {

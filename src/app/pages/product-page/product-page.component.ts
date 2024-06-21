@@ -9,6 +9,8 @@ import { DecimalPipe } from '@angular/common';
 import { DevTypeService } from '../../services/dev-type.service';
 import { FormsModule } from '@angular/forms';
 import { ProductLoggingService } from '../../services/product-logging.service';
+import { CartStorageService } from '../../services/cart-storage.service';
+import { DialogDispatcherService } from '../../services/dialog-dispatcher.service';
 
 interface DeliveryItem {
   id: number;
@@ -45,6 +47,7 @@ interface priceItem {
 })
 export class ProductPageComponent implements OnInit {
   public product: Product;
+  public productForCart: Product;
   public productList: Product[] = [];
   public productMemoryArr: any[] = [];
   public productImagesArr: any[] = [];
@@ -54,6 +57,8 @@ export class ProductPageComponent implements OnInit {
   public selectedImage: any;
 
   public DevType = inject(DevTypeService);
+  public Cart = inject(CartStorageService);
+  public Dialog = inject(DialogDispatcherService);
 
   public deliveryArr: DeliveryItem[] = [
     { id: 1, img: 'assets/images/product-page/delivery/1.svg', from: 'Доставим в Санкт-Петербурге', to: 'сегодня до 15:16' },
@@ -125,9 +130,17 @@ export class ProductPageComponent implements OnInit {
     if (selectedProduct) {
       this.productPrice = { price: selectedProduct.price, discount: selectedProduct.discount_price };
       this.isProductAvailable = selectedProduct.is_available;
+      this.productForCart = selectedProduct;
     } else {
       this.isProductAvailable = false;
     }
+  }
+  public handleAddToCart(): void {
+    this.Cart.saveToCart(this.productForCart.id, 1);
+  }
+  public handleOpenCredit(): void {
+    this.Dialog.setDialogCreditProductId(this.productForCart.id);
+    this.Dialog.openDialog('credit');
   }
  
 
@@ -148,6 +161,7 @@ export class ProductPageComponent implements OnInit {
 
       this.productService.getOneProduct(id).subscribe((product: Product) => {
         this.product = product;
+        this.productForCart = product;
         this.selectedImage = product.images[0];
         this.selectedMemory = this.product.characteristics.find((characteristic) => characteristic.characteristic === 'Объем встроенной памяти')?.value;
         this.productPrice = { price: product.price, discount: product.discount_price };
