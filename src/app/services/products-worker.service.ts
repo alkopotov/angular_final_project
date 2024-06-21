@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map, of, tap } from 'rxjs';
+import { BehaviorSubject, Observable, map, of, tap } from 'rxjs';
+import { ProductLoggingService } from './product-logging.service';
 
 export interface Product { 
   id: number;
@@ -31,13 +32,17 @@ export interface Images {
   image_link: string,
 }
 
-
+ 
 export interface Categories {
   id: number,
   name: string,
   products: Product[],
 }
 
+export interface UniqueCategory {
+  id: number;
+  name: string;
+}
 
 export interface Characteristics{
   characteristic: string,
@@ -54,11 +59,21 @@ export class ProductsWorkerService {
   public searchQuery: string = ''
   public priceVal = 0
   public maxPrice = 0
+  public categories = [
+    { "id": 1, "name": "Акссесуары" },
+    { "id": 2, "name": "Смартфоны" },
+    { "id": 3, "name": "Компьютеры" },
+    { "id": 4, "name": "Планшеты" },
+    { "id": 5, "name": "Часы" },
+    { "id": 6, "name": "Наушники" }
+  ]
+  public forPopup: Product[] = [];
+  public filteredProducts: Product[] = [];
+  public categoryForPopup = new BehaviorSubject<number>(2);
 
 
 
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private logging: ProductLoggingService) { }
 
   getApiUrl(): string {
     return this.baseUrl
@@ -73,24 +88,47 @@ export class ProductsWorkerService {
   public getProducts(): void {
     this.http.get<Product[]>(`${this.baseUrl}/api/products/`).subscribe((products) => {
       this.products = products;
+      this.filteredProducts = products;
+      
     });
   }
 
+  public getProductCategory(numCat: number): void {
+    this.http.get<Product[]>(`${this.baseUrl}/api/category/${numCat}`).subscribe((products) => {
+      this.filteredProducts = products;
+    });
+  }
 
+  public forPopupProducts(numCat: number) {
+    this.http.get<Product[]>(`${this.baseUrl}/api/category/${numCat}`).subscribe((products) => {
+      this.forPopup = products;
+    });
+  }
+  
+  public setCategoryForPopup(id: number) {
+    this.categoryForPopup.next(id);
+  }
 
   getOneProduct(id: number): Observable<Product>{
     return this.http.get<Product>(`${this.baseUrl}/api/products/${id}`)
   }
 
-
-  computedProducts(): Product[] {
-    let value = this.searchQuery.toLowerCase()
-    if (this.priceVal == 0 ){
-      return this.products.filter(el => el.name.toLowerCase().includes(value))
-    }
-    else {
-      return this.products.filter(el => el.name.toLowerCase().includes(value))
-      .filter(el => el.price <= this.priceVal)}
+  computeMaxPrice(): void {
+    this.maxPrice = 0;
+    this.products.forEach(product => {
+      if (product.price > this.maxPrice) {
+        this.maxPrice = product.price; 
+      }
+    });
   }
 
+  computedProducts(): Product[] {
+    let value = this.searchQuery.toLowerCase();
+    if (this.priceVal == 0) {
+      return this.filteredProducts.filter(el => el.name.toLowerCase().includes(value));
+    } else {
+      return this.filteredProducts.filter(el => el.name.toLowerCase().includes(value))
+        .filter(el => el.price <= this.priceVal);
+    }
+  }
 }

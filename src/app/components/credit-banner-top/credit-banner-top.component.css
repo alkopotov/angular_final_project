@@ -1,7 +1,51 @@
 .banner_credit{
     width: 100%;
 }
-.banner_credit-image{
+.banner_credit-block{
     margin: 0 auto 56px;
     width: 1200px;
 }
+
+.banner_credit-block_mid{
+    display: none;   
+}
+
+@media (max-width: 768px) {
+    .banner_credit-block{
+        display: none;
+    }
+
+    .banner_credit-block_mid{
+        display: block;
+        margin: 0 auto 56px;
+        width: 720px;
+    }
+}
+
+
+/* .banner_credit{
+    width: 100%;
+}
+.banner_credit-block{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 56px;
+    width: 1200px;
+    height: 189px;
+    border-radius: 16px;
+    background: linear-gradient(to top right, #7EBEFF, #0071E4);
+}
+
+.banner_credit-text> h1, p {
+    color: white;
+}
+
+
+
+.girl_sits{
+    position: absolute;
+    left: 25px;
+    bottom: 0px;
+} */

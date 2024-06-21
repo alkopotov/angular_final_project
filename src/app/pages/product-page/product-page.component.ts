@@ -8,6 +8,7 @@ import { ProductAdvantagesComponent } from '../../components/product-advantages/
 import { DecimalPipe } from '@angular/common';
 import { DevTypeService } from '../../services/dev-type.service';
 import { FormsModule } from '@angular/forms';
+import { ProductLoggingService } from '../../services/product-logging.service';
 
 interface DeliveryItem {
   id: number;
@@ -134,6 +135,7 @@ export class ProductPageComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private productService: ProductsWorkerService,
+    private productLoggingService: ProductLoggingService,
   ){}
 
   ngOnInit(): void {
@@ -150,7 +152,7 @@ export class ProductPageComponent implements OnInit {
         this.selectedMemory = this.product.characteristics.find((characteristic) => characteristic.characteristic === 'Объем встроенной памяти')?.value;
         this.productPrice = { price: product.price, discount: product.discount_price };
         this.isProductAvailable = product.is_available;
-
+        this.productLoggingService.logViewedProduct(product);
         this.getProductMemory();
         this.getProductImages();
       });
@@ -161,6 +163,7 @@ export class ProductPageComponent implements OnInit {
           window.scroll(0, 0);
         }
       });
+      
     })
   }
 }
