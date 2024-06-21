@@ -5,6 +5,11 @@
   gap: 40px;
 }
 
+.listimg{
+  width: 20px;
+  height: 20px;
+}
+
 .credit_info__small-block {
   width: 398px;
   height: 120px;
