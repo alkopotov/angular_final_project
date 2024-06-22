@@ -79,7 +79,7 @@
   display: flex;
   gap: 4px;
   align-items: center;
-  background: url("/assets/icons/input_search.svg") no-repeat;
+  background: url("../../../assets/icons/input_search.svg") no-repeat;
   background-position: 24px;
 }
 
