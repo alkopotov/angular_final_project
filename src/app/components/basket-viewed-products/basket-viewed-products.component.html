@@ -1,5 +1,5 @@
 @if(productLoggingService.getViewedProducts().length === 0) {
-  <p>Список пуст</p>
+  <p class="basket-viewed-products__empty">Познакоьтесь с нашим замечательным ассортиментом!</p>
 } @else {
 <section class="basket-viewed-products">
   @for (product of productLoggingService.getViewedProducts(); track $index) {

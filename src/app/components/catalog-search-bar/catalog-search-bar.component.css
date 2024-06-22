@@ -11,7 +11,7 @@
     display: flex;
     gap: 4px;
     align-items: center;
-    background: url("/assets/icons/input_search.svg") no-repeat;
+    background: url("../../../assets/icons/input_search.svg") no-repeat;
     background-position: 24px;
   }
 
@@ -20,7 +20,7 @@
   /* header__search-input header__search-input_tab */
 
   .header__search-input_tab, .header__search-input_mob{
-    background: url("/assets/icons/input_search_tab.svg") no-repeat;
+    background: url("../../../assets/icons/input_search_tab.svg") no-repeat;
     padding: 0;
     padding-left: 30px;
     height: fit-content;
