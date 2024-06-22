@@ -18,7 +18,6 @@ registerLocaleData(localeRu, 'ru-RU', localeRuExtra);
 })
 export class CatalogSearchBarComponent implements OnInit{
   @Input() public classModded: string;
-  // @Input() description: string;
 
   public baseUrl = 'http://localhost:1452/'
   public showList = false;
