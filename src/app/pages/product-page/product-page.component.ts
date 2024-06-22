@@ -9,6 +9,9 @@ import { DecimalPipe } from '@angular/common';
 import { DevTypeService } from '../../services/dev-type.service';
 import { FormsModule } from '@angular/forms';
 import { ProductLoggingService } from '../../services/product-logging.service';
+import { CartStorageService } from '../../services/cart-storage.service';
+import { DialogDispatcherService } from '../../services/dialog-dispatcher.service';
+import { ProductCardComponent } from '../../components/product-card/product-card.component';
 
 interface DeliveryItem {
   id: number;
@@ -38,6 +41,7 @@ interface priceItem {
     ProductReceivingComponent,
     ProductQuestionsComponent,
     ProductAdvantagesComponent,
+    ProductCardComponent,
     FormsModule
   ],
   templateUrl: './product-page.component.html',
@@ -45,6 +49,7 @@ interface priceItem {
 })
 export class ProductPageComponent implements OnInit {
   public product: Product;
+  public productForCart: Product;
   public productList: Product[] = [];
   public productMemoryArr: any[] = [];
   public productImagesArr: any[] = [];
@@ -54,18 +59,21 @@ export class ProductPageComponent implements OnInit {
   public selectedImage: any;
 
   public DevType = inject(DevTypeService);
+  public Cart = inject(CartStorageService);
+  public Dialog = inject(DialogDispatcherService);
+  public Logging = inject(ProductLoggingService);
 
   public deliveryArr: DeliveryItem[] = [
-    { id: 1, img: '/assets/images/product-page/delivery/1.svg', from: 'Доставим в Санкт-Петербурге', to: 'сегодня до 15:16' },
-    { id: 2, img: '/assets/images/product-page/delivery/2.svg', from: 'Самовывоз', to: 'Лиговский проспект 33/35' },
-    { id: 3, img: '/assets/images/product-page/delivery/3.svg', from: 'Доставим по России', to: 'до 22.12.2022' }
+    { id: 1, img: 'assets/images/product-page/delivery/1.svg', from: 'Доставим в Санкт-Петербурге', to: 'сегодня до 15:16' },
+    { id: 2, img: 'assets/images/product-page/delivery/2.svg', from: 'Самовывоз', to: 'Лиговский проспект 33/35' },
+    { id: 3, img: 'assets/images/product-page/delivery/3.svg', from: 'Доставим по России', to: 'до 22.12.2022' }
   ]
   public earDescrArr: EarItem[] = [
-    { id: 1, img: '/assets/images/product-page/buy/1.png', title: 'Текст про OS', descr: 'Design that goes beyond the surface. Dual-side Gorilla® Glass gives toughness. Advanced vibration motors make touch responses life-like. The symmetrical bezels and aluminium frame adds elegance, lightness and durability.' },
-    { id: 2, img: '/assets/images/product-page/buy/2.png', title: 'Текст про OS', descr: 'Design that goes beyond the surface. Dual-side Gorilla® Glass gives toughness. Advanced vibration motors make touch responses life-like. The symmetrical bezels and aluminium frame adds elegance, lightness and durability.' },
-    { id: 3, img: '/assets/images/product-page/buy/3.png', title: 'Текст про OS', descr: 'Design that goes beyond the surface. Dual-side Gorilla® Glass gives toughness. Advanced vibration motors make touch responses life-like. The symmetrical bezels and aluminium frame adds elegance, lightness and durability.' },
-    { id: 4, img: '/assets/images/product-page/buy/4.png', title: 'Текст про OS', descr: 'Design that goes beyond the surface. Dual-side Gorilla® Glass gives toughness. Advanced vibration motors make touch responses life-like. The symmetrical bezels and aluminium frame adds elegance, lightness and durability.' },
-    { id: 5, img: '/assets/images/product-page/buy/5.png', title: 'Текст про OS', descr: 'Design that goes beyond the surface. Dual-side Gorilla® Glass gives toughness. Advanced vibration motors make touch responses life-like. The symmetrical bezels and aluminium frame adds elegance, lightness and durability.' },
+    { id: 1, img: 'assets/images/product-page/buy/1.png', title: 'Текст про OS', descr: 'Design that goes beyond the surface. Dual-side Gorilla® Glass gives toughness. Advanced vibration motors make touch responses life-like. The symmetrical bezels and aluminium frame adds elegance, lightness and durability.' },
+    { id: 2, img: 'assets/images/product-page/buy/2.png', title: 'Текст про OS', descr: 'Design that goes beyond the surface. Dual-side Gorilla® Glass gives toughness. Advanced vibration motors make touch responses life-like. The symmetrical bezels and aluminium frame adds elegance, lightness and durability.' },
+    { id: 3, img: 'assets/images/product-page/buy/3.png', title: 'Текст про OS', descr: 'Design that goes beyond the surface. Dual-side Gorilla® Glass gives toughness. Advanced vibration motors make touch responses life-like. The symmetrical bezels and aluminium frame adds elegance, lightness and durability.' },
+    { id: 4, img: 'assets/images/product-page/buy/4.png', title: 'Текст про OS', descr: 'Design that goes beyond the surface. Dual-side Gorilla® Glass gives toughness. Advanced vibration motors make touch responses life-like. The symmetrical bezels and aluminium frame adds elegance, lightness and durability.' },
+    { id: 5, img: 'assets/images/product-page/buy/5.png', title: 'Текст про OS', descr: 'Design that goes beyond the surface. Dual-side Gorilla® Glass gives toughness. Advanced vibration motors make touch responses life-like. The symmetrical bezels and aluminium frame adds elegance, lightness and durability.' },
   ]
   
   public baseUrl = this.productService.getApiUrl();
@@ -82,10 +90,7 @@ export class ProductPageComponent implements OnInit {
     });
   
     this.productMemoryArr = [...uniqueMemories];
-    this.productMemoryArr.sort((a, b) => a - b);
-
-    // console.log(this.productMemoryArr);
-    
+    this.productMemoryArr.sort((a, b) => a - b);    
   }
   public onMemorySelect(memory: string): void {
     this.selectedMemory = memory;
@@ -106,7 +111,6 @@ export class ProductPageComponent implements OnInit {
         }
       });
     });
-    console.log(this.productImagesArr); 
   }
   public onImageClick(image: string) {
     this.selectedImage = image;
@@ -125,9 +129,17 @@ export class ProductPageComponent implements OnInit {
     if (selectedProduct) {
       this.productPrice = { price: selectedProduct.price, discount: selectedProduct.discount_price };
       this.isProductAvailable = selectedProduct.is_available;
+      this.productForCart = selectedProduct;
     } else {
       this.isProductAvailable = false;
     }
+  }
+  public handleAddToCart(): void {
+    this.Cart.saveToCart(this.productForCart.id, 1);
+  }
+  public handleOpenCredit(): void {
+    this.Dialog.setDialogCreditProductId(this.productForCart.id);
+    this.Dialog.openDialog('credit');
   }
  
 
@@ -148,11 +160,13 @@ export class ProductPageComponent implements OnInit {
 
       this.productService.getOneProduct(id).subscribe((product: Product) => {
         this.product = product;
+        this.productForCart = product;
         this.selectedImage = product.images[0];
         this.selectedMemory = this.product.characteristics.find((characteristic) => characteristic.characteristic === 'Объем встроенной памяти')?.value;
         this.productPrice = { price: product.price, discount: product.discount_price };
         this.isProductAvailable = product.is_available;
         this.productLoggingService.logViewedProduct(product);
+        
         this.getProductMemory();
         this.getProductImages();
       });
@@ -163,7 +177,6 @@ export class ProductPageComponent implements OnInit {
           window.scroll(0, 0);
         }
       });
-      
     })
   }
 }

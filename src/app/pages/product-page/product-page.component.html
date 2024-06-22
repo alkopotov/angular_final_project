@@ -1,5 +1,7 @@
+
+@if(product) {
 <section class="product">
-  @if (DevType.devType === 'tablet') {
+  @if (DevType.devType === 'tablet' || DevType.devType === 'mobile') {
     <h1 class="wrapper-descr__title">{{product.brand + ' ' + product.name + ' ' + (selectedMemory ? selectedMemory + 'GB' : '')}}</h1>
   }
   <div class="wrapper">
@@ -22,19 +24,21 @@
       }
       <div class="mini-wrap">
         <div>
-          @if (productMemoryArr.length !== 0) {
-            <h4 class="mini-wrap__title">Объем памяти</h4>
-            <div class="mini-wrap__memory">
-              @for(memory of productMemoryArr; track memory) {
-                <div
-                  class="mini-wrap__memory-item"
-                  (click)="onMemorySelect(memory)"
-                  [class.active]="memory === this.selectedMemory"
-                >
-                  {{ memory }}GB
-                </div>
-              }
-            </div>
+          @if(DevType.devType !== 'mobile') {
+            @if (productMemoryArr.length !== 0) {
+              <h4 class="mini-wrap__title">Объем памяти</h4>
+              <div class="mini-wrap__memory">
+                @for(memory of productMemoryArr; track memory) {
+                  <div
+                    class="mini-wrap__memory-item"
+                    (click)="onMemorySelect(memory)"
+                    [class.active]="memory === this.selectedMemory"
+                  >
+                    {{ memory }}GB
+                  </div>
+                }
+              </div>
+            }
           }
           <h4 class="mini-wrap__title">Характеристики</h4>
           <div class="mini-wrap__characteristics">
@@ -60,17 +64,20 @@
             }
           </div>
           @if (productPrice.discount !== null) {
-            <p class="buy-discount">{{productPrice.discount | number : '1.0-0' : 'ru-RU'}} ₽</p>
+            <p class="buy-discount">{{productPrice.price | number : '1.0-0' : 'ru-RU'}} ₽</p>
+            <p class="buy-price">{{productPrice.discount | number : '1.0-0' : 'ru-RU'}} ₽</p>
+          } @else {
+            <p class="buy-price">{{productPrice.price | number : '1.0-0' : 'ru-RU'}} ₽</p>
           }
-          <p class="buy-price">{{productPrice.price | number : '1.0-0' : 'ru-RU'}} ₽</p>
-          <button class="but-btn">Добавить в корзину</button>
+          
+          <button class="but-btn" (click)="handleAddToCart()">Добавить в корзину</button>
           <p class="buy-one-click">Купить в 1 клик</p>
           <form class="buy-form" method="post">
             <input
               class="buy-form__input-phone"
               type="tel"
               name="phone"
-              placeholder="Ваш номер телефона"
+              placeholder="+7 900 654 32 45"
             >
             <input
               class="buy-form__buy-btn"
@@ -78,8 +85,8 @@
               value="Купить"
             >
           </form>
-          <div class="buy-credit">
-            <img src="/assets/images/product-page/credit.svg" alt="Credit Image">
+          <div class="buy-credit" (click)="handleOpenCredit()">
+            <img src="assets/images/product-page/credit.svg" alt="Credit Image">
             <p class="buy-credit__descr">Купить в кредит</p>
           </div>
           <div class="buy-credit-wrap">
@@ -94,6 +101,24 @@
             }
           </div>
         </div>
+        @if(DevType.devType === 'mobile') {
+          @if (productMemoryArr.length !== 0) {
+            <div>
+              <h4 class="mini-wrap__title">Объем памяти</h4>
+              <div class="mini-wrap__memory">
+                @for(memory of productMemoryArr; track memory) {
+                  <div
+                    class="mini-wrap__memory-item"
+                    (click)="onMemorySelect(memory)"
+                    [class.active]="memory === this.selectedMemory"
+                  >
+                    {{ memory }}GB
+                  </div>
+                }
+              </div>
+            </div>
+          }
+        }
       </div>
     </div>
   </div>
@@ -105,8 +130,8 @@
 
 <section class="ear">
   <div class="ear-title">
-    <img src="/assets/images/product-page/buy/main.png">
-    <div>
+    <img src="assets/images/product-page/buy/main.png">
+    <div class="ear-wrapper">
       <h2 class="ear-title__title">
         Купить Nothing Ear(1)
       </h2>
@@ -132,11 +157,23 @@
   </div>
 </section>
 
-@if (DevType.devType === 'tablet') {
+@if (DevType.devType !== 'desktop') {
   <div class="your-product">
     <img class="your-product__img" [src]="baseUrl + '/' + product.images[0]" [alt]="product.name">
-    <h2 class="your-product__title">{{ product.name }}</h2>
+    <h2 class="your-product__title">{{ product.brand + ' ' + product.name }}</h2>
     <p class="your-product__descr">Уже почти ваш</p>
     <a class="your-product__link" routerLink="/" href="">Выбрать модель</a>
   </div>
+}
+
+@if (this.Logging.getViewedProducts().length !== 0) {
+  <section class="visited-products">
+    <h2 class="visited-products__title">Вы смотрели</h2>
+    <div class="visited-products-wrap">
+      @for(product of this.Logging.getViewedProducts().slice(this.Logging.getViewedProducts().length - 4, this.Logging.getViewedProducts().length).reverse(); track product.id) {
+        <app-product-card [product]="product"></app-product-card>
+      }
+    </div>
+  </section>
+}
 }

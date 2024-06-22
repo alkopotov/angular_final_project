@@ -1,0 +1,14 @@
+@if(productLoggingService.getViewedProducts().length === 0) {
+  <p>Список пуст</p>
+} @else {
+<section class="basket-viewed-products">
+  @for (product of productLoggingService.getViewedProducts(); track $index) {
+    <div class="basket-viewed-products__item" (click)="openViewedProduct(product.id)">
+      <img class="basket-viewed-products__item-image" [src]="productService.getApiUrl() +'/'+ product.images[0]" [alt]="product.name + ' фото'">
+      <h3 class="basket-viewed-products__item-name">{{product | productName}}</h3>
+    </div>
+  }
+
+</section>
+
+}

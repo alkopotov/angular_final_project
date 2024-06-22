@@ -9,6 +9,9 @@
     <p class="dialog-basket__empty-text">Но вы можете легко это исправить</p>
     <button class="dialog-basket__empty-button" (click)="handleStartShopping()">начать покупки</button>
     <h3>Кстати, вы это смотрели</h3>
+    <div class="dialog-basket__viewed">
+      <app-basket-viewed-products (handleViewedItemClick)="handleViewedItemClick($event)"></app-basket-viewed-products>
+    </div>
   </div>
   
   } @else {

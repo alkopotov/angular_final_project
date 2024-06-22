@@ -10,6 +10,7 @@ import { DecimalPipe, registerLocaleData } from '@angular/common';
 import {MatRadioModule} from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
 import { SocialMediaBlockComponent } from '../social-media-block/social-media-block.component';
+import { BasketViewedProductsComponent } from '../basket-viewed-products/basket-viewed-products.component';
 
 
 registerLocaleData(localeRu, 'ru-RU', localeRuExtra);
@@ -17,7 +18,7 @@ registerLocaleData(localeRu, 'ru-RU', localeRuExtra);
 @Component({
   selector: 'app-dialog-basket',
   standalone: true,
-  imports: [CloseIconComponent, BasketProductCardComponent, DecimalPipe, MatRadioModule, FormsModule, SocialMediaBlockComponent],
+  imports: [CloseIconComponent, BasketProductCardComponent, DecimalPipe, MatRadioModule, FormsModule, SocialMediaBlockComponent, BasketViewedProductsComponent],
   templateUrl: './dialog-basket.component.html',
   styleUrl: './dialog-basket.component.css'
 })
@@ -25,7 +26,7 @@ export class DialogBasketComponent {
 
   constructor(public dialogRef: DialogRef, public cartStorageService: CartStorageService, private router: Router) { }
   
-  public emptyImage: string = '/assets/images/dialog-basket/box.png';
+  public emptyImage: string = 'assets/images/dialog-basket/box.png';
 
   public currentDelivery: string = 'Доставка';
 
@@ -52,9 +53,13 @@ export class DialogBasketComponent {
     return this.deliveryOptions[this.currentDelivery] || 0;
   }
 
-  handleStartShopping(): void {
+  public handleStartShopping(): void {
     this.router.navigate(['/products/category/2']);
     this.dialogRef.close();
+  }
 
+  public handleViewedItemClick(id: number): void {
+    this.router.navigate(['/products', id]);
+    this.dialogRef.close();
   }
 }

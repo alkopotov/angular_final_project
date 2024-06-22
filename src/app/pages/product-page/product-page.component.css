@@ -10,7 +10,7 @@ p {
 
 .product {
   max-width: 1248px;
-  padding: 0 24px;
+  padding: 40px 24px 0 24px;
   margin: 0 auto;
 }
 
@@ -218,6 +218,16 @@ p {
   align-items: center;
   gap: 8px;
   margin-bottom: 20px;
+  cursor: pointer;
+
+  border: 3px solid transparent;
+  width: max-content;
+  padding: 3px;
+  border-radius: 8px;
+}
+
+.buy-credit:hover {
+  border-color: #1876f275;
 }
 
 .buy-credit__descr {
@@ -304,6 +314,24 @@ p {
   max-width: 420px;
 }
 
+.visited-products {
+  max-width: 1248px;
+  padding: 24px 0 24px 24px;
+  margin: 0 auto;
+}
+
+.visited-products__title {
+  font-size: 40px;
+  margin-bottom: 24px;
+}
+
+.visited-products-wrap {
+  height: 650px;
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+}
+
 @media screen and (max-width: 1280px) {
   .product {
     padding-top: 40px;
@@ -314,9 +342,17 @@ p {
     gap: 30px;
   }
 
+  .wrapper-imgs-block {
+    justify-content: center;
+  }
+
+  .wrapper-imgs-block__img {
+    width: 150px;
+  }
+
   .wrapper-imgs__main {
     display: block;
-    margin: 0 auto;
+    margin: 0 auto 30px;
   }
 
   .wrapper-descr__title {
@@ -386,6 +422,95 @@ p {
     width: 272px;
     text-align: center;
   }
+
+  .visited-products-wrap {
+    height: 400px;
+  }
 }
 
-@media screen and (max-width: 768px) {}
+@media screen and (max-width: 768px) {
+  .product {
+    padding: 24px 16px 0;
+  }
+
+  .wrapper-imgs__main {
+    width: 100%;
+  }
+
+  .wrapper-imgs-block__img {
+    width: calc(100% / 4);
+  }
+
+  .wrapper-descr__title {
+    font-size: 24px;
+    line-height: unset;
+  }
+
+  .mini-wrap {
+    display: flex;
+    grid-template-columns: unset;
+    flex-direction: column-reverse;
+    gap: 0;
+  }
+
+  .mini-wrap__characteristics {
+    gap: 12px;
+  }
+
+  .characteristic-line {
+    justify-content: unset;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .buy {
+    padding: 24px 16px;
+    margin-bottom: 67px;
+  }
+
+  .ear-title {
+    flex-direction: column-reverse;
+  }
+
+  .ear-title img {
+    margin: 0;
+    width: 50vw;
+  }
+
+  .ear-wrapper {
+    text-align: center;
+  }
+
+  .ear-title__title {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  .ear-title__descr {
+    margin-bottom: 16px;
+    font-size: 16px;
+  }
+
+  .ear-wrap-right-block__title {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .ear-wrap-right-block__descr {
+    font-size: 16px;
+  }
+
+  .your-product {
+    text-align: center;
+  }
+
+  .your-product__img {
+    width: 60vw;
+    margin-bottom: 32px;
+  }
+
+  .your-product__title {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+}
