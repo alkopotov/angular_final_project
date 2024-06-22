@@ -15,6 +15,7 @@
 }
 .header-logo {
   width: 36px;
+  
 }
 
 .header-phone__link{
@@ -84,7 +85,7 @@
 }
 
 .header__search-input_tab, .header__search-input_mob{
-  background: url("/assets/icons/input_search_tab.svg") no-repeat;
+  background: url("../../../assets/icons/input_search.svg") no-repeat;
   padding: 0;
   padding-left: 30px;
   height: fit-content;
