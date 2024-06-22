@@ -121,9 +121,8 @@
   }
   .test_list{
     position: fixed;
-    left: 0px;
-    top: 0px;
-
+    left: 10px;
+    top: 30px;
     width: 593px;
   }
 }
