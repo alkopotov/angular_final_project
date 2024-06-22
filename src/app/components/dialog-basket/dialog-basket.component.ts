@@ -26,7 +26,7 @@ export class DialogBasketComponent {
 
   constructor(public dialogRef: DialogRef, public cartStorageService: CartStorageService, private router: Router) { }
   
-  public emptyImage: string = '/assets/images/dialog-basket/box.png';
+  public emptyImage: string = 'assets/images/dialog-basket/box.png';
 
   public currentDelivery: string = 'Доставка';
 
