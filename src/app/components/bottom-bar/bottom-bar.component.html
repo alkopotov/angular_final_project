@@ -1,8 +1,5 @@
 <section class="bottom-bar">
-  <div class="bottom-bar__item bottom-bar__item_catalog">
-    <app-catalog-icon></app-catalog-icon>
-    <p class="bottom-bar__item-title">каталог</p>
-  </div>
+  <app-mobile-drop-catalog></app-mobile-drop-catalog>
   <div class="bottom-bar__item bottom-bar__item_cart" (click)="dialogService.openDialog('basket')">
     <app-cart-icon></app-cart-icon>
     <p class="bottom-bar__item-title">корзина</p>

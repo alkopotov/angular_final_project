@@ -6,11 +6,12 @@ import { CompareIconComponent } from '../svg_components/compare-icon/compare-ico
 import { DialogDispatcherService } from '../../services/dialog-dispatcher.service';
 import { FavoritesStorageService } from '../../services/favorites-storage.service';
 import { Router } from '@angular/router';
+import { MobileDropCatalogComponent } from '../mobile-drop-catalog/mobile-drop-catalog.component';
 
 @Component({
   selector: 'app-bottom-bar',
   standalone: true,
-  imports: [CatalogIconComponent, CartIconComponent, HeartIconComponent, CompareIconComponent],
+  imports: [CatalogIconComponent, CartIconComponent, HeartIconComponent, CompareIconComponent, MobileDropCatalogComponent],
   templateUrl: './bottom-bar.component.html',
   styleUrl: './bottom-bar.component.css'
 })

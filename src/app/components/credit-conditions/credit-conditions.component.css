@@ -214,7 +214,7 @@
     }
   }
 
-
+/* 
   @media (max-width: 1230px) {
     .credit_conditions {
       width: 900px;
@@ -280,12 +280,12 @@
     .smartphone_pic {
       position: absolute;
       bottom: 0px;
-      /* right: px; */
+
       width: 200px;
       height: 150px;
     }
   }
-  
+   */
   
   @media (max-width: 768px) {
       .credit_conditions {
