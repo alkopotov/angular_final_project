@@ -24,7 +24,7 @@
 }
 
 .not-found-page__image {
-  background-image: url('/assets/images/not-found-page/smartphone_404.png');
+  background-image: url('../../../assets/images/not-found-page/smartphone_404.png');
   width: 403px;
   height: 202px;
   background-position: 50%;
