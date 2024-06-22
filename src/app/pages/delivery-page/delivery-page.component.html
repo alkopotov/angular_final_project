@@ -15,7 +15,10 @@
             <div class="pickup-list__item pickup-item">
                 <p class="pickup-item__street">{{item.street}}</p>
                 <app-subway-point [from]="item.from_subway" [name]="item.name_subway"></app-subway-point>
-                <p class="pickup-item__work-time">{{item.work_time}}</p>
+                <p class="pickup-item__work-time">
+                    <img class="pickup-item__work-time_image" src="assets/images/delivery-page/time.svg" alt="time image">
+                    {{item.work_time}}
+                </p>
             </div>
             }
         </div>
@@ -60,5 +63,6 @@
     <div class="choose">
         <h2 class="choose__title">Выбирайте технику, а мы позаботимся о доставке</h2>
         <button routerLink="/catalog" class="choose__btn">пойти выбирать</button>
+        <img class="choose__img" src="assets/images/delivery-page/choose.png" alt="choose img">
     </div>
 </section>
