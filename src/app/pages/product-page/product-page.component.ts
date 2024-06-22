@@ -12,6 +12,7 @@ import { ProductLoggingService } from '../../services/product-logging.service';
 import { CartStorageService } from '../../services/cart-storage.service';
 import { DialogDispatcherService } from '../../services/dialog-dispatcher.service';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
+import { NotFoundPageComponent } from '../not-found-page/not-found-page.component';
 
 interface DeliveryItem {
   id: number;
@@ -42,6 +43,7 @@ interface priceItem {
     ProductQuestionsComponent,
     ProductAdvantagesComponent,
     ProductCardComponent,
+    NotFoundPageComponent,
     FormsModule
   ],
   templateUrl: './product-page.component.html',
@@ -55,7 +57,7 @@ export class ProductPageComponent implements OnInit {
   public productMemoryArr: any[] = [];
   public productImagesArr: any[] = [];
   public productPrice: priceItem = {price: 0, discount: 0};
-  public isProductAvailable: boolean;
+  public isProductAvailable: boolean = false;
   public selectedMemory: any;
   public selectedImage: any;
 
