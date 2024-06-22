@@ -82,8 +82,7 @@ export class ProductPageComponent implements OnInit {
   public baseUrl = this.productService.getApiUrl();
   public getProductMemory(): void {
     const uniqueMemories = new Set<string>();
-
-    const sameNamedProducts = this.productList.filter((p) => p.name === this.product.name);
+    const sameNamedProducts = this.productList;
 
     sameNamedProducts.forEach((p) => {
       const memoryCharacteristic = p.characteristics.find((characteristic) => characteristic.characteristic === 'Объем встроенной памяти')?.value;
@@ -101,7 +100,7 @@ export class ProductPageComponent implements OnInit {
   }
   public getProductImages(): void {
     const uniqueImages = new Set<string>();
-    const sameNamedProducts = this.productList.filter((p) => p.name === this.product.name);
+    const sameNamedProducts = this.productList;
   
     sameNamedProducts.forEach((p) => {
       p.images.forEach((image) => {
@@ -159,12 +158,11 @@ export class ProductPageComponent implements OnInit {
 
       this.DevType.getDevType();
 
-      this.productList = this.productService.products;
-
       this.productService.getOneProduct(id).subscribe((product: Product) => {
         this.viewedProducts = this.productLoggingService.getViewedProducts();
         this.product = product;
         this.productForCart = product;
+        this.productList = this.productService.products.filter((p) => p.name === this.product.name);
         this.selectedImage = product.images[0];
         this.selectedMemory = this.product.characteristics.find((characteristic) => characteristic.characteristic === 'Объем встроенной памяти')?.value;
         this.productPrice = { price: product.price, discount: product.discount_price };
