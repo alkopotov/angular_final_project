@@ -50,6 +50,7 @@ interface priceItem {
 export class ProductPageComponent implements OnInit {
   public product: Product;
   public productForCart: Product;
+  public viewedProducts: Product[] = [];
   public productList: Product[] = [];
   public productMemoryArr: any[] = [];
   public productImagesArr: any[] = [];
@@ -159,6 +160,7 @@ export class ProductPageComponent implements OnInit {
       this.productList = this.productService.products;
 
       this.productService.getOneProduct(id).subscribe((product: Product) => {
+        this.viewedProducts = this.productLoggingService.getViewedProducts();
         this.product = product;
         this.productForCart = product;
         this.selectedImage = product.images[0];
