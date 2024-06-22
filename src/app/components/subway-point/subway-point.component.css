@@ -4,35 +4,21 @@
   align-items: center;
   gap: 4px;
   border-radius: 16px;
-  padding-left: 8px;
-  margin-right: 32px;
+  padding: 2px 16px;
   width: max-content;
 }
 
 .pickup-item__subway.from {
-  background: no-repeat url('/assets/images/delivery-page/man.svg') left center;
-  padding: 4px 0px 4px 14px;
-  font-size: 14px;
   color: var(--09-color-black);
-  margin-right: 0;
+  padding: 0;
 }
 
 .pickup-item__subway.name {
-  background: no-repeat url('/assets/images/delivery-page/subway.png') left center;
-  padding: 4px 16px 4px 20px;
   color: var(--07-color-gray);
-  margin-right: 0;
+  padding: 0;
 }
 
-@media screen and (max-width: 1280px) {
-  .pickup-item__subway.from {
-    margin-right: 3px;
-  }
-
-  .pickup-item__subway {
-    display: inline-block;
-  }
-}
+@media screen and (max-width: 1280px) {}
 
 @media screen and (max-width: 768px) {
   .pickup-item__subway {

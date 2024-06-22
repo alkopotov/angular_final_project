@@ -38,10 +38,6 @@ export class MobileDropCatalogComponent {
     this.detectScreenSize();
   }
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
-
   detectScreenSize(): void {
     const screenWidth = window.innerWidth;
     if (screenWidth < 320) {

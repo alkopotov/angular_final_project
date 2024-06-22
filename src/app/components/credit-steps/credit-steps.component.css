@@ -297,16 +297,17 @@
 @media (max-width: 320px) {
   .steps_container {
     width: 288px;
-    margin: 30px auto;
+    margin: 0px auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
   }
 
   .steps_header {
     color: #0071e4;
-    size: 32px;
+    font-size: 20px;
     font-weight: 700;
+    text-align: left;
   }
 
   .steps_blocks {
@@ -315,48 +316,51 @@
     align-items: center;
     justify-content: center;
     justify-items: center;
-    grid-template-columns: repeat(2, 1fr);
+    /* grid-template-columns: repeat(2, 1fr); */
+    gap: 16px;
     width: 288px;
-    margin: 30px auto;
-    padding: 20px 0;
+    margin: 16px auto 30px;
+    padding: 0px 0px;
   }
 
   .steps_block {
     width: 288px;
-    height: 174px;
+    height: 34px;
     color: black;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     font-size: 16px;
     font-weight: 500;
     border-radius: 8px;
+    gap: 8px;
   }
 
   .steps_block-step_number {
-    width: 64px;
-    height: 64px;
+    width: 32px;
+    height: 32px;
     background-color: #f3f8ff;
-    border-radius: 16px;
+    border-radius: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 40px;
+    font-size: 20px;
     color: #0071e4;
     font-weight: 700;
   }
   .steps_block-step_text {
-    text-align: center;
+    text-align:left;
     margin-top: 0px;
-    font-size: 20px;
+    font-size: 14px;
     margin: 0px;
     font-weight: 500;
+    width: 227px;
   }
 
   .steps_block:nth-child(2) > .steps_block-step_text {
     margin: 0px;
-    width: 288px;
+    width: 227px;
     /* margin-top: 10px */
   }
 

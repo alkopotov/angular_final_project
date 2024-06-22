@@ -368,7 +368,7 @@
           width: 280px;
           flex-direction: column;
           align-items: center;
-          gap: 93px;
+          gap: 26px;
         }
       
         .credit__conditions-list {
@@ -378,18 +378,23 @@
         .credit__conditions-list-header {
           color: rgba(0, 113, 228, 1);
           font-weight: 700;
-          font-size: 32px;
+          font-size: 20px;
           margin-bottom: 12px;
         }
       
         .credit__conditions-list-text {
           display: flex;
           font-weight: 400;
-          font-size: 20px;
+          font-size: 16px;
           gap: 6px;
           align-items: center;
         }
       
+        .credit__conditions-list-text > img{
+          width: 24px;
+          height: 24px;
+        }
+
         .credit__conditions-suggestion {
           display: flex;
           flex-direction: column;

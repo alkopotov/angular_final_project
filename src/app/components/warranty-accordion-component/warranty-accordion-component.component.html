@@ -11,7 +11,7 @@
         [attr.aria-expanded]="accordionItem.expanded"
         [attr.aria-controls]="'accordion-body-' + index">
         <div class="accordion-item-header" (click)="accordionItem.toggle()">
-          {{ item }}
+          {{ item.title }}
           <span class="accordion-item-description">
             >
           </span>
@@ -22,7 +22,7 @@
           [style.display]="accordionItem.expanded ? '' : 'none'"
           [attr.id]="'accordion-body-' + index"
           [attr.aria-labelledby]="'accordion-header-' + index">
-          {{ text }}
+          {{ item.text }}
         </div>
       </cdk-accordion-item>
     }

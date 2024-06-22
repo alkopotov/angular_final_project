@@ -12,6 +12,7 @@ import { ProductLoggingService } from '../../services/product-logging.service';
 import { CartStorageService } from '../../services/cart-storage.service';
 import { DialogDispatcherService } from '../../services/dialog-dispatcher.service';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
+import { NotFoundPageComponent } from '../not-found-page/not-found-page.component';
 
 interface DeliveryItem {
   id: number;
@@ -42,6 +43,7 @@ interface priceItem {
     ProductQuestionsComponent,
     ProductAdvantagesComponent,
     ProductCardComponent,
+    NotFoundPageComponent,
     FormsModule
   ],
   templateUrl: './product-page.component.html',
@@ -50,11 +52,12 @@ interface priceItem {
 export class ProductPageComponent implements OnInit {
   public product: Product;
   public productForCart: Product;
+  public viewedProducts: Product[] = [];
   public productList: Product[] = [];
   public productMemoryArr: any[] = [];
   public productImagesArr: any[] = [];
   public productPrice: priceItem = {price: 0, discount: 0};
-  public isProductAvailable: boolean;
+  public isProductAvailable: boolean = false;
   public selectedMemory: any;
   public selectedImage: any;
 
@@ -159,6 +162,7 @@ export class ProductPageComponent implements OnInit {
       this.productList = this.productService.products;
 
       this.productService.getOneProduct(id).subscribe((product: Product) => {
+        this.viewedProducts = this.productLoggingService.getViewedProducts();
         this.product = product;
         this.productForCart = product;
         this.selectedImage = product.images[0];

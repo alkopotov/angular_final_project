@@ -14,7 +14,11 @@
     background: url("/assets/icons/input_search.svg") no-repeat;
     background-position: 24px;
   }
+
   
+
+  /* header__search-input header__search-input_tab */
+
   .header__search-input_tab, .header__search-input_mob{
     background: url("/assets/icons/input_search_tab.svg") no-repeat;
     padding: 0;
@@ -109,3 +113,11 @@
     font-weight: 400;
     color: rgba(0, 113, 228, 1);
 }
+
+
+
+@media (max-width: 768px) {
+    .header__search-input::placeholder {
+      font-size: 0;
+    }
+  }
