@@ -115,9 +115,25 @@
 }
 
 
-
 @media (max-width: 768px) {
-    .header__search-input::placeholder {
-      font-size: 0;
-    }
+  .header__search-input::placeholder {
+    font-size: 0;
   }
+  .test_list{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+
+    width: 593px;
+  }
+}
+
+
+@media (max-width: 380px) {
+  .test_list{
+    position: fixed;
+    right: 0px;
+    top: 30px;
+    width: 320px;
+  }
+}  

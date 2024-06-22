@@ -100,9 +100,9 @@
 }
 
 
-@media (max-width: 320px) {
+@media (max-width: 380px) {
     .banner_credit-block{
-        margin: 0 auto 24px;
+        margin: 0 auto px;
         width: 288px;
         height: 240px;
     }

@@ -363,7 +363,7 @@
 
 
 
-    @media (max-width: 320px) {
+    @media (max-width: 380px) {
         .credit_conditions {
           width: 280px;
           flex-direction: column;
@@ -391,10 +391,9 @@
         }
       
         .credit__conditions-list-text > img{
-          width: 24px;
-          height: 24px;
-        }
 
+        }
+        
         .credit__conditions-suggestion {
           display: flex;
           flex-direction: column;
