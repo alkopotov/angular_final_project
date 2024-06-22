@@ -41,6 +41,16 @@
   
 }
 
+
+@media (max-width: 320px) {
+  .closebutton{
+    right: 15px;
+    bottom: 405px;
+  }
+  
+}
+
+
 .line{
     width: 100px;
     height: 4px;
@@ -177,5 +187,4 @@
   color: #0071E4;
 
 }
-
 
