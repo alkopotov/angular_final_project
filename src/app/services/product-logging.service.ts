@@ -15,7 +15,7 @@ export class ProductLoggingService {
     if (!viewedProducts.find(p => p.id === product.id)) {
       viewedProducts.push(product);
       if(isPlatformBrowser(this.platformId)){
-        localStorage.setItem(this.viewedProductsKey, JSON.stringify(viewedProducts));
+        sessionStorage.setItem(this.viewedProductsKey, JSON.stringify(viewedProducts));
       }
       
     }
@@ -23,7 +23,7 @@ export class ProductLoggingService {
 
   getViewedProducts(): Product[] {
     if(isPlatformBrowser(this.platformId)){
-      const viewedProductsJson = localStorage.getItem(this.viewedProductsKey);
+      const viewedProductsJson = sessionStorage.getItem(this.viewedProductsKey);
       return viewedProductsJson ? JSON.parse(viewedProductsJson) : [];
     }
     return []
