@@ -10,7 +10,7 @@ import { DevTypeService } from '../../services/dev-type.service';
 import { FormsModule } from '@angular/forms';
 import { ProductLoggingService } from '../../services/product-logging.service';
 import { CartStorageService } from '../../services/cart-storage.service';
-import { DialogDispatcherService } from '../../services/dialog-dispatcher.service';
+import { DialogDispatcherService, DialogWindowType } from '../../services/dialog-dispatcher.service';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
 import { NotFoundPageComponent } from '../not-found-page/not-found-page.component';
 
@@ -139,9 +139,12 @@ export class ProductPageComponent implements OnInit {
   public handleAddToCart(): void {
     this.Cart.saveToCart(this.productForCart.id, 1);
   }
-  public handleOpenCredit(): void {
+  public handleOpenDialog(type: DialogWindowType): void {
     this.Dialog.setDialogCreditProductId(this.productForCart.id);
-    this.Dialog.openDialog('credit');
+    this.Dialog.openDialog(type);
+  }
+  public goBack(): void {
+    window.history.back();
   }
  
 

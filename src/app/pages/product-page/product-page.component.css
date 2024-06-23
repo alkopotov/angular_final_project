@@ -10,8 +10,16 @@ p {
 
 .product {
   max-width: 1248px;
-  padding: 40px 24px 0 24px;
+  padding: 8px 24px 0 24px;
   margin: 0 auto;
+}
+
+.product-go-back {
+  font-size: 20px;
+  color: var(--prime-color-blue);
+  display: inline-block;
+  cursor: pointer;
+  margin-bottom: 20px;
 }
 
 .wrapper {
@@ -152,6 +160,21 @@ p {
   margin-bottom: 8px;
 }
 
+.buy-isnt-available {
+  color: var(--prime-color-blue);
+  margin-bottom: 12px;
+  text-align: center;
+  font-size: 18px;
+  cursor: pointer;
+  border: 3px solid transparent;
+  border-radius: 12px;
+  padding: 6px 0;
+}
+
+.buy-isnt-available:hover {
+  border-color: var(--prime-color-blue);
+}
+
 .buy-isAvailable {
   position: absolute;
   right: 24px;
@@ -172,7 +195,7 @@ p {
 }
 
 .buy-isAvailable__indicator.not-available {
-  background-color: red;
+  background-color: var(--prime-color-blue);
 }
 
 .buy-form {
@@ -211,6 +234,11 @@ p {
 
   font-weight: 500;
   font-size: 16px;
+}
+
+.buy-form__buy-btn.notAvailable {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .buy-credit {
@@ -431,6 +459,14 @@ p {
 @media screen and (max-width: 768px) {
   .product {
     padding: 24px 16px 0;
+  }
+
+  .product-go-back {
+    font-size: 16px;
+  }
+
+  .wrapper-descr__title {
+    margin-bottom: 20px;
   }
 
   .wrapper-imgs__main {

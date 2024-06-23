@@ -1,7 +1,11 @@
 @if(product.name) {
   <section class="product">
-    @if (DevType.devType === 'tablet' || DevType.devType === 'mobile') {
+    @if (DevType.devType !== 'desktop') {
+      <a class="product-go-back" (click)="goBack()">Назад</a>
       <h1 class="wrapper-descr__title">{{product.brand + ' ' + product.name + ' ' + (selectedMemory ? selectedMemory + 'GB' : '')}}</h1>
+    }
+    @if (DevType.devType === 'desktop') {
+      <a class="product-go-back" (click)="goBack()">Назад</a>
     }
     <div class="wrapper">
       <div class="wrapper-imgs">
@@ -57,9 +61,9 @@
                 [class.not-available]="!isProductAvailable"
               ></div>
               @if (isProductAvailable) {
-                <p>в наличии</p>
+                <p>В наличии</p>
               } @else {
-                <p>нет в наличии</p>
+                <p>Не в наличии</p>
               }
             </div>
             @if (productPrice.discount !== null) {
@@ -69,7 +73,11 @@
               <p class="buy-price">{{productPrice.price | number : '1.0-0' : 'ru-RU'}} ₽</p>
             }
             
-            <button class="but-btn" (click)="handleAddToCart()">Добавить в корзину</button>
+            @if (isProductAvailable) {
+              <button class="but-btn" (click)="handleAddToCart()">Добавить в корзину</button>
+            } @else {
+              <p class="buy-isnt-available" (click)="handleOpenDialog('informAvailable')">Сообщить о поступлении</p>
+            }
             <p class="buy-one-click">Купить в 1 клик</p>
             <form class="buy-form" method="post">
               <input
@@ -80,14 +88,18 @@
               >
               <input
                 class="buy-form__buy-btn"
+                [class.notAvailable]="!isProductAvailable"
                 type="submit"
                 value="Купить"
+                [disabled]="!isProductAvailable"
               >
             </form>
-            <div class="buy-credit" (click)="handleOpenCredit()">
-              <img src="assets/images/product-page/credit.svg" alt="Credit Image">
-              <p class="buy-credit__descr">Купить в кредит</p>
-            </div>
+            @if (isProductAvailable) {
+              <div class="buy-credit" (click)="handleOpenDialog('credit')">
+                <img src="assets/images/product-page/credit.svg" alt="Credit Image">
+                <p class="buy-credit__descr">Купить в кредит</p>
+              </div>
+            }
             <div class="buy-credit-wrap">
               @for (item of deliveryArr; track item.id) {
                 <div class="buy-credit-wrap__item">
