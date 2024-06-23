@@ -22,8 +22,6 @@ export class BottomBarComponent {
   public favoritesStorage = inject(FavoritesStorageService);
 
   public handleOpenFavorites(): void {
-    if (this.favoritesStorage.productsInFavorites.length > 0) {
-      this._router.navigate(['/products/category/8']);
-    }
+      this._router.navigate(['/favorites']);
   }
 }
