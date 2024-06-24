@@ -46,27 +46,27 @@ export class FooterElemComponent {
 
   public categoriesLinks: any[] = [
     {
-      link: '/categories/iphone',
+      link: '/products/category/2',
       title: 'iPhone'
     },
     {
-      link: '/categories/ipad',
+      link: '/products/category/4',
       title: 'iPad'
     },
     {
-      link: '/categories/macbook',
+      link: '/products/category/3',
       title: 'Macbook и iMac'
     },
     {
-      link: '/categories/watch',
+      link: '/products/category/5',
       title: 'Watch'
     },
     {
-      link: '/categories/acessories',
+      link: '/products/category/1',
       title: 'Аксессуары'
     },
     {
-      link: '/sales',
+      link: '/products/category/7',
       title: 'Акции'
     }
   ];
