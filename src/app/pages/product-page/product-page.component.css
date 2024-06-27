@@ -360,6 +360,13 @@ p {
   overflow-x: auto;
 }
 
+.spinner-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
 @media screen and (max-width: 1280px) {
   .product {
     padding-top: 40px;

@@ -13,6 +13,8 @@ import { CartStorageService } from '../../services/cart-storage.service';
 import { DialogDispatcherService, DialogWindowType } from '../../services/dialog-dispatcher.service';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
 import { NotFoundPageComponent } from '../not-found-page/not-found-page.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 interface DeliveryItem {
   id: number;
@@ -44,7 +46,8 @@ interface priceItem {
     ProductAdvantagesComponent,
     ProductCardComponent,
     NotFoundPageComponent,
-    FormsModule
+    FormsModule,
+    MatProgressSpinnerModule,
   ],
   templateUrl: './product-page.component.html',
   styleUrl: './product-page.component.css'
@@ -162,7 +165,11 @@ export class ProductPageComponent implements OnInit {
       this.DevType.getDevType();
 
       this.productService.getOneProduct(id).subscribe((product: Product) => {
-        this.viewedProducts = this.productLoggingService.getViewedProducts();
+        this.viewedProducts = this.productLoggingService.getViewedProducts();  
+        if (!product.id) {
+          this.router.navigate(['/404']);
+          return;
+        }
         this.product = product;
         this.productForCart = product;
         this.productList = this.productService.products.filter((p) => p.name === this.product.name);
