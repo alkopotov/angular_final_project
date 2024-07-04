@@ -1,5 +1,5 @@
 
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderElemComponent } from './components/header-elem/header-elem.component';
 import { FooterElemComponent } from './components/footer-elem/footer-elem.component';
@@ -8,6 +8,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { CartStorageService } from './services/cart-storage.service';
 
 import { ProductsWorkerService } from './services/products-worker.service';
+import { isPlatformBrowser } from '@angular/common';
 
 
 @Component({
@@ -25,7 +26,16 @@ export class AppComponent implements OnInit {
   title = 'apple_store';
 
 
-  constructor(public productService: ProductsWorkerService){}
+  constructor(
+    public productService: ProductsWorkerService,
+    @Inject(PLATFORM_ID) private _platformId: Object,
+  ) {}
+
+  public onActivate(event: any): void {
+    if(isPlatformBrowser(this._platformId)) {
+    window.scroll(0, 0);
+    }
+  }
 
   ngOnInit(): void {
     this.productService.getProducts()

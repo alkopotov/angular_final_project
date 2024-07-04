@@ -23,7 +23,6 @@ export class CartStorageService {
   // При значении счетчика после обновления меньше 1 удаляет продукт из корзины
   public saveToCart(id: number, number: number): void {
     if (isPlatformBrowser(this.platformId)) {
-      let products = JSON.parse(localStorage.getItem('cart') as string) || {};
       if (this.hasProductWithId(id)) {
         if (this.productsInCart[`${id}`] + number <= 0) {
           delete this.productsInCart[`${id}`];
@@ -58,20 +57,12 @@ export class CartStorageService {
 
   // Возвращает количество товарных позиции в корзине
   public get productsCount(): number {
-    if (isPlatformBrowser(this.platformId)) {
-      // let products = JSON.parse(localStorage.getItem('cart') as string) || {};
       return Object.keys(this.productsInCart).length;
-    }
-    return 0;
   }
 
  // Возвращает количество единиц товаров в корзине по заданному id
   public get itemsCount(): number {
-    if (isPlatformBrowser(this.platformId)) {
-      // let products = JSON.parse(localStorage.getItem('cart') as string) || {};
       return Object.keys(this.productsInCart).reduce((acc, id) => acc + this.productsInCart[`${id}`], 0);
-    }
-    return 0;
   }
 
 // Возвращает список товаров в корзине с ценой и количеством
@@ -92,6 +83,7 @@ public get orderTotalSum(): number {
 }
 
   // Считывает из localStorage в productsInCart информацию о продуктах в корзине
+  // Вызывать при инициализации app.component
   public getProductsInCartStorage(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.productsInCart = JSON.parse(localStorage.getItem('cart') as string) || {};
